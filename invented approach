@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>invented approach — Your Complete Partner in Kigali</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --primary: #F5B041;
+      --primary-dark: #D48C2B;
+      --primary-light: #FDEBD0;
+      --secondary: #1A2A4A;
+      --secondary-light: #2C3E6B;
+      --gold: #F1C40F;
+      --bg-light: #F8F9FA;
+      --bg-white: #FFFFFF;
+      --text-dark: #1A2A4A;
+      --text-muted: #4A5A7A;
+      --shadow: 0 8px 30px rgba(0,0,0,0.08);
+      --radius: 16px;
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      background: var(--bg-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section-padding { padding: 80px 0; }
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: var(--text-dark);
+    }
+    .section-title span { color: var(--primary); }
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin-bottom: 40px;
+    }
+    .text-center { text-align: center; }
+    .text-center .section-subtitle { margin-left: auto; margin-right: auto; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(245,176,65,0.3);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(245,176,65,0.4);
+    }
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--primary);
+      font-weight: 600;
+      padding: 12px 32px;
+      border-radius: 50px;
+      font-size: 1rem;
+      border: 2px solid var(--primary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-outline:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    /* ─── HEADER ─── */
+    header {
+      background: var(--bg-white);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 14px 0;
+      transition: var(--transition);
+    }
+    header.scrolled { padding: 10px 0; box-shadow: 0 4px 30px rgba(0,0,0,0.1); }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-dark);
+      flex-shrink: 0;
+    }
+    .logo img { height: 150px; width: auto; border-radius: 8px; }
+    .logo span { color: var(--primary); }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .lang-toggle {
+      display: flex;
+      gap: 4px;
+      background: var(--bg-light);
+      padding: 4px;
+      border-radius: 50px;
+      border: 1px solid #e9ecef;
+      flex-shrink: 0;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: 'Inter', sans-serif;
+    }
+    .lang-btn.active {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(245,176,65,0.25);
+    }
+    .lang-btn:hover:not(.active) { background: #e9ecef; }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      transition: var(--transition);
+      position: relative;
+      white-space: nowrap;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
+    .nav-links a:hover { color: var(--primary); }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: var(--text-dark);
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(3px,4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(3px,-4px); }
+
+    /* ─── HERO ─── */
+    .hero {
+      margin-top: 82px;
+      position: relative;
+      height: 96vh;
+      min-height: 540px;
+      max-height: 900px;
+      overflow: hidden;
+      border-radius: 0 0 50px 50px;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 2.0s ease-in-out;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26,42,74,0.65) 0%, rgba(26,42,74,0.30) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      padding: 0 24px;
+      animation: fadeUp 1s ease-out;
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(30px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+    .hero-content h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.2);
+    }
+    .hero-content p {
+      font-size: 1.25rem;
+      opacity: 0.92;
+      max-width: 560px;
+      margin: 0 auto 32px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.15);
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(8px);
+      padding: 6px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .hero-indicators {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      display: flex;
+      gap: 12px;
+    }
+    .hero-indicators button {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.6);
+      background: transparent;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 0;
+    }
+    .hero-indicators button.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      transform: scale(1.2);
+    }
+    .hero-indicators button:hover { transform: scale(1.15); }
+
+    /* ─── ABOUT ─── */
+    .about-grid { display: block; text-align: center; }
+    .about-text { max-width: 800px; margin: 0 auto; }
+    .about-text .section-subtitle { margin-left: auto; margin-right: auto; }
+    .about-sub {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    .about-sub-card {
+      background: var(--bg-white);
+      padding: 32px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--primary);
+    }
+    .about-sub-card h4 { font-size:1.2rem; font-weight:700; margin-bottom:8px; }
+    .about-sub-card p { color: var(--text-muted); font-size:0.95rem; }
+
+    /* ─── SERVICES ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .service-card {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    .service-card .icon { font-size: 2.6rem; color: var(--primary); margin-bottom: 16px; }
+    .service-card h3 { font-size:1.3rem; font-weight:700; margin-bottom:8px; }
+    .service-card p { color: var(--text-muted); font-size:0.95rem; }
+    .service-card ul {
+      list-style: none;
+      margin-top: 14px;
+    }
+    .service-card ul li {
+      padding: 4px 0;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .service-card ul li i { color: var(--primary); font-size:0.8rem; }
+
+    /* ─── WHY CHOOSE US ─── */
+    .why-section {
+      background: var(--secondary);
+      color: #fff;
+      border-radius: 40px;
+      margin: 0 24px;
+      padding: 70px 50px;
+    }
+    .why-section .section-title { color: #fff; }
+    .why-section .section-title span { color: var(--primary); }
+    .why-section .section-subtitle { color: rgba(255,255,255,0.7); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 30px;
+      margin-top: 10px;
+    }
+    .why-card {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(4px);
+      padding: 32px 24px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: var(--transition);
+      text-align: center;
+    }
+    .why-card:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-4px);
+    }
+    .why-card i { font-size: 2.4rem; color: var(--primary); margin-bottom: 14px; }
+    .why-card h4 { font-size:1.1rem; font-weight:700; margin-bottom:6px; }
+    .why-card p { font-size:0.9rem; opacity:0.75; }
+
+    /* ─── REVIEWS ─── */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 30px;
+    }
+    .review-card {
+      background: var(--bg-white);
+      padding: 32px 28px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.07);
+    }
+    .review-stars { color: var(--gold); font-size:1.1rem; margin-bottom:12px; letter-spacing:2px; }
+    .review-card blockquote {
+      font-size:0.98rem;
+      color: var(--text-dark);
+      line-height:1.7;
+      margin-bottom:16px;
+      font-style:italic;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .review-author .avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #fff;
+      font-size:1.1rem;
+    }
+    .review-author .name { font-weight:700; font-size:0.95rem; }
+    .review-author .role { font-size:0.8rem; color:var(--text-muted); }
+    .review-form-section {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      margin-top: 40px;
+    }
+    .review-form-section h3 { font-size:1.6rem; font-weight:700; margin-bottom:8px; }
+    .star-rating {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      gap: 8px;
+      margin: 16px 0 20px;
+    }
+    .star-rating input { display: none; }
+    .star-rating label {
+      font-size: 2.2rem;
+      color: #ddd;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .star-rating label:hover,
+    .star-rating label:hover ~ label,
+    .star-rating input:checked ~ label { color: var(--gold); }
+    .review-form input, .review-form textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      margin-bottom: 16px;
+      transition: border 0.2s;
+    }
+    .review-form input:focus, .review-form textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .review-form textarea { min-height:100px; resize:vertical; }
+
+    /* ─── CONTACT ─── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+    .contact-info p { color: var(--text-muted); margin-bottom:24px; }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom:14px;
+    }
+    .contact-detail i {
+      width: 44px; height:44px;
+      background: var(--bg-white);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--primary);
+      font-size:1.1rem;
+      box-shadow: var(--shadow);
+      flex-shrink:0;
+    }
+    .contact-detail span { font-weight:500; word-break:break-word; }
+
+    /* ─── WHATSAPP FLOAT ─── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      background: #25D366;
+      color: #fff;
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      box-shadow: 0 6px 30px rgba(37,211,102,0.35);
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 40px rgba(37,211,102,0.45);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--secondary);
+      color: rgba(255,255,255,0.7);
+      padding: 60px 0 30px;
+      margin-top: 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand .logo { color:#fff; font-size:1.6rem; }
+    .footer-brand .logo span { color: var(--primary); }
+    .footer-brand p { margin-top:12px; max-width:300px; font-size:0.92rem; }
+    .footer-col h5 {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom:10px; }
+    .footer-col ul a {
+      transition: var(--transition);
+      font-size:0.92rem;
+    }
+    .footer-col ul a:hover { color: var(--primary); }
+    .footer-bottom {
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size:0.85rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-social a {
+      width: 38px; height:38px;
+      border-radius:50%;
+      background: rgba(255,255,255,0.06);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition: var(--transition);
+      color: rgba(255,255,255,0.6);
+    }
+    .footer-social a:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* ─── EXPLORE SECTION ─── */
+    .explore-section {
+      display: none;
+      margin-top: 40px;
+      padding: 40px 0;
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .explore-section.visible { display: block; }
+
+    .explore-category {
+      margin-bottom: 40px;
+    }
+    .explore-category:last-child { margin-bottom: 0; }
+
+    .explore-category-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--primary);
+      display: inline-block;
+    }
+
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .explore-item {
+      background: var(--bg-light);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .explore-item:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+
+    .explore-item .explore-image {
+      width: 90%;
+      height: 220px;
+      object-fit: cover;
+      background: #e9ecef;
+    }
+
+    .explore-item .explore-text {
+      padding: 20px 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .explore-item .explore-text h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text-dark);
+    }
+    .explore-item .explore-text p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .explore-item .explore-text .address {
+      font-size: 0.85rem;
+      color: var(--primary);
+      font-weight: 500;
+      margin-top: auto;
+    }
+
+    .explore-close {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 24px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .explore-close:hover {
+      background: var(--primary-dark);
+    }
+    .explore-toggle-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-weight: 600;
+      color: var(--primary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .explore-toggle-link:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    .explore-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+    .explore-header h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .why-grid { grid-template-columns: repeat(2,1fr); }
+      .reviews-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns:1fr; }
+      .contact-grid { grid-template-columns:1fr; }
+      .footer-grid { grid-template-columns:1fr 1fr; }
+      .hero-content h1 { font-size:2.6rem; }
+      .section-title { font-size:2rem; }
+      .why-section { padding:50px 30px; margin:0 16px; }
+      .about-sub { grid-template-columns:1fr; }
+    }
+    @media (max-width: 768px) {
+      .header-inner { flex-wrap: nowrap; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: var(--bg-white);
+        position: absolute;
+        top: 100%; left:0; right:0;
+        padding: 24px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        gap: 16px;
+        border-radius: 0 0 20px 20px;
+        width: 100%;
+        z-index: 999;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { white-space: normal; }
+      .hamburger { display: flex; }
+      .hero { height:70vh; min-height:420px; }
+      .hero-content h1 { font-size:2rem; }
+      .hero-content p { font-size:1rem; }
+      .reviews-grid { grid-template-columns:1fr; }
+      .why-grid { grid-template-columns:1fr 1fr; gap:16px; }
+      .footer-grid { grid-template-columns:1fr; gap:30px; }
+      .footer-bottom { flex-direction:column; text-align:center; }
+      .lang-toggle .lang-btn { padding:4px 10px; font-size:0.7rem; }
+      .whatsapp-float { width:56px; height:56px; font-size:2rem; bottom:20px; right:20px; }
+      .review-form-section { padding:24px; }
+      .logo img { height:48px; }
+      .logo { font-size:1.2rem; }
+      .header-right { gap:10px; }
+      .explore-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .why-grid { grid-template-columns:1fr 1fr; gap:12px; }
+      .why-card { padding:20px 14px; }
+      .why-card i { font-size:1.8rem; }
+      .why-card h4 { font-size:0.95rem; }
+      .why-section { padding:30px 16px; border-radius:24px; margin:0 8px; }
+      .explore-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width: 480px) {
+      .hero-content h1 { font-size:1.6rem; }
+      .section-title { font-size:1.6rem; }
+      .service-card { padding:24px 20px; }
+      .review-card { padding:24px 18px; }
+      .contact-detail { font-size:0.9rem; }
+      .hero { border-radius:0 0 24px 24px; }
+      .why-grid { grid-template-columns:1fr 1fr; gap:10px; }
+      .why-card { padding:16px 10px; }
+    }
+    @media (max-width: 400px) {
+      .why-grid { grid-template-columns:1fr; }
+      .logo { font-size:1rem; }
+      .logo img { height:40px; }
+      .lang-btn { padding:4px 8px; font-size:0.65rem; }
+      .header-right { gap:6px; }
+      .container { padding:0 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <img src="images/logo.jpg" alt="invented approach logo" />
+      </a>
+      <div class="header-right">
+        <nav>
+          <ul class="nav-links" id="navLinks">
+             <li><a href="#home" data-key="nav_home">Home</a></li>
+            <li><a href="#about" data-key="nav_about">About</a></li>
+            <li><a href="#services" data-key="nav_services">Services</a></li>
+            <li><a href="#why" data-key="nav_why">Why Us</a></li>
+            <li><a href="#reviews" data-key="nav_reviews">Reviews</a></li>
+            <li><a href="#contact" data-key="nav_contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="lang-toggle" id="langToggle">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="rw">RW</button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="home" id="home">
+  <section class="hero" id="hero">
+   <div class="hero-slide active" style="background-image: url('images/contact.jpg');">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-star"></i> <span data-key="hero_badge">Google Top Rated · 4.9/5</span></div>
+        <h1><span data-key="hero_title1">24/7 CUSTOMER CARE SERVICES IN</span><br /><span style="color: #F5B041;" data-key="hero_title2">KIGALI, RWANDA</span></h1>
+        <p data-key="hero_sub1">Your problems, our priority anytime.</p>
+        <a href="#services" class="btn-primary" data-key="hero_btn">Explore Our Services</a>
+      </div>
+    </div>
+    <div class="hero-slide" style="background-image: url('images/dms.jpg');">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-building"></i> <span data-key="hero_badge2">100+ Business Managed</span></div>
+        <h1><span data-key="hero_title3">DIGITAL MARKETING</span><br /><span style="color: #F5B041;" data-key="hero_title4">SOLUTIONS</span></h1>
+        <p data-key="hero_sub2">Get seen, get clicks, get customers.</p>
+        <a href="#about" class="btn-primary" data-key="hero_btn2">Discover More</a>
+      </div>
+    </div>
+    <div class="hero-slide" style="background-image: url('images/explore.jpg');">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-shield-alt"></i> <span data-key="hero_badge3">Licensed Tour Operator · RDB</span></div>
+        <h1><span data-key="hero_title5">CITY </span><br /><span style="color: #F5B041;" data-key="hero_title6">CONCIERGE</span></h1>
+        <p data-key="hero_sub3">A curated Rwanda experience for every guest in one scan.</p>
+        <a href="#contact" class="btn-primary" data-key="hero_btn3">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-indicators" id="heroIndicators">
+      <button class="active" data-index="0"></button>
+      <button data-index="1"></button>
+      <button data-index="2"></button>
+    </div>
+  </section>
+   </section>
+
+  <section class="section-padding" id="about">
+    <div class="container">
+      <div class="about-text">
+        <h2 class="section-title"><span data-key="about_title">WHAT</span> <span data-key="about_title2">WE DO</span></h2>
+        <h2 class="sub-section-title" data-key="about_who">Who we are</h2>
+        <p data-key="about_desc1">Invented Approach Ltd is a registered digital marketing and 24/7 customer care agency based in Kigali, Rwanda.</p>
+        <p data-key="about_desc2">We exist for one reason, to help businesses eliminate mediocrity in service delivery.</p>
+        <p data-key="about_desc3">Too many great businesses lose customers not because of their product, but because of slow response, poor communication, and weak online presence. We fix that. We make sure your business is always present, always responsive, and always on top of things. From startups to established brands, we become an extension of your team-handling your customers with professionalism, speed, and care while you focus on growing your business.</p>
+      </div>
+      <div class="about-sub">
+        <div class="about-sub-card">
+          <h4><i class="fas fa-bullseye" style="color:var(--primary); margin-right:10px;"></i> <span data-key="about_mission_title">Our Mission</span></h4>
+          <p data-key="about_mission_desc">To help Rwandan and African businesses attract more customers and keep them through exceptional communication and service.</p>
+        </div>
+        <div class="about-sub-card">
+          <h4><i class="fas fa-handshake" style="color:var(--primary); margin-right:10px;"></i> <span data-key="about_promise_title">Our Promise</span></h4>
+          <p data-key="about_promise_desc">No missed inquiry. No ignored customer. No mediocre service.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding" style="background:var(--bg-white);" id="services">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title"><span data-key="services_title">Our</span> <span data-key="services_title2">Services</span></h2>
+        <h2 class="sub-section-title" data-key="services_sub">At Invented Approach Ltd, we offer two core solutions that every modern business needs to thrive</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon"><i class="fas fa-phone-alt"></i></div>
+          <h3 data-key="service1_title">24/7 Customer Care Solutions</h3>
+          <p data-key="service1_desc">Never miss a customer again. We act as your dedicated customer care team, ensuring every client feels heard, valued, and supported- day and night</p>
+          <p data-key="service1_list_title">Our customer care services include:</p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s1_li1">24/7 Call Handling & Response</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s1_li2">Email & Inquiry Management</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s1_li3">Live Chat and Social Media DM Support</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s1_li4">Customer Complaints and Resolution</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s1_li5">Lead Capture and Follow-up</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s1_li6">Professional Representation for Your Brand</span></li>
+          </ul>
+          <p data-key="s1_footer">Whether it's an inquiry at 2PM or a complaint at 2AM, we respond promptly and professionally on behalf of your business</p>
+        </div>
+        <div class="service-card">
+          <div class="icon"><i class="fas fa-chart-line"></i></div>
+          <h3 data-key="service2_title">Digital Marketing Services</h3>
+          <p data-key="service2_desc">If customers can't find you online, you don't exist. We create and manage a powerful online presence that builds trust, drives engagement, and turns followers into customers.</p>
+          <p data-key="service2_list_title">Our digital marketing services include:</p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s2_li1">Social Media Management and Content Creation</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s2_li2">Brand Strategy and Online Positioning</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s2_li3">Paid Advertising (Facebook, Instagram, Google)</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s2_li4">Search Engine Optimization (SEO)</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s2_li5">Online Communication and Reputation Management</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s2_li6">Business Profile Setup and Growth</span></li>
+          </ul>
+          <p data-key="s2_footer">We don't just post online. We build communication that connects your business to the right audience.</p>
+        </div>
+         <div class="service-card">
+          <div class="icon"><i class="fas fa-building"></i></div>
+          <h3 data-key="service3_title">CITY CONCIERGE</h3>
+          <p data-key="service3_desc">A personalized itinerary service designed for cities like Rwanda, curated to simplify the tourist experience. local art, food, festivals, and much more for you to explore. All your tourist itineraries are conveniently accessible with a single QR code scan.</p>
+          <p data-key="s3_footer">Powered by invented Approach.</p>
+          <!-- EXPLORE MORE LINK -->
+          <span class="explore-toggle-link" id="exploreToggle">Explore More →</span>
+        </div>
+      </div>
+
+      <!-- EXPLORE SECTION (hidden by default) -->
+      <div class="explore-section" id="exploreSection">
+        <div class="explore-header">
+          <h3>Places To Visit In Rwanda</h3>
+          <button class="explore-close" id="exploreClose">Close</button>
+        </div>
+
+        <!-- ATTRACTIONS CATEGORY -->
+        <div class="explore-category">
+          <h4 class="explore-category-title">ATTRACTIONS</h4>
+          <div class="explore-grid">
+            <!-- Card 1: Kigali Genocide Memorial -->
+            <div class="explore-item">
+              <img src="images/place1.jpg" alt="Kigali Genocide Memorial" class="explore-image" />
+              <div class="explore-text">
+                <h4>Kigali Genocide Memorial</h4>
+                <p>An important memorial and educational site documenting the 1994 Genocide against the Tutsi. A must-visit for understanding Rwanda's history.</p>
+                <span class="address"> KG 14 Ave, Kigali, Rwanda</span>
+              </div>
+            </div>
+
+            <!-- Card 2: Inema Arts Center -->
+            <div class="explore-item">
+              <img src="images/place2.jpg" alt="Inema Arts Center" class="explore-image" />
+              <div class="explore-text">
+                <h4>Inema Arts Center</h4>
+                <p>A vibrant contemporary African art space where visitors can see paintings, sculptures and other creative works. Hosts cultural activities and events.</p>
+                <span class="address">Address: KG 563 St, Kigali, Rwanda</span>
+              </div>
+            </div>
+
+            <!-- Card 3: Niyo Art Gallery (additional) -->
+            <div class="explore-item">
+              <img src="images/place3.jpg" alt="Niyo Art Gallery" class="explore-image" />
+               <img src="images/place4.jpg" alt="Niyo Art Gallery" class="explore-image" />
+              <div class="explore-text">
+                <h4>Niyo Art Gallery</h4>
+                <p>A contemporary art gallery showcasing emerging Rwandan artists. A great place to experience the local creative scene and purchase unique artworks.</p>
+                <span class="address">Address:KN 5 Rd, Kigali, Rwanda</span>
+              </div>
+            </div>
+
+
+             <div class="explore-item">
+              <img src="images/place5.jpg" alt="Kigali convention centre" class="explore-image" />
+              <img src="images/place6.jpg" alt="Kigali convention centre" class="explore-image" />
+              <div class="explore-text">
+                <h4>Kigali Convention Centre</h4>
+                <p>One of Kigali's most recognizable landmarks, famous for its distinctive dome and colourful night illumination</p>
+                <span class="address">Address: Convention Centre Roundabout, KIgali, Rwanda </span>
+              </div>
+            </div>
+
+             <div class="explore-item">
+              <img src="images/place7.jpg" alt="Kimironko Market" class="explore-image" />
+               <img src="images/place8.jpg" alt="Kimironko Market" class="explore-image" />
+              <div class="explore-text">
+                <h4>Kimironko Market</h4>
+                <p>One of Kigali's shop for colourful African fabrics, clothings, crafts, fresh produce and souvenirs</p>
+                <span class="address">Address: KG 145 St, Kigali, Rwanda</span>
+              </div>
+            </div>
+
+             <div class="explore-item">
+              <img src="images/place9.jpg" alt="Fazenda Sengha" class="explore-image" />
+              <div class="explore-text">
+                <h4>Fazenda Sengha</h4>
+                <p>Located on Mount Kigali, it offers outdoor activities including horse riding and is a good option for visitors looking for something more adventurous.</p>
+                <span class="address">Address: Mount Kigali, Rwanda</span>
+              </div>
+            </div>
+
+            <div class="explore-item">
+              <img src="images/place32.jpg" alt="Funky Monkey Arcade" class="explore-image" />
+              <img src="images/place33.jpg" alt="Funky Monkey Arcade" class="explore-image" />
+              <div class="explore-text">
+                <h4>Funky Monkey Arcade</h4>
+                <p>A fun option for visitors who want gaming and entertainment rather than sightseeing.</p>
+                <span class="address">Address: KN 3 Rd, Kigali, Rwanda</span>
+              </div>
+            </div>
+
+             <div class="explore-item">
+              <img src="images/place34.jpg" alt="Niyo Art Gallery" class="explore-image" />
+              <div class="explore-text">
+                <h4>Niyo Art Gallery</h4>
+                <p>his is particularly interesting because visitors can combine African art, food, coffee and culture in one stop.</p>
+                <span class="address">Address: 25 KG 572 Street, Kigali, Rwanda</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="explore-category">
+          <h4 class="explore-category-title">RESTAURANT</h4>
+          <div class="explore-grid">
+            <!-- Card 1: Kigali Restaurant -->
+            <div class="explore-item">
+              <img src="images/place13.jpg" alt="Repub Lounge" class="explore-image" />
+              <img src="images/place14.jpg" alt="Repub Lounge" class="explore-image" />
+              <div class="explore-text">
+                <h4>Repub Lounge</h4>
+                <p>A stylish Kigali dining and social spot, particularly suitable for an evening meal, drinks and relaxing</p>
+                <span class="address">Address: 16 KG 674 St, Kigali, Rwanda</span>
+            </div>
+            </div>
+
+            <div class="explore-item">
+              <img src="images/place15.jpg" alt="Heaven Restaurant & Boutique Hotel" class="explore-image" />
+              <img src="images/place16.jpg" alt="Heaven Restaurant & Boutique Hotel" class="explore-image" />
+              <div class="explore-text">
+                <h4>Heaven Restaurant & Boutique Hotel</h4>
+                <p>A well known Kigali restaurantoffering an upscale dining experience with international and local influences</p>
+                <span class="address">Address:7 KN 29 St, Kigali, Rwanda</span>
+            </div>
+            </div>
+            
+            <div class="explore-item">
+              <img src="images/place17.jpg" alt="SZY" class="explore-image" />
+              <div class="explore-text">
+                <h4>SZY</h4>
+                <p>A more premium dining option for visitors looking for an elegant restaurant experience</p>
+                <span class="address">Address: 32 KG 5 Ave, Kigali, Rwanda</span>
+            </div>
+            </div>
+            </div>
+            </div>
+
+            <div class="explore-category">
+          <h4 class="explore-category-title">COFFEE SHOPS</h4>
+          <div class="explore-grid">
+            <!-- Card 1: Kigali Coffee shops -->
+            <div class="explore-item">
+              <img src="images/place10.jpg" alt="Coffee Gishushu" class="explore-image" />
+              <img src="images/place11.jpg" alt="Coffee Gishushu" class="explore-image" />
+              <div class="explore-text">
+                <h4>Coffee Gishushu</h4>
+                <p>A popular specialty coffee destination where visitors can experience Rwanda's coffee culture.<br>Kigali's specialty coffee scene is one of the city's attractions.</br></p>
+                <span class="address">Address: 8 KG 8 Ave, Kigali, Rwanda</span>
+            </div>
+            </div>
+
+            <div class="explore-item">
+              <img src="images/place12.jpg" alt="Golden Coffee Roastery" class="explore-image" />
+              <div class="explore-text">
+                <h4>Golden Coffee Roastery</h4>
+                <p>A highly rated spot for coffee, casual meetings and relaxing</p>
+                <span class="address">Address: Plot 34 KG 9 Ave, Kigali, Rwanda</span>
+            </div>
+            </div>
+            </div>
+            </div>
+
+             <div class="explore-category">
+          <h4 class="explore-category-title">TOURIST SITE</h4>
+          <div class="explore-grid">
+            <!-- Card 1: Kigali Tourist -->
+            <div class="explore-item">
+              <img src="images/place19.jpg" alt="Rwanda Art Museum" class="explore-image" />
+              <div class="explore-text">
+                <h4>Rwanda Art Museum</h4>
+                <p>A good choice for visitors interested in Rwandan art and cultural history. </p>
+                <span class="address">Address: KK 106 St, Kigali, Rwanda</span>
+            </div>
+            </div>
+
+              <div class="explore-item">
+              <img src="images/place20.jpg" alt="Kandt House Museum" class="explore-image" />
+              <div class="explore-text">
+                <h4>Kandt House Museum</h4>
+                <p>A historic museum on KN 90 Street that explores Rwanda's history, natural environment and colonial-era heritage. </p>
+                <span class="address">Address: KK 90 St, Kigali, Rwanda</span>
+            </div>
+            </div>
+
+            <div class="explore-item">
+              <img src="images/place21.jpg" alt="Akagera Road" class="explore-image" />
+              <div class="explore-text">
+                <h4>Akagera Road</h4>
+                <p>Akagera is Rwanda's savannah safari destination and offers game drivers, boat trips and night drives. </p>
+                <span class="address">Address:Akagera Road</span>
+            </div>
+            </div>
+
+            <div class="explore-item">
+              <img src="images/place22.jpg" alt="Volcanoes National Park" class="explore-image" />
+              <img src="images/place23.jpg" alt="Volcanoes National Park" class="explore-image" />
+              <div class="explore-text">
+                <h4>Volcanoes National Park</h4>
+                <p>This is the place for one off Rwanda's most famous experiences:<br>Mountain Gorilla Trekking</br></p>
+                <p>Visitors hike through the rainforest to observe endangered mountain gorillas in their natural habitat. The park is also home to golden monkeys and spectacular virunga volcano scenery.</p>
+                <span class="address">Address:Kingi, Musanze, Northern Province, Rwanda</span>
+            </div>
+            </div>
+
+             <div class="explore-item">
+              <img src="images/place24.jpg" alt="Nyungwe National Park — CHIMPANZEES & RAINFOREST" class="explore-image" />
+              <div class="explore-text">
+                <h4>Nyungwe National Park — CHIMPANZEES & RAINFOREST</h4>
+                <p>Nyungwe is completely different from Akagera. Instead of open savannah, visitors enter a huge ancient rainforest. </p>
+                <span class="address">Address:Southwestern Rwanda, around the Nyungwe/Gisakura area</span>
+            </div>
+            </div>
+
+            <div class="explore-item">
+              <img src="images/place25.jpg" alt="Gishwati-Mukura National Park and Biosphere Reserve" class="explore-image" />
+              <img src="images/place26.jpg" alt="Gishwati-Mukura National Park and Biosphere Reserve" class="explore-image" />
+              <div class="explore-text">
+                <h4>Gishwati-Mukura National Park and Biosphere Reserve</h4>
+                <p>This is another option for visitors interested in forest wildlife and primates. The park is home to chimpanzees, golden monkeys, blue monkeys and L'Hoest's monkeys, along with diverse birdlife.<br>it's less of a traditional "Big Five safari" and more of a forest and biodiversity experience.</br></p>
+                <span class="address">Address:Western Rwanda</span>
+            </div>
+            </div>
+            </div>
+            </div>
+
+            <div class="explore-category">
+          <h4 class="explore-category-title">EVENTS</h4>
+          <div class="explore-grid">
+            <!-- Card 1: Kigali Events -->
+            <div class="explore-item">
+              <img src="images/place27.jpg" alt="Umuganura — Rwanda Harvest Festival" class="explore-image" />
+              <div class="explore-text">
+                <h4>Umuganura — Rwanda Harvest Festival</h4>
+                <p>Usually Held First Friday of August, this is probably the most important traditional event to include.<br>Umuganura is Rwanda's traditional first-fruits/harvest celebration and is now a national public holiday. Celebrations can include traditional food, cultural performances, exhibitions, music and community gatherings. UNESCO describes it as an annual cultural festival with arts performances, exhibitions and creative-industry activities.</br> </p>
+                <span class="address"></span>
+            </div>
+            </div>
+
+           <div class="explore-item">
+              <img src="images/place28.jpg" alt="Ubumuntu Arts Festival" class="explore-image" />
+              <div class="explore-text">
+                <h4>Ubumuntu Arts Festival</h4>
+                <p>Usually July, this is one of Kigali's most interesting recurring cultural festivals. The festival has been running annually since 2015 and brings together artists and audiences from Rwanda and around the world.<br> Ubumuntu Arts Festival</br>The 2026 edition ran July 13–19, featuring theatre, music, literature, workshops and discussions. </p>
+                <span class="address">Address: Kigali Genocide Memorial Amphitheatre & other Kigali venue</span>
+            </div>
+            </div>
+
+            <div class="explore-item">
+              <img src="images/place29.jpg" alt="Tour du Rwanda" class="explore-image" />
+              <img src="images/place30.jpg" alt="Tour du Rwanda" class="explore-image" />
+              <div class="explore-text">
+                <h4>Tour du Rwanda</h4>
+                <p>The Tour du Rwanda is a major international cycling race. The 2026 edition ran February 22 March 1, with the final-day cycling celebration taking place in Kigali. <br>Tour du Rwanda +1</br>
+Visitors can watch professional cyclists race through Rwanda's famous hills and join the excitement around the route.
+                <span class="address">Address:Multiple locations across Rwanda, including Kigali</span>
+            </div>
+            </div>
+
+            <div class="explore-item">
+              <img src="images/place31.jpg" alt="Kigali International Peace Marathon" class="explore-image" />
+              <div class="explore-text">
+                <h4>Kigali International Peace Marathon</h4>
+                <p>This is another major annual event.<br>The marathon has been running since 2005 and attracts participants from around the world. The 2026 edition took place June 13–14 and included a 10 km Run for Peace, half marathon and full marathon.</br>
+Kigali Marathon +1
+Even if a visitor doesn't want to run, they can come out and experience the atmosphere. </p>
+                <span class="address">Address: Kigali</span>
+            </div>
+            </div>
+            </div>
+            </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding" id="why">
+    <div class="why-section">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title"><span data-key="why_title">Why</span> <span data-key="why_title2">Choose Us</span></h2>
+          <p class="section-subtitle" data-key="why_sub">Why Businesses Trust Invented Approach</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card">
+            <i class="fas fa-phone-alt"></i>
+            <h4 data-key="why1_title">We Are Always On</h4>
+            <p data-key="why1_desc">Truly 24/7 customer support, not just business hours.</p>
+          </div>
+          <div class="why-card">
+            <i class="fas fa-map-marked-alt"></i>
+            <h4 data-key="why2_title">We Are Local, We Understand</h4>
+            <p data-key="why2_desc">Based in Kigali, we understand the Rwandan market and customer.</p>
+          </div>
+          <div class="why-card">
+            <i class="fas fa-chart-line"></i>
+            <h4 data-key="why3_title">We Drive Results</h4>
+            <p data-key="why3_desc">We focus on two things that grow your revenue, attracting customers and retaining them.</p>
+          </div>
+          <div class="why-card">
+            <i class="fas fa-cog"></i>
+            <h4 data-key="why4_title">We Eliminate Mediocrity</h4>
+            <p data-key="why4_desc">Professional, fast, and consistent service is our standard.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding" id="reviews">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title"><span data-key="reviews_title">Trusted by</span> <span data-key="reviews_title2">Owners &amp; Travelers</span></h2>
+        <p class="section-subtitle" data-key="reviews_sub">Real stories from people who chose invented approach.</p>
+      </div>
+      <div class="reviews-grid" id="reviewsGrid"></div>
+      <div class="review-form-section">
+        <h3 data-key="form_title">Leave a Review</h3>
+        <p data-key="form_sub">Share your experience with us</p>
+        <form class="review-form" id="reviewForm">
+          <div class="star-rating" id="starRating">
+            <input type="radio" name="rating" id="star5" value="5" />
+            <label for="star5" title="5 stars"><i class="fas fa-star"></i></label>
+            <input type="radio" name="rating" id="star4" value="4" />
+            <label for="star4" title="4 stars"><i class="fas fa-star"></i></label>
+            <input type="radio" name="rating" id="star3" value="3" />
+            <label for="star3" title="3 stars"><i class="fas fa-star"></i></label>
+            <input type="radio" name="rating" id="star2" value="2" />
+            <label for="star2" title="2 stars"><i class="fas fa-star"></i></label>
+            <input type="radio" name="rating" id="star1" value="1" />
+            <label for="star1" title="1 star"><i class="fas fa-star"></i></label>
+          </div>
+          <input type="text" id="reviewName" placeholder="Your Name" required data-key="form_name" />
+          <textarea id="reviewComment" placeholder="Write your review..." required data-key="form_comment"></textarea>
+          <button type="submit" class="btn-primary" data-key="form_submit">Submit Review</button>
+        </form>
+        <div id="reviewFeedback" style="margin-top:16px; font-weight:600; color:var(--primary);"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding" style="background:var(--bg-white);" id="contact">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title"><span data-key="contact_title">Get in</span> <span data-key="contact_title2">Touch</span></h2>
+        <h2 class="section-subtitle" data-key="contact_sub">Ready to grow your business without the stress of handling customers and online presence alone?</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p data-key="contact_desc">Contact Invented Approach Ltd today. Let us handle your customers while you handle your business.</p>
+          <div class="contact-detail">
+            <i class="fas fa-phone-alt"></i>
+            <span>+250 799 525 754</span>
+          </div>
+          <div class="contact-detail">
+            <i class="fas fa-envelope"></i>
+            <span>Barry@inventedapproach.com<br>Hello@inventedapproach.com<br>Bennie@inventedapproach.com<br>Support@inventedapproach.com</span>
+          </div>
+          <div class="contact-detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <span data-key="contact_address">Kk 101 St, Umushumba Mwiza</span>
+          </div>
+          <div class="contact-detail">
+            <i class="fab fa-whatsapp" style="color:#25D366;"></i>
+            <span>+250 799 525 754 (WhatsApp)</span>
+          </div>
+          <a href="#" class="btn-primary" style="margin-top:12px;"><i class="fas fa-paper-plane"></i> <span data-key="contact_btn">Send a Message</span></a>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <a href="https://wa.me/250799525754" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo" style="color:#fff; font-size:1.6rem; display:flex; align-items:center; gap:10px;">
+            <img src="images/logo.jpg" alt="invented approach logo" style="height:36px; width:auto; border-radius:6px;" />
+            invented <span>approach</span>
+          </a>
+          <p data-key="footer_desc">Your complete partner in Kigali from customer management to 24/7 customer care and digital marketing.</p>
+          <div style="margin-top:16px; display:flex; gap:8px; flex-wrap:wrap;">
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5 data-key="footer_company">Company</h5>
+          <ul>
+            <li><a href="#about" data-key="nav_about">About Us</a></li>
+            <li><a href="#services" data-key="nav_services">Services</a></li>
+            <li><a href="#why" data-key="nav_why">Why Choose Us</a></li>
+            <li><a href="#reviews" data-key="nav_reviews">Reviews</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5 data-key="footer_services">Services</h5>
+          <ul>
+            <li><a href="#" data-key="footer_s1">Social Media Management</a></li>
+            <li><a href="#" data-key="footer_s2">24/7 Customer Support</a></li>
+            <li><a href="#" data-key="footer_s3">Brand Strategy</a></li>
+            <li><a href="#" data-key="footer_s4">Digital Marketing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5 data-key="footer_support">Support</h5>
+          <ul>
+            <li><a href="#contact" data-key="nav_contact">Contact Us</a></li>
+            <li><a href="#" data-key="footer_faq">FAQ</a></li>
+            <li><a href="#" data-key="footer_privacy">Privacy Policy</a></li>
+            <li><a href="#" data-key="footer_terms">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-key="footer_copy">&copy; 2026 invented approach. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // ─── HERO SLIDER ───
+      const slides = document.querySelectorAll('.hero-slide');
+      const indicators = document.querySelectorAll('#heroIndicators button');
+      let currentSlide = 0;
+      let slideInterval;
+
+      function goToSlide(index) {
+        slides.forEach((s, i) => s.classList.toggle('active', i === index));
+        indicators.forEach((btn, i) => btn.classList.toggle('active', i === index));
+        currentSlide = index;
+      }
+      function nextSlide() { goToSlide((currentSlide + 1) % slides.length); }
+      function startSlider() { slideInterval = setInterval(nextSlide, 4000); }
+      function stopSlider() { clearInterval(slideInterval); }
+      indicators.forEach(btn => {
+        btn.addEventListener('click', () => {
+          stopSlider();
+          goToSlide(parseInt(btn.dataset.index));
+          startSlider();
+        });
+      });
+      const hero = document.getElementById('hero');
+      hero.addEventListener('mouseenter', stopSlider);
+      hero.addEventListener('mouseleave', startSlider);
+      startSlider();
+
+      // ─── LANGUAGE TOGGLE ───
+      const translations = {
+        en: {
+          nav_about:'About', nav_services:'Services', nav_why:'Why Us', nav_reviews:'Reviews', nav_contact:'Contact',
+          hero_badge:'Google Top Rated · 4.9/5', hero_title1:'24/7 CUSTOMER CARE SERVICES IN', hero_title2:'KIGALI, RWANDA',
+          hero_sub1:'Your problems, our priority anytime.', hero_btn:'Explore Our Services',
+          hero_badge2:'100+ Business Managed', hero_title3:'DIGITAL MARKETING', hero_title4:'SOLUTIONS',
+          hero_sub2:'Get seen, get clicks, get customers.', hero_btn2:'Discover More',
+          hero_badge3:'Licensed Tour Operator · RDB', hero_title5:'EXPLORE RWANDA FROM', hero_title6:'YOUR SPACE',
+          hero_sub3:'Your window to Rwanda starts here.', hero_btn3:'Get in Touch',
+          about_title:'ABOUT', about_title2:'US', about_who:'Who we are',
+          about_desc1:'Invented Approach Ltd is a registered digital marketing and 24/7 customer care agency based in Kigali, Rwanda.',
+          about_desc2:'We exist for one reason: to help businesses eliminate mediocrity in service delivery.',
+          about_desc3:'Too many great businesses lose customers not because of their product, but because of slow response, poor communication, and weak online presence. We fix that. We make sure your business is always present, always responsive, and always on top of things. From startups to established brands, we become an extension of your team-handling your customers with professionalism, speed, and care while you focus on growing your business.',
+          about_mission_title:'Our Mission', about_mission_desc:'To help Rwandan and African businesses attract more customers and keep them through exceptional communication and service.',
+          about_promise_title:'Our Promise', about_promise_desc:'No missed inquiry. No ignored customer. No mediocre service.',
+          services_title:'Our', services_title2:'Services', services_sub:'At Invented Approach Ltd, we offer two core solutions that every modern business needs to thrive',
+          service1_title:'24/7 Customer Care Solutions', service1_desc:'Never miss a customer again. We act as your dedicated customer care team, ensuring every client feels heard, valued, and supported- day and night',
+          service1_list_title:'Our customer care services include:',
+          s1_li1:'24/7 Call Handling & Response', s1_li2:'Email & Inquiry Management', s1_li3:'Live Chat and Social Media DM Support',
+          s1_li4:'Customer Complaints and Resolution', s1_li5:'Lead Capture and Follow-up', s1_li6:'Professional Representation for Your Brand',
+          s1_footer:'Whether it\'s an inquiry at 2PM or a complaint at 2AM, we respond promptly and professionally on behalf of your business',
+          service2_title:'Digital Marketing Services', service2_desc:'If customers can\'t find you online, you don\'t exist. We create and manage a powerful online presence that builds trust, drives engagement, and turns followers into customers.',
+          service2_list_title:'Our digital marketing services include:',
+          s2_li1:'Social Media Management and Content Creation', s2_li2:'Brand Strategy and Online Positioning',
+          s2_li3:'Paid Advertising (Facebook, Instagram, Google)', s2_li4:'Search Engine Optimization (SEO)',
+          s2_li5:'Online Communication and Reputation Management', s2_li6:'Business Profile Setup and Growth',
+          s2_footer:'We don\'t just post online. We build communication that connects your business to the right audience.',
+          why_title:'Why', why_title2:'Choose Us', why_sub:'Why Businesses Trust Invented Approach',
+          why1_title:'We Are Always On', why1_desc:'Truly 24/7 customer support, not just business hours.',
+          why2_title:'We Are Local, We Understand', why2_desc:'Based in Kigali, we understand the Rwandan market and customer.',
+          why3_title:'We Drive Results', why3_desc:'We focus on two things that grow your revenue, attracting customers and retaining them.',
+          why4_title:'We Eliminate Mediocrity', why4_desc:'Professional, fast, and consistent service is our standard.',
+          reviews_title:'Trusted by', reviews_title2:'Owners & Travelers', reviews_sub:'Real stories from people who chose invented approach.',
+          form_title:'Leave a Review', form_sub:'Share your experience with us', form_name:'Your Name', form_comment:'Write your review...', form_submit:'Submit Review',
+          contact_title:'Get in', contact_title2:'Touch', contact_sub:'Ready to grow your business without the stress of handling customers and online presence alone?',
+          contact_desc:'Contact Invented Approach Ltd today. Let us handle your customers while you handle your business.',
+          contact_address:'Kk 101 St, Umushumba Mwiza', contact_btn:'Send a Message',
+          qr_title:'Scan to Connect', qr_desc:'Scan this QR code to visit our website',
+          footer_desc:'Your complete partner in Kigali — from customer management to 24/7 customer care and digital marketing.',
+          footer_company:'Company', footer_services:'Services', footer_support:'Support',
+          footer_s1:'Social Media Management', footer_s2:'24/7 Customer Support', footer_s3:'Brand Strategy', footer_s4:'Digital Marketing',
+          footer_faq:'FAQ', footer_privacy:'Privacy Policy', footer_terms:'Terms of Service',
+          footer_copy:'© 2026 invented approach. All rights reserved.'
+        },
+        fr: {
+          nav_about:'À propos', nav_services:'Services', nav_why:'Pourquoi nous', nav_reviews:'Avis', nav_contact:'Contact',
+          hero_badge:'Google Top Rated · 4.9/5', hero_title1:'SERVICES DE SERVICE CLIENT 24/7 À', hero_title2:'KIGALI, RWANDA',
+          hero_sub1:'Vos problèmes, notre priorité à tout moment.', hero_btn:'Explorez nos services',
+          hero_badge2:'100+ Entreprises gérées', hero_title3:'MARKETING DIGITAL', hero_title4:'SOLUTIONS',
+          hero_sub2:'Soyez vu, obtenez des clics, obtenez des clients.', hero_btn2:'En savoir plus',
+          hero_badge3:'Opérateur touristique agréé · RDB', hero_title5:'EXPLOREZ LE RWANDA DEPUIS', hero_title6:'VOTRE ESPACE',
+          hero_sub3:'Votre fenêtre sur le Rwanda commence ici.', hero_btn3:'Contactez-nous',
+          about_title:'À PROPOS', about_title2:'DE NOUS', about_who:'Qui nous sommes',
+          about_desc1:'Invented Approach Ltd est une agence de marketing numérique et de service client 24/7 basée à Kigali, au Rwanda.',
+          about_desc2:'Nous existons pour une raison : aider les entreprises à éliminer la médiocrité dans la prestation de services.',
+          about_desc3:'Trop de grandes entreprises perdent des clients non pas à cause de leur produit, mais à cause d\'une réponse lente, d\'une mauvaise communication et d\'une présence en ligne faible. Nous réparons cela. Nous faisons en sorte que votre entreprise soit toujours présente, toujours réactive et toujours au sommet. Des startups aux marques établies, nous devenons une extension de votre équipe - en gérant vos clients avec professionnalisme, rapidité et soin pendant que vous vous concentrez sur la croissance de votre entreprise.',
+          about_mission_title:'Notre mission', about_mission_desc:'Aider les entreprises rwandaises et africaines à attirer plus de clients et à les fidéliser grâce à une communication et un service exceptionnels.',
+          about_promise_title:'Notre promesse', about_promise_desc:'Aucune demande manquée. Aucun client ignoré. Aucun service médiocre.',
+          services_title:'Nos', services_title2:'Services', services_sub:'Chez Invented Approach Ltd, nous offrons deux solutions principales dont toute entreprise moderne a besoin pour prospérer',
+          service1_title:'Solutions de service client 24/7', service1_desc:'Ne manquez plus jamais un client. Nous agissons en tant que votre équipe de service client dédiée, en veillant à ce que chaque client se sente entendu, valorisé et soutenu - jour et nuit',
+          service1_list_title:'Nos services de service client incluent :',
+          s1_li1:'Gestion et réponse d\'appels 24/7', s1_li2:'Gestion des e-mails et des demandes',
+          s1_li3:'Chat en direct et support DM sur les réseaux sociaux', s1_li4:'Réclamation client et résolution',
+          s1_li5:'Capture de prospects et suivi', s1_li6:'Représentation professionnelle pour votre marque',
+          s1_footer:'Que ce soit une demande à 14h ou une réclamation à 2h du matin, nous répondons rapidement et professionnellement au nom de votre entreprise',
+          service2_title:'Services de marketing digital', service2_desc:'Si les clients ne peuvent pas vous trouver en ligne, vous n\'existez pas. Nous créons et gérons une présence en ligne puissante qui renforce la confiance, stimule l\'engagement et transforme les abonnés en clients.',
+          service2_list_title:'Nos services de marketing digital incluent :',
+          s2_li1:'Gestion des réseaux sociaux et création de contenu', s2_li2:'Stratégie de marque et positionnement en ligne',
+          s2_li3:'Publicité payante (Facebook, Instagram, Google)', s2_li4:'Optimisation pour les moteurs de recherche (SEO)',
+          s2_li5:'Communication en ligne et gestion de la réputation', s2_li6:'Configuration et croissance du profil d\'entreprise',
+          s2_footer:'Nous ne nous contentons pas de publier en ligne. Nous construisons une communication qui connecte votre entreprise au bon public.',
+          why_title:'Pourquoi', why_title2:'Nous choisir', why_sub:'Pourquoi les entreprises font confiance à Invented Approach',
+          why1_title:'Nous sommes toujours disponibles', why1_desc:'Un support client vraiment 24/7, pas seulement pendant les heures de bureau.',
+          why2_title:'Nous sommes locaux, nous comprenons', why2_desc:'Basés à Kigali, nous comprenons le marché rwandais et le client.',
+          why3_title:'Nous générons des résultats', why3_desc:'Nous nous concentrons sur deux choses qui augmentent votre chiffre d\'affaires : attirer les clients et les fidéliser.',
+          why4_title:'Nous éliminons la médiocrité', why4_desc:'Un service professionnel, rapide et cohérent est notre standard.',
+          reviews_title:'Approuvé par', reviews_title2:'Propriétaires et Voyageurs', reviews_sub:'Des histoires vraies de personnes qui ont choisi invented approach.',
+          form_title:'Laissez un avis', form_sub:'Partagez votre expérience avec nous', form_name:'Votre nom', form_comment:'Écrivez votre avis...', form_submit:'Envoyer l\'avis',
+          contact_title:'Entrez en', contact_title2:'Contact', contact_sub:'Prêt à développer votre entreprise sans le stress de gérer les clients et la présence en ligne seul ?',
+          contact_desc:'Contactez Invented Approach Ltd dès aujourd\'hui. Laissez-nous gérer vos clients pendant que vous gérez votre entreprise.',
+          contact_address:'Kk 101 St, Umushumba Mwiza', contact_btn:'Envoyer un message',
+          qr_title:'Scannez pour vous connecter', qr_desc:'Scannez ce code QR pour visiter notre site web',
+          footer_desc:'Votre partenaire complet à Kigali — de la gestion client au service client 24/7 et au marketing digital.',
+          footer_company:'Entreprise', footer_services:'Services', footer_support:'Support',
+          footer_s1:'Gestion des réseaux sociaux', footer_s2:'Support client 24/7', footer_s3:'Stratégie de marque', footer_s4:'Marketing digital',
+          footer_faq:'FAQ', footer_privacy:'Politique de confidentialité', footer_terms:'Conditions d\'utilisation',
+          footer_copy:'© 2026 invented approach. Tous droits réservés.'
+        },
+        rw: {
+          nav_about:'Kubyerekeye', nav_services:'Serivisi', nav_why:'Kuki Twe', nav_reviews:'Ibisobanuro', nav_contact:'Twandikire',
+          hero_badge:'Google Top Rated · 4.9/5', hero_title1:'SERIVISI ZO KUBERA ABAKIRIYA 24/7 MURI', hero_title2:'KIGALI, RWANDA',
+          hero_sub1:'Ibibazo byanyu, ibyo twita kuri buri gihe.', hero_btn:'Menya serivisi zacu',
+          hero_badge2:'Amashuri 100+ Ayobowe', hero_title3:'UBUCURUZI BWO KU MURONGO', hero_title4:'IBISUBIZO',
+          hero_sub2:'Kugaragara, kubona abakiriya, no kubakomeza.', hero_btn2:'Menya byinshi',
+          hero_badge3:'Uruhimbi rw\'ingendo · RDB', hero_title5:'VUGA RWANDA UVA', hero_title6:'AHO URI',
+          hero_sub3:'Irembo ryawe rya Rwanda ritangira hano.', hero_btn3:'Twandikire',
+          about_title:'TWEREKEYE', about_title2:'TWE', about_who:'Turi bande',
+          about_desc1:'Invented Approach Ltd ni urugaga rw\'ubucuruzi bwo ku murongo n\'ubufasha bw\'abakiriya 24/7 rushyize mu Rwanda, Kigali.',
+          about_desc2:'Tubaho ku mpamvu imwe: gufasha amashuri n\'amakoperative gukuraho ubunebwe mu gutanga serivisi.',
+          about_desc3:'Amakoperative menshi n\'amashuri akomeye atakaza abakiriya atari kubera ibyo atanga, ahubwo kubera gukira gutinda, itumanaho ridakwiye, no kuba habura mu murongo. Ibyo turabyosora. Dukora ko uruganda rwawe ruhora ruriho, ruhora rwitabira, kandi ruhora ruri hejuru. Kuva mu nzandarumo kugeza ku maranama azwi, tuba umwe mu bagize itsinda ryawe — dukorana n\'abakiriya bawe mu buhanga, umwuka, n\'ubwitabire naho wibanda ku gukura uruganda rwawe.',
+          about_mission_title:'Intego yacu', about_mission_desc:'Gufasha amashuri n\'amakoperative yo mu Rwanda no muri Afrika gukura abakiriya no kubakomeza binyuze mu itumanaho n\'ubufasha bitangaje.',
+          about_promise_title:'Isezerano ryacu', about_promise_desc:'Nta kibazo kirengagijwe. Nta mukiriya wirengagijwe. Nta serivisi yo munsi.',
+          services_title:'Serivisi', services_title2:'Zacu', services_sub:'Muri Invented Approach Ltd, dutanga ibisubizo bibiri by\'ingenzi buri ruganda rugezweho rukeneye kugira ngo rukure',
+          service1_title:'Serivisi z\'ubufasha bw\'abakiriya 24/7', service1_desc:'Ntuzongere ubura umukiriya. Dukora nk\'itsinda ryawe ry\'ubufasha bw\'abakiriya, dufasha buri mukiriya kumva ko yumva, agaciro, kandi ashoboye — ku manywa n\'ijoro',
+          service1_list_title:'Serivisi z\'ubufasha bw\'abakiriya zirimo:',
+          s1_li1:'Gukira no gusubiza amakuru 24/7', s1_li2:'Gucunga amabarua n\'ibibazo',
+          s1_li3:'Iganira ry\'agatoki na DM ku mbuga nkoranyambaga', s1_li4:'Ikitabazo n\'ibibazo by\'abakiriya no kubikemura',
+          s1_li5:'Kubona n\'akurikire abakiriya bashya', s1_li6:'Kwerekana uruganda rwawe mu buhanga',
+          s1_footer:'Yaba ikibazo mu masaha ya 2PM cyangwa ikitabazo mu masaha ya 2AM, turahitaba vuba kandi mu buhanga ku izina ry\'uruganda rwawe',
+          service2_title:'Serivisi z\'ubucuruzi bwo ku murongo', service2_desc:'Niba abakiriya badashobora kubona uruganda rwawe ku murongo, nta ruhame. Dukora kandi dushyiraho imiterere ikomeye yo ku murongo yubaka icyizere, ituma abantu bakurikira, kandi ihindura abakurikira abakiriya.',
+          service2_list_title:'Serivisi z\'ubucuruzi bwo ku murongo zirimo:',
+          s2_li1:'Gucunga n\'gushyiraho ibikubiyemo ku mbuga nkoranyambaga', s2_li2:'Ingamba z\'irangamimerere n\'ikibanza ku murongo',
+          s2_li3:'Kwamamaza bihembwa (Facebook, Instagram, Google)', s2_li4:'Kunoza ubushakashatsi ku murongo (SEO)',
+          s2_li5:'Itumanaho ku murongo n\'ubucuruzi bw\'izina', s2_li6:'Gushyiraho n\'gukura konti y\'uruganda',
+          s2_footer:'Ntidusimbara gushyira ku murongo. Dubaka itumanaho rihuza uruganda rwawe n\'abakiriya bakwiye.',
+          why_title:'Kuki', why_title2:'Tuhitamo', why_sub:'Kuki amakoperative yizera Invented Approach',
+          why1_title:'Tuhora twiteguye', why1_desc:'Ubufasha bw\'abakiriya 24/7 nyabwo, atari mu masaha y\'akazi gusa.',
+          why2_title:'Turi abaho, turumva', why2_desc:'Dushingiye i Kigali, turumva isoko ry\'u Rwanda n\'umukiriya.',
+          why3_title:'Tuzana ibisubizo', why3_desc:'Twibanda ku bintu bibiri bikuza inyungu zawe: gukurura abakiriya no kubakomeza.',
+          why4_title:'Dukuraho ubunebwe', why4_desc:'Serivisi y\'ubuhanga, ihamye, kandi ihora ni icyitegererezo cyacu.',
+          reviews_title:'Twizewe n\'', reviews_title2:'Abanyirugo n\'Abagenzi', reviews_sub:'Inkuru nyabo z\'abantu bahisemo invented approach.',
+          form_title:'Tanga igitekerezo', form_sub:'Tuganirire ibyo wabonye', form_name:'Izina ryawe', form_comment:'Andika igitekerezo...', form_submit:'Ohereza igitekerezo',
+          contact_title:'Twandikire', contact_title2:'Ubu', contact_sub:'Witeguye gukura uruganda rwawe nta stress yo gukora n\'abakiriya no kuba ku murongo wenyine?',
+          contact_desc:'Twandikire Invented Approach Ltd uyu munsi. Tureke dukore n\'abakiriya bawe naho wibanda ku ruganda rwawe.',
+          contact_address:'Kk 101 St, Umushumba Mwiza', contact_btn:'Ohereza ubutumwa',
+          qr_title:'Koresha QR kugira ngo uhure', qr_desc:'Koresha kode QR kugira ngo usure urubuga rwacu',
+          footer_desc:'Umufasha wawe wuzuye i Kigali — kuva mu gucunga abakiriya kugeza ku bufasha 24/7 n\'ubucuruzi bwo ku murongo.',
+          footer_company:'Isosiyete', footer_services:'Serivisi', footer_support:'Ubufasha',
+          footer_s1:'Gucunga imbuga nkoranyambaga', footer_s2:'Ubufasha 24/7', footer_s3:'Ingamba z\'irangamimerere', footer_s4:'Ubucuruzi bwo ku murongo',
+          footer_faq:'Ibibazo', footer_privacy:'Amategeko y\'ibanga', footer_terms:'Amategeko ngenderwaho',
+          footer_copy:'© 2026 invented approach. Uburenganzira bwose bwarakozwe.'
+        }
+      };
+
+      function setLanguage(lang) {
+        document.querySelectorAll('[data-key]').forEach(el => {
+          const key = el.getAttribute('data-key');
+          if (translations[lang] && translations[lang][key] !== undefined) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+              el.placeholder = translations[lang][key];
+            } else {
+              el.textContent = translations[lang][key];
+            }
+          }
+        });
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+      }
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          setLanguage(btn.dataset.lang);
+        });
+      });
+
+      // ─── HAMBURGER ───
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navLinks.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('open');
+          navLinks.classList.remove('open');
+        });
+      });
+
+      // ─── HEADER SCROLL ───
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+      });
+
+      // ─── ACTIVE NAV LINK ───
+      const sections = document.querySelectorAll('section[id]');
+      const navItems = navLinks.querySelectorAll('a');
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const top = section.offsetTop - 120;
+          if (window.scrollY >= top) current = section.getAttribute('id');
+        });
+        navItems.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+        });
+      });
+
+      // ─── REVIEWS ───
+      const STORAGE_KEY = 'invented_approach_reviews';
+      const reviewsGrid = document.getElementById('reviewsGrid');
+      const defaultReviews = [
+        { stars:5, name:'Sarah M.', role:'Architect · Owner of 6 units', comment:'“The customer care is awesome, they are really quick to reply and always active whenever i call”' },
+        { stars:5, name:'David K.', role:'Business Traveler, Kenya', comment:'“Ever since i partnered with Invented Approach, my business has been really smooth and there has been a massive increase in my customer base.”' },
+        { stars:5, name:'Sam', role:'Tourist · Gorilla Trek', comment:'"I really love Rwanda it\'s a great country and i love the services of the company, the paid advertising has really boosted my social media audience and i\'ve been seeing a lot engagements in my business”' }
+      ];
+
+      function loadReviews() {
+        let reviews = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (!reviews || reviews.length === 0) {
+          reviews = defaultReviews;
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
+        }
+        renderReviews(reviews);
+      }
+
+      function renderReviews(reviews) {
+        reviewsGrid.innerHTML = '';
+        reviews.forEach(review => {
+          const stars = '★'.repeat(review.stars) + '☆'.repeat(5 - review.stars);
+          const card = document.createElement('div');
+          card.className = 'review-card';
+          card.innerHTML = `
+            <div class="review-stars">${stars}</div>
+            <blockquote>${review.comment}</blockquote>
+            <div class="review-author">
+              <div class="avatar">${review.name.charAt(0).toUpperCase()}</div>
+              <div>
+                <div class="name">${review.name}</div>
+                <div class="role">${review.role || review.stars + ' ★'}</div>
+              </div>
+            </div>
+          `;
+          reviewsGrid.appendChild(card);
+        });
+      }
+
+      function addReview(name, comment, rating) {
+        const reviews = JSON.parse(localStorage.getItem(STORAGE_KEY)) || defaultReviews;
+        const newReview = {
+          stars: parseInt(rating),
+          name: name.trim(),
+          role: rating + ' ★ · Just now',
+          comment: '“' + comment.trim() + '”'
+        };
+        reviews.unshift(newReview);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
+        renderReviews(reviews);
+      }
+
+      loadReviews();
+
+      const reviewForm = document.getElementById('reviewForm');
+      const reviewFeedback = document.getElementById('reviewFeedback');
+      reviewForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('reviewName').value.trim();
+        const comment = document.getElementById('reviewComment').value.trim();
+        const rating = document.querySelector('input[name="rating"]:checked');
+        if (!name || !comment || !rating) {
+          reviewFeedback.textContent = 'Please fill in all fields and select a star rating.';
+          reviewFeedback.style.color = '#e74c3c';
+          return;
+        }
+        addReview(name, comment, rating.value);
+        reviewFeedback.textContent = '✅ Review submitted successfully!';
+        reviewFeedback.style.color = 'var(--primary)';
+        reviewForm.reset();
+        setTimeout(() => { reviewFeedback.textContent = ''; }, 4000);
+      });
+
+      // ─── EXPLORE MORE TOGGLE ───
+      const exploreToggle = document.getElementById('exploreToggle');
+      const exploreSection = document.getElementById('exploreSection');
+      const exploreClose = document.getElementById('exploreClose');
+
+      function showExplore() {
+        exploreSection.classList.add('visible');
+        exploreSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      function hideExplore() {
+        exploreSection.classList.remove('visible');
+      }
+
+      exploreToggle.addEventListener('click', showExplore);
+      exploreClose.addEventListener('click', hideExplore);
+
+      // ─── URL HASH DETECTION FOR EXPLORE SECTION ───
+      function checkExploreHash() {
+        if (window.location.hash === '#explore-section') {
+          const exploreSection = document.getElementById('exploreSection');
+          if (exploreSection) {
+            exploreSection.classList.add('visible');
+            setTimeout(() => {
+              exploreSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300);
+          }
+        }
+      }
+
+      // Check on load
+      checkExploreHash();
+
+      // Check when hash changes
+      window.addEventListener('hashchange', checkExploreHash);
+    });
+  </script>
+</body>
+</html>
