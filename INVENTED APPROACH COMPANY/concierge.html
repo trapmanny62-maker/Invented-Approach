@@ -1,0 +1,2208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>City Concierge — Discover Rwanda with Invented Approach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --primary: #F5B041;
+      --primary-dark: #D48C2B;
+      --primary-light: #FDEBD0;
+      --secondary: #1A2A4A;
+      --secondary-light: #2C3E6B;
+      --gold: #F1C40F;
+      --bg-light: #F8F9FA;
+      --bg-white: #FFFFFF;
+      --text-dark: #1A2A4A;
+      --text-muted: #4A5A7A;
+      --shadow: 0 8px 30px rgba(0,0,0,0.08);
+      --radius: 16px;
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      background: var(--bg-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section-padding { padding: 80px 0; }
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: var(--text-dark);
+    }
+    .section-title span { color: var(--primary); }
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin-bottom: 40px;
+    }
+    .text-center { text-align: center; }
+    .text-center .section-subtitle { margin-left: auto; margin-right: auto; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      padding: 18px 48px;
+      border-radius: 50px;
+      font-size: 1.15rem;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(245,176,65,0.4);
+      letter-spacing: 0.5px;
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 35px rgba(245,176,65,0.5);
+    }
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--primary);
+      font-weight: 600;
+      padding: 12px 32px;
+      border-radius: 50px;
+      font-size: 1rem;
+      border: 2px solid var(--primary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-outline:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    /* ─── HEADER ─── */
+    header {
+      background: var(--bg-white);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 14px 0;
+      transition: var(--transition);
+    }
+    header.scrolled { padding: 10px 0; box-shadow: 0 4px 30px rgba(0,0,0,0.1); }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-dark);
+      flex-shrink: 0;
+    }
+    .logo img { height: 95px; width: auto; border-radius: 8px; }
+    .logo span { color: var(--primary); }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .lang-toggle {
+      display: flex;
+      gap: 4px;
+      background: var(--bg-light);
+      padding: 4px;
+      border-radius: 50px;
+      border: 1px solid #e9ecef;
+      flex-shrink: 0;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: 'Inter', sans-serif;
+    }
+    .lang-btn.active {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(245,176,65,0.25);
+    }
+    .lang-btn:hover:not(.active) { background: #e9ecef; }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      transition: var(--transition);
+      position: relative;
+      white-space: nowrap;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
+    .nav-links a:hover { color: var(--primary); }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: var(--text-dark);
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(3px,4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(3px,-4px); }
+
+    /* ─── HERO (landing) ─── */
+    .hero-landing {
+      margin-top: 82px;
+      padding: 80px 0 60px;
+      background: var(--secondary);
+      color: #fff;
+      text-align: center;
+      border-radius: 0 0 50px 50px;
+      position: relative;
+      overflow: hidden;
+      min-height: 400px;
+    }
+    .hero-landing .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.3;
+    }
+    .hero-landing h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-landing h1 span { color: var(--primary); }
+    .hero-landing p {
+      font-size: 1.2rem;
+      opacity: 0.85;
+      max-width: 640px;
+      margin: 0 auto 32px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-landing .back-link {
+      display: inline-block;
+      color: var(--primary);
+      font-weight: 600;
+      margin-top: 12px;
+      transition: var(--transition);
+      position: relative;
+      z-index: 1;
+    }
+    .hero-landing .back-link:hover { color: #fff; text-decoration: underline; }
+    .hero-landing .btn-primary {
+      position: relative;
+      z-index: 1;
+      font-size: 1.2rem;
+      padding: 18px 52px;
+    }
+
+    /* ─── SEARCH & FILTERS ─── */
+    .search-section {
+      background: var(--bg-white);
+      padding: 20px 0 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+    .search-wrapper {
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .search-wrapper input {
+      width: 100%;
+      padding: 14px 20px 14px 50px;
+      border: 2px solid #06315c;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: border 0.2s;
+      background: var(--bg-light);
+    }
+    .search-wrapper input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .search-wrapper i {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+    .filter-icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 20px;
+      margin: 16px 0 6px;
+    }
+    .filter-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 4px 8px;
+      border-radius: 30px;
+      background: transparent;
+      border: none;
+      font-family: 'Inter', sans-serif;
+    }
+    .filter-icon i {
+      font-size: 1.4rem;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+    .filter-icon.active i,
+    .filter-icon:hover i {
+      color: var(--primary);
+    }
+    .filter-icon.active {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+    .filter-icon span {
+      font-weight: 500;
+    }
+
+    /* ─── EXPLORE GRID ─── */
+    .explore-category {
+      margin-bottom: 50px;
+    }
+    .explore-category:last-child { margin-bottom: 0; }
+
+    .explore-category-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--primary);
+      display: inline-block;
+    }
+
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .explore-item {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .explore-item:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+
+    .explore-item .explore-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: #e9ecef;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .explore-item .explore-text {
+      padding: 20px 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .explore-item .explore-text .rating-display {
+      color: var(--gold);
+      font-size: 1rem;
+      margin-bottom: 4px;
+      letter-spacing: 2px;
+      cursor: default;
+    }
+    /* ----- review section ----- */
+    .review-section {
+      margin-top: 12px;
+      border-top: 1px solid #e9ecef;
+      padding-top: 12px;
+    }
+    .review-section .review-list {
+      max-height: 120px;
+      overflow-y: auto;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .review-section .review-list p {
+      margin: 4px 0;
+      background: #f1f3f5;
+      padding: 4px 8px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .review-section .review-list p span {
+      flex: 1;
+    }
+    .review-section .review-delete {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 2px 4px;
+      cursor: pointer;
+      font-size: 0.75rem;
+    }
+    .review-section .review-delete:hover {
+      color: #c92a2a;
+    }
+    .review-section .review-list p i {
+      color: var(--primary);
+      margin-right: 6px;
+    }
+    .review-section .review-input-group {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .review-section .review-input-group input {
+      flex: 1;
+      min-width: 120px;
+      padding: 6px 12px;
+      border: 1px solid #ced4da;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light);
+    }
+    .review-section .review-input-group input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .review-section .review-input-group button {
+      background: var(--primary);
+      border: none;
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: 'Inter', sans-serif;
+    }
+    .review-section .review-input-group button:hover {
+      background: var(--primary-dark);
+    }
+
+    .explore-item .explore-text h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+    .explore-item .explore-text .desc-line {
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+      margin: 8px 0 12px;
+      border-radius: 2px;
+    }
+    .explore-item .explore-text p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .explore-item .explore-text .address {
+      font-size: 0.85rem;
+      color: rgb(6, 6, 143);
+      font-weight: 500;
+      margin-top: auto;
+    }
+    .explore-item .explore-text .contact {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .explore-item .explore-text .directions-btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 6px 16px;
+      background: var(--secondary);
+      color: #fff;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      width: fit-content;
+    }
+    .explore-item .explore-text .directions-btn:hover {
+      background: var(--secondary-light);
+      transform: translateY(-2px);
+    }
+    .explore-item .explore-text .directions-btn i { margin-right: 4px; }
+    .explore-item .explore-text .card-footer {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #e9ecef;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+    .explore-item .explore-text .card-footer .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text-muted);
+    }
+    .explore-item .explore-text .card-footer .meta-item i {
+      color: var(--primary);
+      font-size: 0.8rem;
+    }
+
+    /* ─── LIGHTBOX ─── */
+    .image-lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      cursor: pointer;
+    }
+    .image-lightbox.active { display: flex; }
+    .image-lightbox img {
+      max-width: 90%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      animation: lightboxFade 0.3s ease;
+    }
+    @keyframes lightboxFade {
+      from { opacity:0; transform:scale(0.95); }
+      to { opacity:1; transform:scale(1); }
+    }
+    .image-lightbox .close-lightbox {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      color: #fff;
+      font-size: 2.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .image-lightbox .close-lightbox:hover { transform: rotate(90deg); }
+
+    /* ─── QR BANNER ─── */
+    .qr-banner {
+      background: var(--primary-light);
+      padding: 16px 0;
+      border-bottom: 2px solid var(--primary);
+      text-align: center;
+      font-weight: 600;
+      color: var(--secondary);
+      display: none;
+    }
+    .qr-banner i {
+      color: var(--primary);
+      margin-right: 10px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--secondary);
+      color: rgba(255,255,255,0.7);
+      padding: 40px 0 30px;
+      margin-top: 40px;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-inner a { color: var(--primary); font-weight: 600; }
+    .footer-inner a:hover { text-decoration: underline; }
+    .footer-inner .logo { height: 95px; width: auto; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero-landing h1 { font-size: 2.4rem; }
+      .section-title { font-size: 2rem; }
+    }
+    @media (max-width: 768px) {
+      .header-inner { flex-wrap: nowrap; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: var(--bg-white);
+        position: absolute;
+        top: 100%; left:0; right:0;
+        padding: 24px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        gap: 16px;
+        border-radius: 0 0 20px 20px;
+        width: 100%;
+        z-index: 999;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { white-space: normal; }
+      .hamburger { display: flex; }
+      .hero-landing { margin-top: 72px; padding: 50px 0 40px; }
+      .hero-landing h1 { font-size: 1.8rem; }
+      .explore-grid { grid-template-columns: 1fr 1fr; }
+      .logo img { height: 48px; }
+      .logo { font-size: 1.2rem; }
+      .header-right { gap: 10px; }
+      .image-lightbox { padding: 20px; }
+      .image-lightbox img { max-width:95%; max-height:80vh; }
+      .image-lightbox .close-lightbox { top:20px; right:20px; font-size:2rem; }
+      .filter-icons { gap: 8px 14px; }
+      .filter-icon { font-size: 0.65rem; }
+      .filter-icon i { font-size: 1.2rem; }
+    }
+    @media (max-width: 600px) {
+      .explore-grid { grid-template-columns: 1fr; }
+      .hero-landing h1 { font-size: 1.5rem; }
+      .section-title { font-size: 1.6rem; }
+      .search-wrapper input { padding: 12px 16px 12px 44px; font-size: 0.9rem; }
+    }
+    @media (max-width: 400px) {
+      .logo { font-size: 1rem; }
+      .logo img { height: 40px; }
+      .lang-btn { padding: 4px 8px; font-size: 0.65rem; }
+      .header-right { gap: 6px; }
+      .container { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- QR DETECTION BANNER (shown when hash #concierge is present) -->
+  <div class="qr-banner" id="qrBanner">
+    <i class="fas fa-qrcode"></i> <span>📍 You scanned the City Concierge QR code — welcome!</span>
+  </div>
+
+  <header id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.jpg" alt="invented approach logo" />
+      </a>
+      <div class="header-right">
+        <nav>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" data-key="nav_home">Home</a></li>
+            <li><a href="#explore" data-key="nav_explore">Explore</a></li>
+            <li><a href="#contact" data-key="nav_contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="lang-toggle" id="langToggle">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="rw">RW</button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-landing">
+    <img src="images/cc.jpg" alt="convention" class="hero-bg" />
+    <div class="container">
+      <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> <span data-key="back_home">Back to Home</span></a>
+      <h1><span data-key="hero_title">CITY</span> <span data-key="hero_title2">CONCIERGE</span></h1>
+      <p data-key="hero_desc">Your curated guide to the best of Rwandan restaurants, culture, nature, events, and services, all in one place.</p>
+      <a href="#explore" class="btn-primary" data-key="hero_btn">Start Exploring</a>
+    </div>
+  </section>
+
+  <!-- SEARCH & FILTERS -->
+  <section class="search-section">
+    <div class="container">
+      <div class="search-wrapper">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Search for places, activities..." data-key="search_placeholder" />
+      </div>
+      <div class="filter-icons" id="filterIcons">
+        <button class="filter-icon active" data-filter="all"><i class="fas fa-th-large"></i><span data-key="filter_all">All</span></button>
+        <button class="filter-icon" data-filter="eat"><i class="fas fa-utensils"></i><span data-key="filter_eat">Eat</span></button>
+        <button class="filter-icon" data-filter="drink"><i class="fas fa-martini-glass"></i><span data-key="filter_drink">Drink</span></button>
+        <button class="filter-icon" data-filter="culture"><i class="fas fa-landmark"></i><span data-key="filter_culture">Culture</span></button>
+        <button class="filter-icon" data-filter="nature"><i class="fas fa-tree"></i><span data-key="filter_nature">Nature</span></button>
+        <button class="filter-icon" data-filter="event"><i class="fas fa-calendar-alt"></i><span data-key="filter_event">Events</span></button>
+        <button class="filter-icon" data-filter="service"><i class="fas fa-concierge-bell"></i><span data-key="filter_service">Services</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLORE SECTION -->
+  <section class="section-padding" id="explore">
+    <div class="container">
+      <!-- CULTURE & HISTORY -->
+      <div class="explore-category" data-category="culture">
+        <h4 class="explore-category-title" data-key="cat_culture">CULTURE & HISTORY</h4>
+        <div class="explore-grid">
+          <div class="explore-item" data-tags="culture history">
+            <img src="images/place1.jpg" alt="Kigali Genocide Memorial" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Kigali Genocide Memorial">★★★★★</div>
+              <h4 data-key="exp_kigali_title">Kigali Genocide Memorial</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_kigali_desc">The most important memorial in Rwanda. Built in Gisozi, 10 mins from city centre, it commemorates the 1994 Genocide Against the Tutsi. Over 250,000 victims are interred here in mass graves. Visitor centre has three permanent exhibitions on history leading up to genocide, managed by Aegis Trust and Kigali City Council. A place of remembrance and learning, photography inside is prohibited.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_kigali_hours">Daily 09:00-16:00</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_kigali_addr">Address: KG 14 Ave, Kigali, Rwanda</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 784 651 051</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Kigali+Genocide+Memorial','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Kigali Genocide Memorial">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="culture art">
+            <img src="images/place2.jpg" alt="Inema Arts Center" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Inema Arts Center">★★★★☆</div>
+              <h4 data-key="exp_inema_title">Inema Arts Center</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_inema_desc">Founded in 2012 by brothers Emmanuel Nkuranga and Innocent Nkurunziza, Kigali's leading contemporary art hub. Provides space for 10 artists-in-residence, gallery, and weekly traditional dance classes. Vibrant murals outside, paintings, sculptures inside, mission is to spur creativity for social and economic growth.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_inema_hours">Daily 08:00 AM - 08:00 PM</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_inema_addr">Address: KG 563 St, Kigali, Rwanda</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 783 187 646</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Inema+Arts+Center+Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Inema Arts Center">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="culture art">
+            <img src="images/place3.jpg" alt="Niyo Art Gallery" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Niyo Art Gallery">★★★★☆</div>
+              <h4 data-key="exp_niyo_title">Niyo Art Gallery</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_niyo_desc">Community-based gallery teaching traditional dancing, drumming, and performance to disadvantaged children and street kids. Hosts 17 artists-in-residence from Great Lakes region. Collection of paintings, sculptures, crafts, with workshop space.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_niyo_hours">Daily 8:00 AM - 11:00 PM</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_niyo_addr">Address: KG 572 St / KG 513 St, Gisozi, Gasabo, Kigali</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 796 607 877</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Niyo+Art+Gallery+Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Niyo Art Gallery">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="culture landmark">
+            <img src="images/place5.jpg" alt="Kigali Convention Centre" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Kigali Convention Centre">★★★★☆</div>
+              <h4 data-key="exp_kcc_title">Kigali Convention Centre</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_kcc_desc">Iconic domed landmark on KG2 Roundabout, next to Radisson Blu. Africa's Leading Conference Centre (World Travel Awards 2017). 2,600 seat auditorium, shaped like traditional Rwandan palace, lights up at night in national colors. Business hub of Kigali.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_kcc_hours">24/7 for events</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_kcc_addr">Address: Convention Centre Roundabout, KG2, Kimihurura, Kigali</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 2522 52252</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Kigali+Convention+Centre','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Kigali Convention Centre">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="culture">
+            <img src="images/place9.jpg" alt="Fazenda Sengha" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Fazenda Sengha">★★★★☆</div>
+              <h4 data-key="exp_fazenda_title">Fazenda Sengha</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_fazenda_desc">Equestrian and outdoor adventure park atop Mount Kigali in Nyamirambo. Horseback riding, trail rides, zip lines, archery, mountain biking, quad bikes. Panoramic views over Kigali city. Great for half-day getaway with café on site.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_fazenda_hours">Tue-Sun 09:00-19:00</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_fazenda_addr">Address: Mount Kigali, Rwanda</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 788 551 787</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Fazenda+Sengha+Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Fazenda Sengha">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="culture art">
+            <img src="images/place19.jpg" alt="Rwanda Art Museum" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Rwanda Art Museum">★★★★☆</div>
+              <h4 data-key="exp_ram_title">Rwanda Art Museum</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_ram_desc">Founded in 2009 in the former residence of President Juvénal Habyarimana (until 1994). Located 4km east of Kigali International Airport in Kanombe, Nyarugunga, Kicukiro. Now holds contemporary Rwandan and African art, plus exhibits on Rwandan history. Includes kids' art room.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_ram_hours">Mon-Sun 08:00-18:00</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_ram_addr">Address: KK 106 St, Kigali, Rwanda</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 730 741 093</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Rwanda+Art+Museum+Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Rwanda Art Museum">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="culture history">
+            <img src="images/kandt.jpg" alt="Kandt House Museum" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Kandt House Museum">★★★★☆</div>
+              <h4 data-key="exp_kandt_title">Kandt House Museum (Natural History Museum)</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_kandt_desc">Former home of German explorer and first colonial governor Richard Kandt (1907) on Nyarugenge Hill. Now Natural History Museum under Institute of National Museums of Rwanda. Shows evolution of life, flora/fauna of Nyungwe, Akagera, Volcanoes parks, geology of Rwanda, German-Rwanda shared history and live snakes exhibit. Best panoramic view of Mt Kigali, Mt Jali, Mt Shyorongi.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_kandt_hours">Mon-Sun 08:00-17:30</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_kandt_addr">Address: KN 90 St, Nyarugenge, Kigali</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 738 650 993</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Kandt+House+Museum+Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Kandt House Museum">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="culture">
+            <img src="images/nwt.jpg" alt="Nyamirambo Walking Tour" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Nyamirambo Walking Tour">★★★★★</div>
+              <h4 data-key="exp_nwt_title">Nyamirambo Walking Tour</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_nwt_desc">Cultural walking tour run by Nyamirambo Women's Center (NWC). Takes you through Kigali's most vibrant, multicultural neighborhood — local markets, homesteads, hair salons, mosques, tailors. You get to try local snacks, learn about women's empowerment projects. Book in advance.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_nwt_hours">Tours daily 8am-7pm</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_nwt_addr">Address: Nyamirambo Women's Center, House 22, KN 7 Avenue, Nyarugenge</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 788 351 597</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Nyamirambo+Women+Center+Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Nyamirambo Walking Tour">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EAT & DRINK -->
+      <div class="explore-category" data-category="eat drink">
+        <h4 class="explore-category-title" data-key="cat_eat">EAT & DRINK</h4>
+        <div class="explore-grid">
+          <div class="explore-item" data-tags="eat drink lounge">
+            <img src="images/place13.jpg" alt="Repub Lounge" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Repub Lounge">★★★★☆</div>
+              <h4 data-key="exp_repub_title">Repub Lounge</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_repub_desc">Good food, good people, good times — that's their motto. Trendy pub / restaurant / bar in Kimihurura popular for burgers, grills, cocktails and events. Hosts corporate gatherings, pop-ups, live art.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_repub_hours">Mon-Fri 12:00-23:00</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_repub_addr">Address: 16 KG 674 St, Kigali, Rwanda</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 788 388 333</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Repub+Lounge+Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Repub Lounge">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="eat restaurant">
+            <img src="images/place16.jpg" alt="Heaven Restaurant" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Heaven Restaurant">★★★★★</div>
+              <h4 data-key="exp_heaven_title">Heaven Restaurant & Boutique Hotel</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_heaven_desc">More than a restaurant & boutique hotel — it's a social enterprise investing in training Rwandans to be leaders in hospitality. American-owned, opened 2008 in Kiyovu, consistently ranked top in Rwanda. International fusion with local ingredients, great for romantic / business dinners.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_heaven_hours">Daily 7:00 AM - 10:30 PM</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_heaven_addr">Address: 7 KN 29 St, Kigali, Rwanda</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 788 486 581</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Heaven+Restaurant+Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Heaven Restaurant">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="eat">
+            <img src="images/place17.jpg" alt="SZY" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="SZY">★★★★☆</div>
+              <h4 data-key="exp_szy_title">SZY</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_szy_desc">Kigali's FIRST 100% plant-based fine dining restaurant. Described as a sensory vegan odyssey, multifunctional venue offering innovative high-end comfort food — miniburgers, pasta, desserts. Opened early 2026.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_szy_hours">Dinner-focused, check website</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_szy_addr">Address: 32 KG 5 Ave, Kigali, Rwanda</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> Via website</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=32+KG+5+Ave+Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="SZY">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="drink coffee">
+            <img src="images/place10.jpg" alt="Question Coffee" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Question Coffee">★★★★★</div>
+              <h4 data-key="exp_qc_title">Question Coffee</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_qc_desc">Social enterprise café and training center. They serve locally-roasted Rwandan specialty coffee grown by women farmers. All proceeds are reinvested into trainings for coffee farmers. Spacious garden, very relaxed, also offers brewing classes and latte art workshops. Rated one of the best cafes in Kigali.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_qc_hours">Mon-Fri 07:00-18:00</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_qc_addr">Address: 8 KG 8 Ave, Gishushu, Kigali</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 781 968 027</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Question+Coffee+Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Question Coffee">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="drink coffee">
+            <img src="images/place12.jpg" alt="Golden Coffee Roastery" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Golden Coffee Roastery">★★★★☆</div>
+              <h4 data-key="exp_gcr_title">Golden Coffee Roastery</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_gcr_desc">Specialty coffee roastery and cafe in Nyarutarama area. Focus on sourcing, roasting and brewing Rwanda's finest at origin. Serves espresso, iced latte, waffles, burgers, cakes. Also venue for craft experiences.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_gcr_hours">7:00 AM - 9:00 PM</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_gcr_addr">Address: Plot 34 KG 9 Ave, Kigali, Rwanda</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> Not publicly listed</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Golden+Coffee+Roastery+Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Golden Coffee Roastery">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="drink bar lounge">
+            <img src="images/pp.jpg" alt="Pili Pili" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Pili Pili">★★★★☆</div>
+              <h4 data-key="exp_pili_title">Pili Pili</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_pili_desc">Kigali institution. Vast outdoor seating, huge bar, first-floor restaurant with a view, best big-screen for live sport. Lounge music, sunset views over Kigali, divine cocktails, pizza and bistro food. Stays open late for DJs.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_pili_hours">Daily 11:00 AM - 11:00 PM</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_pili_addr">Address: Number 12 KG 303 St, Kigali</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 252 601 190</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Pili+Pili+Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Pili Pili">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="eat drink">
+            <img src="images/sun.jpg" alt="Sundowner" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Sundowner">★★★★☆</div>
+              <h4 data-key="exp_sundowner_title">Sundowner — Kigali Heights</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_sundowner_desc">Charming grill / resto-pub at Kigali Heights complex in Kimihurura. Known for mixed grills, burgers and late-night vibe. Listed as bar, bar grill and restaurant.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_sundowner_hours">Mon-Thu 8:00 AM - 12:00 AM</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_sundowner_addr">Address: KG 625 St, Kigali Heights, KG 7 Ave, Kimihurura, Kigali</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 787 395 868</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Sundowner+Kigali+Heights','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Sundowner">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NATURE & ADVENTURE -->
+      <div class="explore-category" data-category="nature">
+        <h4 class="explore-category-title" data-key="cat_nature">NATURE & ADVENTURE</h4>
+        <div class="explore-grid">
+          <div class="explore-item" data-tags="nature park wildlife">
+            <img src="images/place21.jpg" alt="Akagera National Park" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Akagera National Park">★★★★★</div>
+              <h4 data-key="exp_akagera_title">Akagera National Park</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_akagera_desc">Rwanda's only big 5 savanna park (1,122 km²) in Eastern Province, border Tanzania. Managed by African Parks since 2010. Restored with lions and rhinos reintroduced. Game drives, boat safari on Lake Ihema, birding (500 species). Just 2 hours from Kigali.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_akagera_hours">Gates 06:00-18:00</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_akagera_addr">Address: Akagera Road, Mwiri / Kayonza, Eastern Province</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 786 182 871</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Akagera+National+Park','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Akagera National Park">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="nature adventure gorillas">
+            <img src="images/place22.jpg" alt="Volcanoes National Park" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Volcanoes National Park">★★★★★</div>
+              <h4 data-key="exp_volcanoes_title">Volcanoes National Park</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_volcanoes_desc">The most famous park in Rwanda — part of Virunga Massif in Musanze, home to endangered mountain gorillas and golden monkeys. 160km², 5 volcanoes (Karisimbi, Bisoke etc). Gorilla trekking permit $1500, one hour with gorillas. Also Dian Fossey tomb hike.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_volcanoes_hours">Trekking briefing 07:00 daily</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_volcanoes_addr">Address: Kingi, Musanze, Northern Province, Rwanda</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 788 558 880</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Volcanoes+National+Park+Rwanda','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Volcanoes National Park">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="nature rainforest chimpanzees">
+            <img src="images/place24.jpg" alt="Nyungwe National Park" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Nyungwe National Park">★★★★★</div>
+              <h4 data-key="exp_nyungwe_title">Nyungwe National Park — CHIMPANZEES & RAINFOREST</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_nyungwe_desc">Largest montane rainforest in Africa (1,019 km²) in SW Rwanda bordering Burundi. Famous for Canopy Walk — 160m suspension bridge 70m above forest — chimpanzee tracking, 13 primate species, 300+ birds, waterfalls. Best biodiversity in Rwanda.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_nyungwe_hours">Daily 07:00-17:00</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_nyungwe_addr">Address: Nyungwe, Bweyeye / Rangiro, Western Province</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 788 317 027</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Nyungwe+National+Park','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Nyungwe National Park">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="nature">
+            <img src="images/place26.jpg" alt="Gishwati-Mukura" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Gishwati-Mukura">★★★★☆</div>
+              <h4 data-key="exp_gishwati_title">Gishwati-Mukura National Park and Biosphere Reserve</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_gishwati_desc">Rwanda's 4th National Park (created 2015 when two forests were joined). UNESCO Biosphere Reserve in Western Province. Home to chimpanzees, golden monkeys, 232 birds, and biodiversity corridor between Nyungwe and Volcanoes. Off-the-beaten-path, for primate tracking and conservation tourism.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_gishwati_hours">Daily 07:00-17:00</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_gishwati_addr">Address: Road, Kigeyo, Rubavu / Ngororero, Western Province</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> Via Rwanda Development Board</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Gishwati+Mukura+National+Park','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Gishwati-Mukura">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="nature adventure">
+            <img src="images/mk.jpg" alt="Mount Kigali" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Mount Kigali">★★★★☆</div>
+              <h4 data-key="exp_mk_title">Mount Kigali</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_mk_desc">Not a true mountain but Kigali's highest hill (1,853m) on the west side of town. A straight-forward hike from Nyamirambo up through local homes, galleries, Fazenda Sengha, bush sections and zipline spot at the summit. Best free sunrise/sunset viewpoint over the whole city.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_mk_hours">Open 24/7</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_mk_addr">Address: Mt. Kigali Forest, Nyarugenge, Kigali</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> Kigali Hiking Club</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Mount+Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Mount Kigali">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="nature park">
+            <img src="images/ne.jpg" alt="Nyandungu Eco-Park" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Nyandungu Eco-Park">★★★★★</div>
+              <h4 data-key="exp_nyandungu_title">Nyandungu Eco-Park (Nyandungu Urban Wetland Ecotourism Park)</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_nyandungu_desc">Kigali's newest eco-park — 121 hectares of restored urban wetland in Gasabo/Kicukiro. Boardwalks, birding hides (70+ bird species), bike trails, medicinal garden, picnic lawns, restaurant. Perfect for running, family walks. One of the most rated parks in Rwanda.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_nyandungu_hours">Daily 06:00-21:00</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_nyandungu_addr">Address: 24VW+Q4, Kigali, Urwibutso, Gasabo</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 796 607 788</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Nyandungu+Eco+Park+Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Nyandungu Eco-Park">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="nature beach">
+            <img src="images/kb.jpg" alt="Kibuye Beach" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Kibuye Beach">★★★★☆</div>
+              <h4 data-key="exp_kibuye_title">Kibuye Beach (Karongi) - Bugarama Beach</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_kibuye_desc">Second best beach town on Lake Kivu, between Gisenyi and Cyangugu, 135km west of Kigali. Small sandy & pebble public beaches where locals swim, known as beach resort with sunset views, kayaks, and access to Napoleon Island and Nyungwe nearby.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_kibuye_hours">Daily daylight</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_kibuye_addr">Address: Kibuye, Karongi District, Western Province</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> Via Cormoran Lodge</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Kibuye+Beach+Karongi','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Kibuye Beach">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="nature beach">
+            <img src="images/Gisenyi.jpg" alt="Gisenyi Beach" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Gisenyi Beach">★★★★☆</div>
+              <h4 data-key="exp_gisenyi_title">Gisenyi / Rubavu Public Beach - Lake Kivu</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_gisenyi_desc">Rwanda's most famous sandy beach on Lake Kivu's NW shore. Palm-shaded, swimming, kayaking, boat to Napoleon Island. One of Great African Lakes, safe to swim (no hippos/crocs in this part). Many resorts.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_gisenyi_hours">Daily 07:00-19:00</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_gisenyi_addr">Address: Avenue de la Revolution / Rubavu Public Beach, Gisenyi, Rubavu District</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 788 123 000</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Gisenyi+Beach+Rwanda','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Gisenyi Beach">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EVENTS -->
+      <div class="explore-category" data-category="event">
+        <h4 class="explore-category-title" data-key="cat_events">EVENTS</h4>
+        <div class="explore-grid">
+          <div class="explore-item" data-tags="event culture festival">
+            <img src="images/place27.jpg" alt="Umuganura" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Umuganura">★★★★★</div>
+              <h4 data-key="exp_umuganura_title">Umuganura — Rwanda Harvest Festival</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_umuganura_desc">1,000-year-old harvest thanksgiving, now a public holiday on first Friday of August. Government through Rwanda Academy of Language and Culture organizes week-long arts festivals — traditional Intore dance, exhibitions of crafts, painting, film & music, conferences. Symbolizes gratitude and sharing harvest.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_umuganura_hours">First Friday in August</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_umuganura_addr">Address: Nationwide — main national ceremony rotates</span></span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Umuganura">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="event health">
+            <img src="images/cf.jpg" alt="Car Free Day" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Car Free Day">★★★★★</div>
+              <h4 data-key="exp_cfd_title">Car Free Day (Kigali Car Free Day)</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_cfd_desc">Kigali's famous bi-monthly health day. City closes KN4 Avenue / KG 9 Ave between City Hall, Makuza Plaza, Bank of Kigali to cars from 7am-11am. Free Zumba, aerobics, yoga, cycling, medical checkups. President Kagame often joins. Held twice a month — 1st and 3rd Sunday of each month.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_cfd_hours">Every 1st & 3rd Sunday, 07:00-11:00</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_cfd_addr">Kigali Car-Free Zone, KN4 Avenue / KG 9 Ave, Nyarugenge, Kigali</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> City of Kigali</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Kigali+Car+Free+Zone','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Car Free Day">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="event sport cycling">
+            <img src="images/place29.jpg" alt="Tour du Rwanda" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Tour du Rwanda">★★★★★</div>
+              <h4 data-key="exp_tdr_title">Tour du Rwanda</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_tdr_desc">Africa's biggest cycling race, UCI 2.1, 8 stages across Land of Thousand Hills. 18th edition in 2026 covered Rukomo → Rwamagana → Nyamata → Huye → Rusizi → Karongi → Rubavu → Musanze → Kigali (22 Feb - 1 March 2026). Climbs, elevation 2,190m, international pro teams.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_tdr_hours">Annually Feb-March — 2026: Feb 22 - March 1</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_tdr_addr">Starts at Amahoro Stadium prologue, finishes in Kigali</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> Tour du Rwanda Org</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Amahoro+Stadium+Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Tour du Rwanda">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="event sport">
+            <img src="images/place31.jpg" alt="Kigali Peace Marathon" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Kigali Peace Marathon">★★★★★</div>
+              <h4 data-key="exp_kipm_title">Kigali International Peace Marathon</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_kipm_desc">Africa's respected road race, now 21st edition. For first time in 2026 expanded to 2-day format June 13-14. 10km Run for Peace, Half Marathon, Full Marathon. Thousands of international runners, course records broken in 2026. Celebrates peace, unity, healthy living.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_kipm_hours">Annually in June — 2026: June 13-14</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_kipm_addr">Start/Finish: Amahoro Stadium, KG 17 Avenue, Kigali</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 788 300 000</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Amahoro+Stadium+Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Kigali Peace Marathon">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="event community">
+            <img src="images/ud.jpg" alt="Umuganda" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Umuganda">★★★★★</div>
+              <h4 data-key="exp_umuganda_title">Umuganda Day</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_umuganda_desc">Rwanda's monthly national community work day — a home-grown solution. Every last Saturday of the month 08:00-11:00, everyone cleans streets, plants trees, builds. Businesses closed until 11am, traffic restricted. Embodies unity and cleanliness.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_umuganda_hours">Last Saturday of every month, 08:00-11:00</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_umuganda_addr">Nationwide — Every village / cell</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> Local district offices</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Kigali+City+Hall','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Umuganda">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="event culture festival">
+            <img src="images/uaf.jpg" alt="Ubumuntu Arts Festival" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Ubumuntu Arts Festival">★★★★★</div>
+              <h4 data-key="exp_uaf_title">Ubumuntu Arts Festival</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_uaf_desc">Created 2015 by Hope Azeda (Mashirika Performing Arts), held at the Amphitheatre of Kigali Genocide Memorial. Theme: “I am because you are”. Theatre, dance, music, truth & resilience from 13+ countries. Free workshops, Ikaze Night welcome. Most emotional festival in Rwanda.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_uaf_hours">Annually in July — 12th edition: July 13-19, 2026</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_uaf_addr">Amphitheatre, Kigali Genocide Memorial, KG 14 Ave, Gisozi, Gasabo, Kigali</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 788 595 545</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Kigali+Genocide+Memorial+Amphitheatre','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Ubumuntu Arts Festival">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="event music festival">
+            <img src="images/kmf.jpg" alt="Kigali Up" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Kigali Up">★★★★☆</div>
+              <h4 data-key="exp_kmf_title">Kigali Music Festivals (Kigali Up)</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_kmf_desc">Since 2011, Rwanda's biggest international music festival. Afro-fusion, reggae, hip-hop, blues. 30+ musicians from East Africa, France, Canada, plus lessons. Held at Amahoro Stadium parking lot / IPRC Kicukiro Cricket Grounds / Kigali Heights. Special editions with Nyundo Music School students.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_kmf_hours">Annually July-Aug — 2026: July 17-19</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_kmf_addr">Amahoro Stadium Grounds, Gasabo, Kigali / French Institute Kimihurura</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 788 400 000</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Amahoro+Stadium+Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Kigali Up">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="event music festival">
+            <img src="images/hmf.jpg" alt="Hobe Rwanda" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Hobe Rwanda">★★★★☆</div>
+              <h4 data-key="exp_hmf_title">Hobe Rwanda Music Festival</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_hmf_desc">Since 2013, much-loved cultural fixture focused on Rwandan culture. Two-day fest in September at Serena Hotel / Petit Stade / Kigali Cultural Village. Local traditional folk musicians (Mariya Yohana, Muyango, Inganzo Ngali), dance, local art, artisan market, food tasting. Real slice of Rwandan creativity.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_hmf_hours">Annually September — 2 days</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_hmf_addr">Kigali Cultural Village / Kigali Serena Hotel, Kigali</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 788 123 000</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Kigali+Serena+Hotel','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Hobe Rwanda">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="event conservation">
+            <img src="images/kig.jpg" alt="Kwita Izina" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Kwita Izina">★★★★★</div>
+              <h4 data-key="exp_ki_title">Kwita Izina — Gorilla Naming Ceremony</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_ki_desc">Rwanda's flagship conservation event. Since 2005, names nearly 400 baby gorillas. 40 babies named in 2025 (20th edition). Global leaders, football legends, artists become namers. Celebrates community-centered conservation and gorilla population growth from 880 (2012) to 1060+ now.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_ki_hours">Annually early September — 2026: Friday September 4</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_ki_addr">Foothills of Volcanoes National Park, Kinigi, Musanze District, Northern Province</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 788 350 000</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Kinigi+Volcanoes+National+Park','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Kwita Izina">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="event commemoration">
+            <img src="images/kgc.jpg" alt="Kwibuka" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Kwibuka">★★★★★</div>
+              <h4 data-key="exp_kwibuka_title">Kwibuka — Genocide Commemoration & Rwanda Film Festival</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_kwibuka_desc">Kwibuka (Remember) is Rwanda's most significant national period — 100 days of commemoration April 7-July 4 for Genocide Against Tutsi. National ceremony at Kigali Genocide Memorial hosts world leaders. Also hosts Rwanda Film Festival (Hillywood) — Africa's premier film fest in Kigali.</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-clock"></i> <span data-key="exp_kwibuka_hours">April 7 - July 4 annually</span></span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> <span data-key="exp_kwibuka_addr">Kigali Genocide Memorial, KG 14 Ave, Gisozi — and BK Arena for national ceremony</span></span>
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact:</span> +250 784 651 051</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Kigali+Genocide+Memorial','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Kwibuka">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="explore-category" data-category="service">
+        <h4 class="explore-category-title" data-key="cat_services">SERVICES</h4>
+        <div class="explore-grid">
+          <div class="explore-item" data-tags="service transport">
+            <img src="images/car.jpg" alt="Car Hire" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Car Hire">★★★★★</div>
+              <h4 data-key="exp_carhire_title">Car Hire Service</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_carhire_desc">We make getting around Rwanda easy and comfortable! We offer: ✓ Airport Pickup & Drop-off (Kigali International Airport) ✓ Full-Day Car Hire with Driver ✓ Half-Day & Hourly Hire ✓ City Tours & Inter-city Transfers ✓ Gorillas, Akagera & Lake Kivu Trips ✓ Clean, Comfortable & Well-Maintained Cars Safe, Reliable, Affordable — Available 24/7</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Book Now:</span> +250 799 525 754 Call / WhatsApp</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Car Hire">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explore-item" data-tags="service guide">
+            <img src="images/ptg.jpg" alt="Tour Guide" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Tour Guide">★★★★★</div>
+              <h4 data-key="exp_tg_title">PROFESSIONAL TOUR GUIDE SERVICES</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_tg_desc">Explore Rwanda with a Local Expert! Planning to discover Kigali & beyond? Let our experienced, friendly tour guides make your trip unforgettable. We offer Guided Tours To: ✓ Kigali City Tour (Genocide Memorial, Markets, Art Galleries) ✓ Volcanoes, Nyungwe, Akagera & Lake Kivu Tours ✓ Culture, History & Nature Experiences ✓ Hiking, Canopy Walk & Gorilla Trekking Support ✓ Translation & Local Insights Knowledgeable • Friendly • Professional • Affordable</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Need a Tour Guide? Contact Customer Care:</span> 
+                <br>+250 799 525 754 Call / WhatsApp — 24/7</br></span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Kigali','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Tour Guide">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HELP & SAFETY -->
+      <div class="explore-category" data-category="service">
+        <h4 class="explore-category-title" data-key="cat_safety">HELP AND SAFETY</h4>
+        <div class="explore-grid">
+          <div class="explore-item" data-tags="service emergency">
+            <img src="images/has.jpg" alt="Help and Safety" class="explore-image" />
+            <div class="explore-text">
+              <div class="rating-display" data-place="Help and Safety">★★★★★</div>
+              <h4 data-key="exp_safety_title">HELP AND SAFETY</h4>
+              <div class="desc-line"></div>
+              <p data-key="exp_safety_desc">The following contacts are accessible in place of emergency 113 - Traffic Police 3511 - Police Conduct Complaint / GBV hotline 912 - SAMU Ambulance (Main) 114 - Ambulance Alternative</p>
+              <div class="card-footer">
+                <span class="meta-item"><i class="fas fa-phone"></i> <span data-key="exp_contact_label">Contact Customer Care :</span> +250 799 525 754</span>
+              </div>
+              <button class="directions-btn" onclick="window.open('https://maps.google.com/?q=Rwanda','_blank')"><i class="fas fa-directions"></i> <span data-key="btn_directions">Get Directions</span></button>
+              <div class="review-section" data-place="Help and Safety">
+                <div class="review-list"></div>
+                <div class="review-input-group">
+                  <input type="text" placeholder="Write a review..." class="review-input" />
+                  <button class="review-submit">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT SECTION ─── -->
+  <section class="section-padding" style="background:var(--bg-white);" id="contact">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title"><span data-key="contact_title">SAY</span> <span data-key="contact_title2">HELLO</span></h2>
+        <p class="section-subtitle" data-key="contact_sub">We would love to hear from you. Whether you want to set up your City Concierge QR code or need a team to handle your guests 24/7, we are ready. We were your guests first. Now we help you keep yours.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:6px; margin-bottom:20px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <i class="fas fa-map-marker-alt" style="color:var(--primary); font-size:1.2rem;"></i>
+          <span data-key="contact_address">Kk 101 St, Umushumba Mwiza</span>
+        </div>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center; max-width:700px; margin:0 auto;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <i class="fas fa-phone-alt" style="color:var(--primary);"></i>
+          <span>+250 799 525 754</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <i class="fas fa-envelope" style="color:var(--primary);"></i>
+          <span>hello@inventedapproach.com</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <i class="fab fa-whatsapp" style="color:#25D366;"></i>
+          <span>+250 799 525 754 (WhatsApp)</span>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:30px;">
+        <a href="mailto:hello@inventedapproach.com" class="btn-primary"><i class="fas fa-paper-plane"></i> <span data-key="contact_btn">Send a Message</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHATSAPP FLOAT ─── -->
+  <a href="https://wa.me/250799525754" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp" style="position:fixed; bottom:28px; right:28px; z-index:999; background:#25D366; color:#fff; width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2.4rem; box-shadow:0 6px 30px rgba(37,211,102,0.35); transition:0.4s cubic-bezier(0.25,0.46,0.45,0.94); border:none; cursor:pointer;">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html">
+          <img src="images/logo.jpg" alt="invented approach logo" class="logo" />
+        </a>
+        <span data-key="footer_copy">&copy; 2026 invented approach. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── LIGHTBOX ─── (kept but images are unclickable) -->
+  <div class="image-lightbox" id="imageLightbox" onclick="closeLightbox()">
+    <button class="close-lightbox" onclick="closeLightbox()">&times;</button>
+    <img id="lightboxImage" src="" alt="Place Image" />
+  </div>
+
+  <script>
+    // ─── QR CODE HASH DETECTION ───
+    (function checkQRHash() {
+      const hash = window.location.hash;
+      if (hash && hash.toLowerCase() === '#concierge') {
+        const banner = document.getElementById('qrBanner');
+        if (banner) banner.style.display = 'block';
+        // optionally scroll to explore section after a moment
+        setTimeout(() => {
+          const explore = document.getElementById('explore');
+          if (explore) explore.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+      }
+    })();
+
+    // ─── IMAGE LIGHTBOX ─── (kept but images are unclickable)
+    function openLightbox(src, alt) {
+      // intentionally empty
+    }
+    function closeLightbox() {
+      const lightbox = document.getElementById('imageLightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // ─── HAMBURGER ───
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navLinks.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('open');
+          navLinks.classList.remove('open');
+        });
+      });
+
+      // ─── HEADER SCROLL ───
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+      });
+
+      // ─── REVIEW SYSTEM ───
+      document.querySelectorAll('.review-section').forEach(section => {
+        const list = section.querySelector('.review-list');
+        const input = section.querySelector('.review-input');
+        const submitBtn = section.querySelector('.review-submit');
+        const place = section.dataset.place || 'Place';
+
+        // load reviews from localStorage
+        const storageKey = 'reviews_' + place.replace(/\s/g, '_');
+        let reviews = JSON.parse(localStorage.getItem(storageKey) || '[]').map(review =>
+          typeof review === 'string'
+            ? { id: `${Date.now()}-${Math.random()}`, text: review }
+            : review
+        );
+
+        const renderReviews = () => {
+          list.replaceChildren();
+          reviews.forEach(review => {
+            const item = document.createElement('p');
+            const icon = document.createElement('i');
+            const text = document.createElement('span');
+            const deleteBtn = document.createElement('button');
+
+            icon.className = 'fas fa-user-circle';
+            text.textContent = review.text;
+            deleteBtn.className = 'review-delete';
+            deleteBtn.type = 'button';
+            deleteBtn.title = 'Delete review';
+            deleteBtn.setAttribute('aria-label', 'Delete review');
+            deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+            deleteBtn.addEventListener('click', () => {
+              reviews = reviews.filter(savedReview => savedReview.id !== review.id);
+              localStorage.setItem(storageKey, JSON.stringify(reviews));
+              renderReviews();
+            });
+
+            item.append(icon, text, deleteBtn);
+            list.appendChild(item);
+          });
+        };
+
+        localStorage.setItem(storageKey, JSON.stringify(reviews));
+        renderReviews();
+
+        submitBtn.addEventListener('click', () => {
+          const text = input.value.trim();
+          if (!text) return;
+          reviews.push({ id: `${Date.now()}-${Math.random()}`, text });
+          localStorage.setItem(storageKey, JSON.stringify(reviews));
+          renderReviews();
+          input.value = '';
+        });
+        input.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') submitBtn.click();
+        });
+      });
+
+      // ─── LANGUAGE TOGGLE ───
+      const translations = {
+        en: {
+          nav_home: 'Home', nav_explore: 'Explore', nav_contact: 'Contact',
+          back_home: 'Back to Home', hero_title: 'CITY', hero_title2: 'CONCIERGE',
+          hero_desc: 'Your curated guide to the best of Rwandan restaurants, culture, nature, events, and services, all in one place.',
+          hero_btn: 'Start Exploring', search_placeholder: 'Search for places, activities...',
+          filter_all: 'All', filter_eat: 'Eat', filter_drink: 'Drink', filter_culture: 'Culture',
+          filter_nature: 'Nature', filter_event: 'Events', filter_service: 'Services',
+          cat_culture: 'CULTURE & HISTORY', cat_eat: 'EAT & DRINK',
+          cat_nature: 'NATURE & ADVENTURE', cat_events: 'EVENTS',
+          cat_services: 'SERVICES', cat_safety: 'HELP AND SAFETY',
+          exp_contact_label: 'Contact:', exp_hours_label: 'Hours:',
+          btn_directions: 'Get Directions',
+          exp_kigali_title: 'Kigali Genocide Memorial',
+          exp_kigali_desc: 'The most important memorial in Rwanda. Built in Gisozi, 10 mins from city centre, it commemorates the 1994 Genocide Against the Tutsi. Over 250,000 victims are interred here in mass graves. Visitor centre has three permanent exhibitions on history leading up to genocide, managed by Aegis Trust and Kigali City Council. A place of remembrance and learning, photography inside is prohibited.',
+          exp_kigali_addr: 'KG 14 Ave, Kigali, Rwanda', exp_kigali_hours: 'Daily 09:00-16:00',
+          exp_inema_title: 'Inema Arts Center',
+          exp_inema_desc: 'Founded in 2012 by brothers Emmanuel Nkuranga and Innocent Nkurunziza, Kigali\'s leading contemporary art hub. Provides space for 10 artists-in-residence, gallery, and weekly traditional dance classes. Vibrant murals outside, paintings, sculptures inside, mission is to spur creativity for social and economic growth.',
+          exp_inema_addr: 'Address: KG 563 St, Kigali, Rwanda', exp_inema_hours: 'Daily 08:00 AM - 08:00 PM',
+          exp_niyo_title: 'Niyo Art Gallery',
+          exp_niyo_desc: 'Community-based gallery teaching traditional dancing, drumming, and performance to disadvantaged children and street kids. Hosts 17 artists-in-residence from Great Lakes region. Collection of paintings, sculptures, crafts, with workshop space.',
+          exp_niyo_addr: 'Address: KG 572 St / KG 513 St, Gisozi, Gasabo, Kigali', exp_niyo_hours: 'Daily 8:00 AM - 11:00 PM',
+          exp_kcc_title: 'Kigali Convention Centre',
+          exp_kcc_desc: 'Iconic domed landmark on KG2 Roundabout, next to Radisson Blu. Africa\'s Leading Conference Centre (World Travel Awards 2017). 2,600 seat auditorium, shaped like traditional Rwandan palace, lights up at night in national colors. Business hub of Kigali.',
+          exp_kcc_addr: 'Address: Convention Centre Roundabout, KG2, Kimihurura, Kigali', exp_kcc_hours: '24/7 for events',
+          exp_fazenda_title: 'Fazenda Sengha',
+          exp_fazenda_desc: 'Equestrian and outdoor adventure park atop Mount Kigali in Nyamirambo. Horseback riding, trail rides, zip lines, archery, mountain biking, quad bikes. Panoramic views over Kigali city. Great for half-day getaway with café on site.',
+          exp_fazenda_addr: 'Address: Mount Kigali, Rwanda', exp_fazenda_hours: 'Tue-Sun 09:00-19:00',
+          exp_ram_title: 'Rwanda Art Museum',
+          exp_ram_desc: 'Founded in 2009 in the former residence of President Juvénal Habyarimana (until 1994). Located 4km east of Kigali International Airport in Kanombe, Nyarugunga, Kicukiro. Now holds contemporary Rwandan and African art, plus exhibits on Rwandan history. Includes kids\' art room.',
+          exp_ram_addr: 'Address: KK 106 St, Kigali, Rwanda', exp_ram_hours: 'Mon-Sun 08:00-18:00',
+          exp_kandt_title: 'Kandt House Museum (Natural History Museum)',
+          exp_kandt_desc: 'Former home of German explorer and first colonial governor Richard Kandt (1907) on Nyarugenge Hill. Now Natural History Museum under Institute of National Museums of Rwanda. Shows evolution of life, flora/fauna of Nyungwe, Akagera, Volcanoes parks, geology of Rwanda, German-Rwanda shared history and live snakes exhibit. Best panoramic view of Mt Kigali, Mt Jali, Mt Shyorongi.',
+          exp_kandt_addr: 'Address: KN 90 St, Nyarugenge, Kigali', exp_kandt_hours: 'Mon-Sun 08:00-17:30',
+          exp_nwt_title: 'Nyamirambo Walking Tour',
+          exp_nwt_desc: 'Cultural walking tour run by Nyamirambo Women\'s Center (NWC). Takes you through Kigali\'s most vibrant, multicultural neighborhood — local markets, homesteads, hair salons, mosques, tailors. You get to try local snacks, learn about women\'s empowerment projects. Book in advance.',
+          exp_nwt_addr: 'Address: Nyamirambo Women\'s Center, House 22, KN 7 Avenue, Nyarugenge', exp_nwt_hours: 'Tours daily 8am-7pm',
+          exp_repub_title: 'Repub Lounge',
+          exp_repub_desc: 'Good food, good people, good times — that\'s their motto. Trendy pub / restaurant / bar in Kimihurura popular for burgers, grills, cocktails and events. Hosts corporate gatherings, pop-ups, live art.',
+          exp_repub_addr: 'Address: 16 KG 674 St, Kigali, Rwanda', exp_repub_hours: 'Mon-Fri 12:00-23:00',
+          exp_heaven_title: 'Heaven Restaurant & Boutique Hotel',
+          exp_heaven_desc: 'More than a restaurant & boutique hotel — it\'s a social enterprise investing in training Rwandans to be leaders in hospitality. American-owned, opened 2008 in Kiyovu, consistently ranked top in Rwanda. International fusion with local ingredients, great for romantic / business dinners.',
+          exp_heaven_addr: 'Address: 7 KN 29 St, Kigali, Rwanda', exp_heaven_hours: 'Daily 7:00 AM - 10:30 PM',
+          exp_szy_title: 'SZY',
+          exp_szy_desc: 'Kigali\'s FIRST 100% plant-based fine dining restaurant. Described as a sensory vegan odyssey, multifunctional venue offering innovative high-end comfort food — miniburgers, pasta, desserts. Opened early 2026.',
+          exp_szy_addr: 'Address: 32 KG 5 Ave, Kigali, Rwanda', exp_szy_hours: 'Dinner-focused, check website',
+          exp_qc_title: 'Question Coffee',
+          exp_qc_desc: 'Social enterprise café and training center. They serve locally-roasted Rwandan specialty coffee grown by women farmers. All proceeds are reinvested into trainings for coffee farmers. Spacious garden, very relaxed, also offers brewing classes and latte art workshops. Rated one of the best cafes in Kigali.',
+          exp_qc_addr: 'Address: 8 KG 8 Ave, Gishushu, Kigali', exp_qc_hours: 'Mon-Fri 07:00-18:00',
+          exp_gcr_title: 'Golden Coffee Roastery',
+          exp_gcr_desc: 'Specialty coffee roastery and cafe in Nyarutarama area. Focus on sourcing, roasting and brewing Rwanda\'s finest at origin. Serves espresso, iced latte, waffles, burgers, cakes. Also venue for craft experiences.',
+          exp_gcr_addr: 'Address: Plot 34 KG 9 Ave, Kigali, Rwanda', exp_gcr_hours: '7:00 AM - 9:00 PM',
+          exp_pili_title: 'Pili Pili',
+          exp_pili_desc: 'Kigali institution. Vast outdoor seating, huge bar, first-floor restaurant with a view, best big-screen for live sport. Lounge music, sunset views over Kigali, divine cocktails, pizza and bistro food. Stays open late for DJs.',
+          exp_pili_addr: 'Address: Number 12 KG 303 St, Kigali', exp_pili_hours: 'Daily 11:00 AM - 11:00 PM',
+          exp_sundowner_title: 'Sundowner — Kigali Heights',
+          exp_sundowner_desc: 'Charming grill / resto-pub at Kigali Heights complex in Kimihurura. Known for mixed grills, burgers and late-night vibe. Listed as bar, bar grill and restaurant.',
+          exp_sundowner_addr: 'Address: KG 625 St, Kigali Heights, KG 7 Ave, Kimihurura, Kigali', exp_sundowner_hours: 'Mon-Thu 8:00 AM - 12:00 AM',
+          exp_akagera_title: 'Akagera National Park',
+          exp_akagera_desc: 'Rwanda\'s only big 5 savanna park (1,122 km²) in Eastern Province, border Tanzania. Managed by African Parks since 2010. Restored with lions and rhinos reintroduced. Game drives, boat safari on Lake Ihema, birding (500 species). Just 2 hours from Kigali.',
+          exp_akagera_addr: 'Address: Akagera Road, Mwiri / Kayonza, Eastern Province', exp_akagera_hours: 'Gates 06:00-18:00',
+          exp_volcanoes_title: 'Volcanoes National Park',
+          exp_volcanoes_desc: 'The most famous park in Rwanda — part of Virunga Massif in Musanze, home to endangered mountain gorillas and golden monkeys. 160km², 5 volcanoes (Karisimbi, Bisoke etc). Gorilla trekking permit $1500, one hour with gorillas. Also Dian Fossey tomb hike.',
+          exp_volcanoes_addr: 'Address: Kingi, Musanze, Northern Province, Rwanda', exp_volcanoes_hours: 'Trekking briefing 07:00 daily',
+          exp_nyungwe_title: 'Nyungwe National Park — CHIMPANZEES & RAINFOREST',
+          exp_nyungwe_desc: 'Largest montane rainforest in Africa (1,019 km²) in SW Rwanda bordering Burundi. Famous for Canopy Walk — 160m suspension bridge 70m above forest — chimpanzee tracking, 13 primate species, 300+ birds, waterfalls. Best biodiversity in Rwanda.',
+          exp_nyungwe_addr: 'Address: Nyungwe, Bweyeye / Rangiro, Western Province', exp_nyungwe_hours: 'Daily 07:00-17:00',
+          exp_gishwati_title: 'Gishwati-Mukura National Park and Biosphere Reserve',
+          exp_gishwati_desc: 'Rwanda\'s 4th National Park (created 2015 when two forests were joined). UNESCO Biosphere Reserve in Western Province. Home to chimpanzees, golden monkeys, 232 birds, and biodiversity corridor between Nyungwe and Volcanoes. Off-the-beaten-path, for primate tracking and conservation tourism.',
+          exp_gishwati_addr: 'Address: Road, Kigeyo, Rubavu / Ngororero, Western Province', exp_gishwati_hours: 'Daily 07:00-17:00',
+          exp_mk_title: 'Mount Kigali',
+          exp_mk_desc: 'Not a true mountain but Kigali\'s highest hill (1,853m) on the west side of town. A straight-forward hike from Nyamirambo up through local homes, galleries, Fazenda Sengha, bush sections and zipline spot at the summit. Best free sunrise/sunset viewpoint over the whole city.',
+          exp_mk_addr: 'Address: Mt. Kigali Forest, Nyarugenge, Kigali', exp_mk_hours: 'Open 24/7',
+          exp_nyandungu_title: 'Nyandungu Eco-Park (Nyandungu Urban Wetland Ecotourism Park)',
+          exp_nyandungu_desc: 'Kigali\'s newest eco-park — 121 hectares of restored urban wetland in Gasabo/Kicukiro. Boardwalks, birding hides (70+ bird species), bike trails, medicinal garden, picnic lawns, restaurant. Perfect for running, family walks. One of the most rated parks in Rwanda.',
+          exp_nyandungu_addr: 'Address: 24VW+Q4, Kigali, Urwibutso, Gasabo', exp_nyandungu_hours: 'Daily 06:00-21:00',
+          exp_kibuye_title: 'Kibuye Beach (Karongi) - Bugarama Beach',
+          exp_kibuye_desc: 'Second best beach town on Lake Kivu, between Gisenyi and Cyangugu, 135km west of Kigali. Small sandy & pebble public beaches where locals swim, known as beach resort with sunset views, kayaks, and access to Napoleon Island and Nyungwe nearby.',
+          exp_kibuye_addr: 'Address: Kibuye, Karongi District, Western Province', exp_kibuye_hours: 'Daily daylight',
+          exp_gisenyi_title: 'Gisenyi / Rubavu Public Beach - Lake Kivu',
+          exp_gisenyi_desc: 'Rwanda\'s most famous sandy beach on Lake Kivu\'s NW shore. Palm-shaded, swimming, kayaking, boat to Napoleon Island. One of Great African Lakes, safe to swim (no hippos/crocs in this part). Many resorts.',
+          exp_gisenyi_addr: 'Address: Avenue de la Revolution / Rubavu Public Beach, Gisenyi, Rubavu District', exp_gisenyi_hours: 'Daily 07:00-19:00',
+          exp_umuganura_title: 'Umuganura — Rwanda Harvest Festival',
+          exp_umuganura_desc: '1,000-year-old harvest thanksgiving, now a public holiday on first Friday of August. Government through Rwanda Academy of Language and Culture organizes week-long arts festivals — traditional Intore dance, exhibitions of crafts, painting, film & music, conferences. Symbolizes gratitude and sharing harvest.',
+          exp_umuganura_addr: 'Address: Nationwide — main national ceremony rotates', exp_umuganura_hours: 'First Friday in August',
+          exp_cfd_title: 'Car Free Day (Kigali Car Free Day)',
+          exp_cfd_desc: 'Kigali\'s famous bi-monthly health day. City closes KN4 Avenue / KG 9 Ave between City Hall, Makuza Plaza, Bank of Kigali to cars from 7am-11am. Free Zumba, aerobics, yoga, cycling, medical checkups. President Kagame often joins. Held twice a month — 1st and 3rd Sunday of each month.',
+          exp_cfd_addr: 'Kigali Car-Free Zone, KN4 Avenue / KG 9 Ave, Nyarugenge, Kigali', exp_cfd_hours: 'Every 1st & 3rd Sunday, 07:00-11:00',
+          exp_tdr_title: 'Tour du Rwanda',
+          exp_tdr_desc: 'Africa\'s biggest cycling race, UCI 2.1, 8 stages across Land of Thousand Hills. 18th edition in 2026 covered Rukomo → Rwamagana → Nyamata → Huye → Rusizi → Karongi → Rubavu → Musanze → Kigali (22 Feb - 1 March 2026). Climbs, elevation 2,190m, international pro teams.',
+          exp_tdr_addr: 'Starts at Amahoro Stadium prologue, finishes in Kigali', exp_tdr_hours: 'Annually Feb-March — 2026: Feb 22 - March 1',
+          exp_kipm_title: 'Kigali International Peace Marathon',
+          exp_kipm_desc: 'Africa\'s respected road race, now 21st edition. For first time in 2026 expanded to 2-day format June 13-14. 10km Run for Peace, Half Marathon, Full Marathon. Thousands of international runners, course records broken in 2026. Celebrates peace, unity, healthy living.',
+          exp_kipm_addr: 'Start/Finish: Amahoro Stadium, KG 17 Avenue, Kigali', exp_kipm_hours: 'Annually in June — 2026: June 13-14',
+          exp_umuganda_title: 'Umuganda Day',
+          exp_umuganda_desc: 'Rwanda\'s monthly national community work day — a home-grown solution. Every last Saturday of the month 08:00-11:00, everyone cleans streets, plants trees, builds. Businesses closed until 11am, traffic restricted. Embodies unity and cleanliness.',
+          exp_umuganda_addr: 'Nationwide — Every village / cell', exp_umuganda_hours: 'Last Saturday of every month, 08:00-11:00',
+          exp_uaf_title: 'Ubumuntu Arts Festival',
+          exp_uaf_desc: 'Created 2015 by Hope Azeda (Mashirika Performing Arts), held at the Amphitheatre of Kigali Genocide Memorial. Theme: “I am because you are”. Theatre, dance, music, truth & resilience from 13+ countries. Free workshops, Ikaze Night welcome. Most emotional festival in Rwanda.',
+          exp_uaf_addr: 'Amphitheatre, Kigali Genocide Memorial, KG 14 Ave, Gisozi, Gasabo, Kigali', exp_uaf_hours: 'Annually in July — 12th edition: July 13-19, 2026',
+          exp_kmf_title: 'Kigali Music Festivals (Kigali Up)',
+          exp_kmf_desc: 'Since 2011, Rwanda\'s biggest international music festival. Afro-fusion, reggae, hip-hop, blues. 30+ musicians from East Africa, France, Canada, plus lessons. Held at Amahoro Stadium parking lot / IPRC Kicukiro Cricket Grounds / Kigali Heights. Special editions with Nyundo Music School students.',
+          exp_kmf_addr: 'Amahoro Stadium Grounds, Gasabo, Kigali / French Institute Kimihurura', exp_kmf_hours: 'Annually July-Aug — 2026: July 17-19',
+          exp_hmf_title: 'Hobe Rwanda Music Festival',
+          exp_hmf_desc: 'Since 2013, much-loved cultural fixture focused on Rwandan culture. Two-day fest in September at Serena Hotel / Petit Stade / Kigali Cultural Village. Local traditional folk musicians (Mariya Yohana, Muyango, Inganzo Ngali), dance, local art, artisan market, food tasting. Real slice of Rwandan creativity.',
+          exp_hmf_addr: 'Kigali Cultural Village / Kigali Serena Hotel, Kigali', exp_hmf_hours: 'Annually September — 2 days',
+          exp_ki_title: 'Kwita Izina — Gorilla Naming Ceremony',
+          exp_ki_desc: 'Rwanda\'s flagship conservation event. Since 2005, names nearly 400 baby gorillas. 40 babies named in 2025 (20th edition). Global leaders, football legends, artists become namers. Celebrates community-centered conservation and gorilla population growth from 880 (2012) to 1060+ now.',
+          exp_ki_addr: 'Foothills of Volcanoes National Park, Kinigi, Musanze District, Northern Province', exp_ki_hours: 'Annually early September — 2026: Friday September 4',
+          exp_kwibuka_title: 'Kwibuka — Genocide Commemoration & Rwanda Film Festival',
+          exp_kwibuka_desc: 'Kwibuka (Remember) is Rwanda\'s most significant national period — 100 days of commemoration April 7-July 4 for Genocide Against Tutsi. National ceremony at Kigali Genocide Memorial hosts world leaders. Also hosts Rwanda Film Festival (Hillywood) — Africa\'s premier film fest in Kigali.',
+          exp_kwibuka_addr: 'Kigali Genocide Memorial, KG 14 Ave, Gisozi — and BK Arena for national ceremony', exp_kwibuka_hours: 'April 7 - July 4 annually',
+          exp_carhire_title: 'Car Hire Service',
+          exp_carhire_desc: 'We make getting around Rwanda easy and comfortable! We offer: ✓ Airport Pickup & Drop-off (Kigali International Airport) ✓ Full-Day Car Hire with Driver ✓ Half-Day & Hourly Hire ✓ City Tours & Inter-city Transfers ✓ Gorillas, Akagera & Lake Kivu Trips ✓ Clean, Comfortable & Well-Maintained Cars Safe, Reliable, Affordable — Available 24/7',
+          exp_tg_title: 'PROFESSIONAL TOUR GUIDE SERVICES',
+          exp_tg_desc: 'Explore Rwanda with a Local Expert! Planning to discover Kigali & beyond? Let our experienced, friendly tour guides make your trip unforgettable. We offer Guided Tours To: ✓ Kigali City Tour (Genocide Memorial, Markets, Art Galleries) ✓ Volcanoes, Nyungwe, Akagera & Lake Kivu Tours ✓ Culture, History & Nature Experiences ✓ Hiking, Canopy Walk & Gorilla Trekking Support ✓ Translation & Local Insights Knowledgeable • Friendly • Professional • Affordable',
+          exp_safety_title: 'HELP AND SAFETY',
+          exp_safety_desc: 'The following contacts are accessible in place of emergency 113 - Traffic Police 3511 - Police Conduct Complaint / GBV hotline 912 - SAMU Ambulance (Main) 114 - Ambulance Alternative',
+          contact_title: 'SAY', contact_title2: 'HELLO',
+          contact_sub: 'We would love to hear from you. Whether you want to set up your City Concierge QR code or need a team to handle your guests 24/7, we are ready. We were your guests first. Now we help you keep yours.',
+          contact_address: 'Kk 101 St, Umushumba Mwiza', contact_btn: 'Send a Message',
+          back_home_btn: 'Back to Home', footer_copy: '© 2026 invented approach. All rights reserved.',
+          footer_home: '← Back to Homepage'
+        },
+        fr: {
+          nav_home: 'Accueil', nav_explore: 'Explorer', nav_contact: 'Contact',
+          back_home: 'Retour à l\'accueil', hero_title: 'CITY', hero_title2: 'CONCIERGE',
+          hero_desc: 'Votre guide des meilleurs endroits du Rwanda — restaurants, culture, nature, événements et services, tous au même endroit. Propulsé par Invented Approach.',
+          hero_btn: 'Commencer à explorer', search_placeholder: 'Rechercher des lieux, activités...',
+          filter_all: 'Tous', filter_eat: 'Manger', filter_drink: 'Boire', filter_culture: 'Culture',
+          filter_nature: 'Nature', filter_event: 'Événements', filter_service: 'Services',
+          cat_culture: 'CULTURE & HISTOIRE', cat_eat: 'MANGER & BOIRE',
+          cat_nature: 'NATURE & AVENTURE', cat_events: 'ÉVÉNEMENTS',
+          cat_services: 'SERVICES', cat_safety: 'AIDE ET SÉCURITÉ',
+          exp_contact_label: 'Contact :', exp_hours_label: 'Horaires :',
+          btn_directions: 'Itinéraire',
+          exp_kigali_title: 'Mémorial du génocide de Kigali',
+          exp_kigali_desc: 'Le mémorial le plus important du Rwanda. Construit à Gisozi, à 10 min du centre-ville, il commémore le génocide des Tutsis de 1994. Plus de 250 000 victimes y sont enterrées dans des fosses communes. Le centre des visiteurs propose trois expositions permanentes sur l\'histoire précédant le génocide, gérées par l\'Aegis Trust et la ville de Kigali. Un lieu de mémoire et d\'apprentissage, la photographie à l\'intérieur est interdite.',
+          exp_kigali_addr: 'KG 14 Ave, Kigali, Rwanda', exp_kigali_hours: 'Tous les jours 09:00-16:00',
+          exp_inema_title: 'Inema Arts Center',
+          exp_inema_desc: 'Fondé en 2012 par les frères Emmanuel Nkuranga et Innocent Nkurunziza, le principal centre d\'art contemporain de Kigali. Offre un espace pour 10 artistes en résidence, une galerie et des cours de danse traditionnelle hebdomadaires. Fresques vibrantes à l\'extérieur, peintures, sculptures à l\'intérieur, la mission est de stimuler la créativité pour la croissance sociale et économique.',
+          exp_inema_addr: 'Adresse : KG 563 St, Kigali, Rwanda', exp_inema_hours: 'Tous les jours 08h00 - 20h00',
+          exp_niyo_title: 'Niyo Art Gallery',
+          exp_niyo_desc: 'Galerie communautaire enseignant la danse traditionnelle, les tambours et la performance aux enfants défavorisés et aux enfants des rues. Accueille 17 artistes en résidence de la région des Grands Lacs. Collection de peintures, sculptures, artisanat, avec espace de travail.',
+          exp_niyo_addr: 'Adresse : KG 572 St / KG 513 St, Gisozi, Gasabo, Kigali', exp_niyo_hours: 'Tous les jours 8h00 - 23h00',
+          exp_kcc_title: 'Centre des congrès de Kigali',
+          exp_kcc_desc: 'Point de repère emblématique en forme de dôme sur le rond-point KG2, à côté du Radisson Blu. Meilleur centre de conférences d\'Afrique (World Travel Awards 2017). Auditorium de 2 600 places, en forme de palais rwandais traditionnel, s\'illumine la nuit aux couleurs nationales. Centre d\'affaires de Kigali.',
+          exp_kcc_addr: 'Adresse : Rond-point du Centre des congrès, KG2, Kimihurura, Kigali', exp_kcc_hours: '24h/24 pour les événements',
+          exp_fazenda_title: 'Fazenda Sengha',
+          exp_fazenda_desc: 'Parc équestre et d\'aventure en plein air au sommet du mont Kigali à Nyamirambo. Équitation, randonnées équestres, tyroliennes, tir à l\'arc, VTT, quads. Vues panoramiques sur la ville de Kigali. Idéal pour une escapade d\'une demi-journée avec café sur place.',
+          exp_fazenda_addr: 'Adresse : Mont Kigali, Rwanda', exp_fazenda_hours: 'Mar-dim 09:00-19:00',
+          exp_ram_title: 'Musée d\'art du Rwanda',
+          exp_ram_desc: 'Fondé en 2009 dans l\'ancienne résidence du président Juvénal Habyarimana (jusqu\'en 1994). Situé à 4 km à l\'est de l\'aéroport international de Kigali à Kanombe, Nyarugunga, Kicukiro. Abrite désormais l\'art contemporain rwandais et africain, ainsi que des expositions sur l\'histoire du Rwanda. Comprend une salle d\'art pour enfants.',
+          exp_ram_addr: 'Adresse : KK 106 St, Kigali, Rwanda', exp_ram_hours: 'Lun-dim 08:00-18:00',
+          exp_kandt_title: 'Musée Kandt House (Musée d\'histoire naturelle)',
+          exp_kandt_desc: 'Ancienne maison de l\'explorateur allemand et premier gouverneur colonial Richard Kandt (1907) sur la colline de Nyarugenge. Aujourd\'hui Musée d\'histoire naturelle sous l\'Institut des musées nationaux du Rwanda. Montre l\'évolution de la vie, la flore/faune des parcs de Nyungwe, Akagera, Volcans, la géologie du Rwanda, l\'histoire partagée germano-rwandaise et une exposition de serpents vivants. Meilleure vue panoramique sur le mont Kigali, le mont Jali, le mont Shyorongi.',
+          exp_kandt_addr: 'Adresse : KN 90 St, Nyarugenge, Kigali', exp_kandt_hours: 'Lun-dim 08:00-17:30',
+          exp_nwt_title: 'Visite à pied de Nyamirambo',
+          exp_nwt_desc: 'Visite culturelle à pied organisée par le Centre des femmes de Nyamirambo (NWC). Vous fait traverser le quartier le plus vibrant et multiculturel de Kigali — marchés locaux, habitations, salons de coiffure, mosquées, tailleurs. Vous pouvez goûter des collations locales et en savoir plus sur les projets d\'autonomisation des femmes. Réservation à l\'avance.',
+          exp_nwt_addr: 'Adresse : Nyamirambo Women\'s Center, House 22, KN 7 Avenue, Nyarugenge', exp_nwt_hours: 'Visites tous les jours de 8h à 19h',
+          exp_repub_title: 'Repub Lounge',
+          exp_repub_desc: 'Bonne nourriture, bonnes personnes, bons moments — telle est leur devise. Pub/restaurant/bar branché à Kimihurura, populaire pour ses burgers, grillades, cocktails et événements. Accueille des rassemblements d\'entreprise, des pop-ups, de l\'art en direct.',
+          exp_repub_addr: 'Adresse : 16 KG 674 St, Kigali, Rwanda', exp_repub_hours: 'Lun-ven 12:00-23:00',
+          exp_heaven_title: 'Heaven Restaurant & Boutique Hotel',
+          exp_heaven_desc: 'Plus qu\'un restaurant et un hôtel-boutique — c\'est une entreprise sociale qui investit dans la formation des Rwandais pour qu\'ils deviennent des leaders dans l\'hôtellerie. Appartenant à des Américains, ouvert en 2008 à Kiyovu, constamment classé parmi les meilleurs du Rwanda. Cuisine fusion internationale avec des ingrédients locaux, idéal pour les dîners romantiques/affaires.',
+          exp_heaven_addr: 'Adresse : 7 KN 29 St, Kigali, Rwanda', exp_heaven_hours: 'Tous les jours 7h00 - 22h30',
+          exp_szy_title: 'SZY',
+          exp_szy_desc: 'Le PREMIER restaurant gastronomique 100% végétalien de Kigali. Décrit comme une odyssée végétalienne sensorielle, un lieu multifonctionnel offrant une cuisine de confort haut de gamme innovante — miniburgers, pâtes, desserts. Ouvert début 2026.',
+          exp_szy_addr: 'Adresse : 32 KG 5 Ave, Kigali, Rwanda', exp_szy_hours: 'Axé sur le dîner, consultez le site web',
+          exp_qc_title: 'Question Coffee',
+          exp_qc_desc: 'Café et centre de formation à vocation sociale. Ils servent du café spécial rwandais torréfié localement, cultivé par des femmes agricultrices. Tous les bénéfices sont réinvestis dans la formation des agriculteurs de café. Grand jardin, très détendu, propose également des cours de brassage et des ateliers de latte art. Classé parmi les meilleurs cafés de Kigali.',
+          exp_qc_addr: 'Adresse : 8 KG 8 Ave, Gishushu, Kigali', exp_qc_hours: 'Lun-ven 07:00-18:00',
+          exp_gcr_title: 'Golden Coffee Roastery',
+          exp_gcr_desc: 'Torréfacteur et café de spécialité dans le quartier de Nyarutarama. Se concentre sur l\'approvisionnement, la torréfaction et l\'infusion du meilleur café rwandais à la source. Sert des expressos, des lattés glacés, des gaufres, des burgers, des gâteaux. Également lieu d\'expériences artisanales.',
+          exp_gcr_addr: 'Adresse : Plot 34 KG 9 Ave, Kigali, Rwanda', exp_gcr_hours: 'Généralement de 7h00 à 21h00',
+          exp_pili_title: 'Pili Pili',
+          exp_pili_desc: 'Institution de Kigali. Vaste espace extérieur, immense bar, restaurant au premier étage avec vue, meilleur grand écran pour le sport en direct. Musique lounge, couchers de soleil sur Kigali, cocktails divins, pizza et cuisine de bistrot. Reste ouvert tard pour les DJs.',
+          exp_pili_addr: 'Adresse : Number 12 KG 303 St, Kigali', exp_pili_hours: 'Tous les jours 11h00 - 23h00',
+          exp_sundowner_title: 'Sundowner — Kigali Heights',
+          exp_sundowner_desc: 'Grill / resto-pub charmant dans le complexe Kigali Heights à Kimihurura. Connu pour ses grillades, burgers et ambiance nocturne. Répertorié comme bar, bar-grill et restaurant.',
+          exp_sundowner_addr: 'Adresse : KG 625 St, Kigali Heights, KG 7 Ave, Kimihurura, Kigali', exp_sundowner_hours: 'Lun-jeu 8h00 - 00h00',
+          exp_akagera_title: 'Parc national d\'Akagera',
+          exp_akagera_desc: 'Le seul parc de savane des Big 5 du Rwanda (1 122 km²) dans la province de l\'Est, frontière avec la Tanzanie. Géré par African Parks depuis 2010. Restauré avec la réintroduction des lions et des rhinos. Safaris en voiture, safari en bateau sur le lac Ihema, observation des oiseaux (500 espèces). À seulement 2 heures de Kigali.',
+          exp_akagera_addr: 'Adresse : Akagera Road, Mwiri / Kayonza, Province de l\'Est', exp_akagera_hours: 'Portes 06:00-18:00',
+          exp_volcanoes_title: 'Parc national des Volcans',
+          exp_volcanoes_desc: 'Le parc le plus célèbre du Rwanda — fait partie du massif des Virunga à Musanze, abritant les gorilles de montagne et les singes dorés en voie de disparition. 160 km², 5 volcans (Karisimbi, Bisoke, etc.). Permis de trekking pour les gorilles à 1500 $, une heure avec les gorilles. Randonnée vers la tombe de Dian Fossey également.',
+          exp_volcanoes_addr: 'Adresse : Kingi, Musanze, Province du Nord, Rwanda', exp_volcanoes_hours: 'Briefing trekking 07h00 tous les jours',
+          exp_nyungwe_title: 'Parc national de Nyungwe — CHIMPANZÉS & FORÊT TROPICALE',
+          exp_nyungwe_desc: 'La plus grande forêt tropicale montagnarde d\'Afrique (1 019 km²) dans le sud-ouest du Rwanda, frontalière du Burundi. Célèbre pour la Canopy Walk — un pont suspendu de 160 m à 70 m au-dessus de la forêt — le suivi des chimpanzés, 13 espèces de primates, plus de 300 oiseaux, des cascades. La meilleure biodiversité du Rwanda.',
+          exp_nyungwe_addr: 'Adresse : Nyungwe, Bweyeye / Rangiro, Province de l\'Ouest', exp_nyungwe_hours: 'Tous les jours 07:00-17:00',
+          exp_gishwati_title: 'Parc national et réserve de biosphère de Gishwati-Mukura',
+          exp_gishwati_desc: '4e parc national du Rwanda (créé en 2015 lorsque deux forêts ont été réunies). Réserve de biosphère de l\'UNESCO dans la province de l\'Ouest. Abrite des chimpanzés, des singes dorés, 232 oiseaux et un corridor de biodiversité entre Nyungwe et les Volcans. Hors des sentiers battus, pour le suivi des primates et le tourisme de conservation.',
+          exp_gishwati_addr: 'Adresse : Road, Kigeyo, Rubavu / Ngororero, Province de l\'Ouest', exp_gishwati_hours: 'Tous les jours 07:00-17:00',
+          exp_mk_title: 'Mont Kigali',
+          exp_mk_desc: 'Pas une vraie montagne mais la plus haute colline de Kigali (1 853 m) à l\'ouest de la ville. Une randonnée simple de Nyamirambo à travers les maisons locales, les galeries, Fazenda Sengha, les sections de brousse et le spot de tyrolienne au sommet. Meilleur point de vue gratuit sur le lever/coucher du soleil sur toute la ville.',
+          exp_mk_addr: 'Adresse : Mt. Kigali Forest, Nyarugenge, Kigali', exp_mk_hours: 'Ouvert 24h/24',
+          exp_nyandungu_title: 'Parc éco de Nyandungu (Parc écotouristique des zones humides urbaines de Nyandungu)',
+          exp_nyandungu_desc: 'Le plus récent parc écologique de Kigali — 121 hectares de zone humide urbaine restaurée à Gasabo/Kicukiro. Promenades en bois, cachettes pour l\'observation des oiseaux (plus de 70 espèces), pistes cyclables, jardin médicinal, pelouses de pique-nique, restaurant. Parfait pour la course à pied, les promenades en famille. L\'un des parcs les mieux notés du Rwanda.',
+          exp_nyandungu_addr: 'Adresse : 24VW+Q4, Kigali, Urwibutso, Gasabo', exp_nyandungu_hours: 'Tous les jours 06:00-21:00',
+          exp_kibuye_title: 'Plage de Kibuye (Karongi) - Bugarama Beach',
+          exp_kibuye_desc: 'Deuxième meilleure ville balnéaire du lac Kivu, entre Gisenyi et Cyangugu, à 135 km à l\'ouest de Kigali. Petites plages publiques de sable et de galets où les locaux se baignent, connues comme station balnéaire avec des couchers de soleil, des kayaks et un accès à l\'île Napoléon et à Nyungwe à proximité.',
+          exp_kibuye_addr: 'Adresse : Kibuye, District de Karongi, Province de l\'Ouest', exp_kibuye_hours: 'Toute la journée',
+          exp_gisenyi_title: 'Plage publique de Gisenyi / Rubavu - Lac Kivu',
+          exp_gisenyi_desc: 'La plage de sable la plus célèbre du Rwanda sur la rive nord-ouest du lac Kivu. Ombre de palmiers, baignade, kayak, bateau vers l\'île Napoléon. L\'un des grands lacs africains, sans danger pour la baignade (pas d\'hippopotames/crocodiles dans cette partie). De nombreux resorts.',
+          exp_gisenyi_addr: 'Adresse : Avenue de la Revolution / Rubavu Public Beach, Gisenyi, Rubavu District', exp_gisenyi_hours: 'Tous les jours 07:00-19:00',
+          exp_umuganura_title: 'Umuganura — Festival des récoltes du Rwanda',
+          exp_umuganura_desc: 'Une fête des récoltes vieille de 1 000 ans, désormais un jour férié le premier vendredi d\'août. Le gouvernement, par l\'intermédiaire de l\'Académie rwandaise de la langue et de la culture, organise des festivals d\'arts d\'une semaine — danse traditionnelle Intore, expositions d\'artisanat, peinture, film et musique, conférences. Symbolise la gratitude et le partage des récoltes.',
+          exp_umuganura_addr: 'Adresse : Dans tout le pays — la cérémonie nationale principale tourne', exp_umuganura_hours: 'Premier vendredi d\'août',
+          exp_cfd_title: 'Car Free Day (Kigali Car Free Day)',
+          exp_cfd_desc: 'La célèbre journée de la santé bi-mensuelle de Kigali. La ville ferme l\'avenue KN4 / KG 9 Ave entre l\'hôtel de ville, Makuza Plaza, la Banque de Kigali aux voitures de 7h à 11h. Zumba, aérobic, yoga, vélo, contrôles médicaux gratuits. Le président Kagame y participe souvent. Organisé deux fois par mois — les 1er et 3e dimanches de chaque mois.',
+          exp_cfd_addr: 'Kigali Car-Free Zone, KN4 Avenue / KG 9 Ave, Nyarugenge, Kigali', exp_cfd_hours: 'Tous les 1er et 3e dimanches, 07:00-11:00',
+          exp_tdr_title: 'Tour du Rwanda',
+          exp_tdr_desc: 'La plus grande course cycliste d\'Afrique, UCI 2.1, 8 étapes à travers le Pays des Mille Collines. La 18e édition en 2026 a couvert Rukomo → Rwamagana → Nyamata → Huye → Rusizi → Karongi → Rubavu → Musanze → Kigali (22 fév - 1er mars 2026). Montées, altitude 2 190 m, équipes professionnelles internationales.',
+          exp_tdr_addr: 'Départ au stade Amahoro prologue, arrivée à Kigali', exp_tdr_hours: 'Annuellement février-mars — 2026 : 22 fév - 1er mars',
+          exp_kipm_title: 'Marathon international de la paix de Kigali',
+          exp_kipm_desc: 'La course sur route la plus respectée d\'Afrique, maintenant 21e édition. Pour la première fois en 2026, format de 2 jours les 13 et 14 juin. 10 km Run for Peace, Semi-marathon, Marathon complet. Des milliers de coureurs internationaux, des records de parcours battus en 2026. Célèbre la paix, l\'unité, une vie saine.',
+          exp_kipm_addr: 'Départ/Arrivée : Stade Amahoro, KG 17 Avenue, Kigali', exp_kipm_hours: 'Annuellement en juin — 2026 : 13-14 juin',
+          exp_umuganda_title: 'Journée Umuganda',
+          exp_umuganda_desc: 'La journée nationale mensuelle de travail communautaire du Rwanda — une solution locale. Chaque dernier samedi du mois de 08h00 à 11h00, tout le monde nettoie les rues, plante des arbres, construit. Les entreprises fermées jusqu\'à 11h, circulation restreinte. Incarne l\'unité et la propreté.',
+          exp_umuganda_addr: 'Dans tout le pays — Chaque village / cellule', exp_umuganda_hours: 'Dernier samedi de chaque mois, 08:00-11:00',
+          exp_uaf_title: 'Festival des arts Ubumuntu',
+          exp_uaf_desc: 'Créé en 2015 par Hope Azeda (Mashirika Performing Arts), organisé à l\'amphithéâtre du Mémorial du génocide de Kigali. Thème : « Je suis parce que tu es ». Théâtre, danse, musique, vérité et résilience de plus de 13 pays. Ateliers gratuits, soirée de bienvenue Ikaze. Le festival le plus émouvant du Rwanda.',
+          exp_uaf_addr: 'Amphithéâtre, Mémorial du génocide de Kigali, KG 14 Ave, Gisozi, Gasabo, Kigali', exp_uaf_hours: 'Annuellement en juillet — 12e édition : 13-19 juillet 2026',
+          exp_kmf_title: 'Festivals de musique de Kigali (Kigali Up)',
+          exp_kmf_desc: 'Depuis 2011, le plus grand festival international de musique du Rwanda. Afro-fusion, reggae, hip-hop, blues. Plus de 30 musiciens d\'Afrique de l\'Est, de France, du Canada, plus des leçons. Organisé au parking du stade Amahoro / au terrain de cricket d\'IPRC Kicukiro / Kigali Heights. Éditions spéciales avec les élèves de l\'école de musique de Nyundo.',
+          exp_kmf_addr: 'Stade Amahoro Grounds, Gasabo, Kigali / Institut français de Kimihurura', exp_kmf_hours: 'Annuellement juillet-août — 2026 : 17-19 juillet',
+          exp_hmf_title: 'Festival de musique Hobe Rwanda',
+          exp_hmf_desc: 'Depuis 2013, un événement culturel très apprécié axé sur la culture rwandaise. Festival de deux jours en septembre à l\'hôtel Serena / Petit Stade / Kigali Cultural Village. Musiciens folkloriques traditionnels locaux (Mariya Yohana, Muyango, Inganzo Ngali), danse, art local, marché artisanal, dégustation de plats. Une véritable tranche de créativité rwandaise.',
+          exp_hmf_addr: 'Kigali Cultural Village / Kigali Serena Hotel, Kigali', exp_hmf_hours: 'Annuellement en septembre — 2 jours',
+          exp_ki_title: 'Kwita Izina — Cérémonie de nomination des gorilles',
+          exp_ki_desc: 'L\'événement phare de la conservation au Rwanda. Depuis 2005, il a nommé près de 400 bébés gorilles. 40 bébés nommés en 2025 (20e édition). Des dirigeants mondiaux, des légendes du football, des artistes deviennent les parrains. Célèbre la conservation centrée sur la communauté et la croissance de la population de gorilles, passant de 880 (2012) à plus de 1060 aujourd\'hui.',
+          exp_ki_addr: 'Contreforts du parc national des Volcans, Kinigi, district de Musanze, province du Nord', exp_ki_hours: 'Annuellement début septembre — 2026 : vendredi 4 septembre',
+          exp_kwibuka_title: 'Kwibuka — Commémoration du génocide & Festival du film rwandais',
+          exp_kwibuka_desc: 'Kwibuka (Se souvenir) est la période nationale la plus importante du Rwanda — 100 jours de commémoration du 7 avril au 4 juillet pour le génocide des Tutsis. La cérémonie nationale au Mémorial du génocide de Kigali accueille des dirigeants du monde entier. Accueille également le Festival du film rwandais (Hillywood) — le premier festival de cinéma d\'Afrique à Kigali.',
+          exp_kwibuka_addr: 'Mémorial du génocide de Kigali, KG 14 Ave, Gisozi — et BK Arena pour la cérémonie nationale', exp_kwibuka_hours: '7 avril - 4 juillet annuellement',
+          exp_carhire_title: 'Service de location de voitures',
+          exp_carhire_desc: 'Nous rendons les déplacements au Rwanda faciles et confortables ! Nous offrons : ✓ Prise en charge et dépôt à l\'aéroport (aéroport international de Kigali) ✓ Location de voiture à la journée avec chauffeur ✓ Location à la demi-journée et à l\'heure ✓ Visites de la ville et transferts interurbains ✓ Voyages aux gorilles, Akagera et au lac Kivu ✓ Voitures propres, confortables et bien entretenues Sûr, fiable, abordable — disponible 24h/24 et 7j/7',
+          exp_tg_title: 'SERVICES DE GUIDE TOURISTIQUE PROFESSIONNEL',
+          exp_tg_desc: 'Explorez le Rwanda avec un expert local ! Vous prévoyez de découvrir Kigali et au-delà ? Laissez nos guides touristiques expérimentés et sympathiques rendre votre voyage inoubliable. Nous proposons des visites guidées : ✓ Visite de la ville de Kigali (mémorial du génocide, marchés, galeries d\'art) ✓ Visites des volcans, Nyungwe, Akagera et du lac Kivu ✓ Expériences culturelles, historiques et naturelles ✓ Randonnée, Canopy Walk et soutien pour le trekking des gorilles ✓ Traduction et informations locales Compétent • Sympathique • Professionnel • Abordable',
+          exp_safety_title: 'AIDE ET SÉCURITÉ',
+          exp_safety_desc: 'Les contacts suivants sont accessibles en cas d\'urgence 113 - Police de la circulation 3511 - Plainte pour conduite policière / ligne d\'écoute VBG 912 - Ambulance SAMU (principale) 114 - Alternative d\'ambulance',
+          contact_title: 'DITES', contact_title2: 'BONJOUR',
+          contact_sub: 'Nous serions ravis de vous entendre. Que vous souhaitiez mettre en place votre code QR City Concierge ou que vous ayez besoin d\'une équipe pour gérer vos invités 24h/24, nous sommes prêts. Nous avons été vos invités en premier. Maintenant, nous vous aidons à garder les vôtres.',
+          contact_address: 'Kk 101 St, Umushumba Mwiza', contact_btn: 'Envoyer un message',
+          back_home_btn: 'Retour à l\'accueil', footer_copy: '© 2026 invented approach. Tous droits réservés.',
+          footer_home: '← Retour à l\'accueil'
+        },
+        rw: {
+          nav_home: 'Ahabanza', nav_explore: 'Reba', nav_contact: 'Twandikire',
+          back_home: 'Subira ku rupapuro rw\'ibanze', hero_title: 'CITY', hero_title2: 'CONCIERGE',
+          hero_desc: 'Ubuyobozi bwawe bwo kureba ibyiza by\'u Rwanda — resitora, umuco, kamere, ibirori, n\'serivisi, byose ahantu hamwe. Byakozwe na Invented Approach.',
+          hero_btn: 'Tangira gukora', search_placeholder: 'Shakisha ahantu, ibikorwa...',
+          filter_all: 'Byose', filter_eat: 'Kurya', filter_drink: 'Kunywa', filter_culture: 'Umuco',
+          filter_nature: 'Kamere', filter_event: 'Ibirori', filter_service: 'Serivisi',
+          cat_culture: 'UMUCO N\'AMATEKA', cat_eat: 'KURYĀ NO KUNYWA',
+          cat_nature: 'KAMERE N\'UBUTONZI', cat_events: 'IBIRORANO',
+          cat_services: 'SERIVISI', cat_safety: 'UBUFASHA N\'UMUTERANO',
+          exp_contact_label: 'Twandikire:', exp_hours_label: 'Amasaha Akora:',
+          btn_directions: 'Icyerekezo',
+          exp_kigali_title: 'Urwibutso rwa Jenoside i Kigali',
+          exp_kigali_desc: 'Urwibutso rukomeye mu Rwanda. Rwubatswe i Gisozi, hasigaye iminota 10 uvuye mu mujyi, rwibuka Jenoside yakorewe Abatutsi mu 1994. Abapfuye barenga 250,000 bashyinguwe muri iri rwibutso. Ikigo cy\'abashyitsi gifite imurikagurisha itatu ihoraho ku mateka yabanjirije jenoside, iyobowe na Aegis Trust n\'Umujyi wa Kigali. Ahantu ho kwibuka no kwiga, gufotora imbere ni ikibujijwe.',
+          exp_kigali_addr: 'KG 14 Ave, Kigali, Rwanda', exp_kigali_hours: 'Buri munsi 09:00-16:00',
+          exp_inema_title: 'Inema Arts Center',
+          exp_inema_desc: 'Yashinzwe mu 2012 na bagabo Emmanuel Nkuranga na Innocent Nkurunziza, ikigo kikomeye cy\'ubuhanzi bwa none i Kigali. Gitanga ikibazo ku bahanzi 10-batuye, galerie, n\'amashuri y\'umuziki gakondo buri cyumweru. Amashusho meza hanze, ibishushanyo, ibishonzwe imbere, intego ni uguteza imbere ubuhanzi n\'ubukungu.',
+          exp_inema_addr: 'Adresse: KG 563 St, Kigali, Rwanda', exp_inema_hours: 'Buri munsi 08:00 - 20:00',
+          exp_niyo_title: 'Niyo Art Gallery',
+          exp_niyo_desc: 'Galerie ifite umuco igisha imbyino gakondo, ingoma, n\'imikino ku bana bafite ibibazo n\'abana bo mu muhanda. Yakiriye abahanzi 17-batuye mu karere k\'Ibiyaga Bigari. Irukubitiro rw\'ibishushanyo, ibishonze, ibikorwa by\'amaboko, n\'ahantu h\'akazi.',
+          exp_niyo_addr: 'Adresse: KG 572 St / KG 513 St, Gisozi, Gasabo, Kigali', exp_niyo_hours: 'Buri munsi 8:00 - 23:00',
+          exp_kcc_title: 'Ikigo Mbonezamubano cya Kigali',
+          exp_kcc_desc: 'Ikirangaranga kimaze izina ku ruhuririro rwa KG2, iruhande rwa Radisson Blu. Ikigo cy\'Amakoroni cyiza mu Afrika (World Travel Awards 2017). Ishuri rikomeye rya 2,600, rimeze nk\'ingoro gakondo y\'u Rwanda, rikabura nijoro mu mabara y\'igihugu. Ikigo cy\'ubucuruzi cya Kigali.',
+          exp_kcc_addr: 'Adresse: Convention Centre Roundabout, KG2, Kimihurura, Kigali', exp_kcc_hours: '24/7 ku birorano',
+          exp_fazenda_title: 'Fazenda Sengha',
+          exp_fazenda_desc: 'Ikiganiro cy\'amafarashi n\'ubutoni i Nyamirambo ku musozi wa Kigali. Gutwara amafarashi, gukora umutwe, kuzunguruka, gukubita imbunda n\'amasa, gutwara amagare, gutwara quad bikes. Ureba umujyi wa Kigali wose. Byiza ku rugendo rw\'igice cy\'umunsi na kafi.',
+          exp_fazenda_addr: 'Adresse: Mount Kigali, Rwanda', exp_fazenda_hours: 'Kuwa Kabiri-Kuwa Cyumweru 09:00-19:00',
+          exp_ram_title: 'Inzu ndangamurage y\'ubuhanzi mu Rwanda',
+          exp_ram_desc: 'Yashinzwe mu 2009 mu nzu yahoze ari Perezida Juvénal Habyarimana (kugeza 1994). Iherereye mu burengerazuba bw\'ikibuga mpuzamahanga cya Kigali i Kanombe, Nyarugunga, Kicukiro. Ubu ikubiyemo ibihanzi bya none by\'u Rwanda n\'Afrika, hamwe n\'amakuru y\'amateka y\'u Rwanda. Harimo n\'icyumba cy\'abana.',
+          exp_ram_addr: 'Adresse: KK 106 St, Kigali, Rwanda', exp_ram_hours: 'Kuwa Mbere-Kuwa Cyumweru 08:00-18:00',
+          exp_kandt_title: 'Inzu ndangamurage ya Kandt (Inzu ndangamurage y\'amateka ya kamere)',
+          exp_kandt_desc: 'Inzu yahoze ari iy\'umushakashatsi w\'Ubudage n\'umutegetsi wa mbere w\'abakoloni Richard Kandt (1907) ku musozi wa Nyarugenge. Ubu ni Inzu ndangamurage y\'amateka ya kamere iyobowe n\'Instituti y\'Inzu ndangamurage z\'u Rwanda. Igaragaza amateka y\'ubuzima, ibimera/inyamaswa za Nyungwe, Akagera, parike z\'ibirunga, geologi y\'u Rwanda, amateka y\'ubufatanye bw\'Ubudage n\'u Rwanda n\'inzoka zibaho. Ureba neza umusozi wa Kigali, Jali, Shyorongi.',
+          exp_kandt_addr: 'Adresse: KN 90 St, Nyarugenge, Kigali', exp_kandt_hours: 'Kuwa Mbere-Kuwa Cyumweru 08:00-17:30',
+          exp_nwt_title: 'Urugendo rwo gutembera i Nyamirambo',
+          exp_nwt_desc: 'Urugendo rw\'umuco ruyobowe n\'ikigo cy\'abagore i Nyamirambo (NWC). Kigutwara mu mudugudu ukunze cyane w\'u Rwanda — amasoko, amazu, amasalon, imisigiti, abadozi. Urabasha gusarura ibiryo by\'ahantu, kwiga iby\'ubushobozi bw\'abagore. Ugomba kwiyandikisha mbere.',
+          exp_nwt_addr: 'Adresse: Nyamirambo Women\'s Center, House 22, KN 7 Avenue, Nyarugenge', exp_nwt_hours: 'Urugendo buri munsi 8am-7pm',
+          exp_repub_title: 'Repub Lounge',
+          exp_repub_desc: 'Ibiryo byiza, abantu beza, ibihe byiza — niyo nteguro yabo. Pub / resitora / bar i Kimihurura izwi kubera burgers, grill, cocktails n\'ibirori. Yakira amakoraniro y\'amakoperative, pop-ups, ubuhanzi bukora.',
+          exp_repub_addr: 'Adresse: 16 KG 674 St, Kigali, Rwanda', exp_repub_hours: 'Kuwa Mbere-Kuwa Gatanu 12:00-23:00',
+          exp_heaven_title: 'Heaven Restaurant & Boutique Hotel',
+          exp_heaven_desc: 'Biruta resitora n\'hoteli — ni ikigo gikorera mu mibereho gishora mu guhugura abanyarwanda kugira ngo babe abayobozi mu bukode. Nyirizina ni Umunyamerika, yafunguwe mu 2008 i Kiyovu, ihora ku mwanya wa mbere mu Rwanda. Ibiryo bihuza ibihugu byose n\'ibikomoka mu gihugu, byiza ku ifunguro rya romantiki / ubucuruzi.',
+          exp_heaven_addr: 'Adresse: 7 KN 29 St, Kigali, Rwanda', exp_heaven_hours: 'Buri munsi 7:00 - 22:30',
+          exp_szy_title: 'SZY',
+          exp_szy_desc: 'Resitora ya mbere 100% ibintu bimera i Kigali. Bisobanurwa nk\'urugendo rw\'ibikomoka ku bimera, ikigo gikorera mu byiciro byinshi gitanga ibiryo byiza — miniburgers, pasta, desseri. Yafunguwe mu ntangiriro ya 2026.',
+          exp_szy_addr: 'Adresse: 32 KG 5 Ave, Kigali, Rwanda', exp_szy_hours: 'Itegurwa ry\'amafunguro y\'ijoro, reba urubuga',
+          exp_qc_title: 'Question Coffee',
+          exp_qc_desc: 'Café n\'ikigo cy\'ubufasha. Batanga ikawa y\'u Rwanda ihimbawe n\'abagore bahinga. Amafaranga yose asubizwa mu guhugura abahinzi b\'ikawa. Ubushasharazi bunini, biratuje, kandi batanga amasomo yo guteka ikawa n\'ubuhanzi bwa latte. Yashyizwe mu mwanya wa mbere mu bucafé i Kigali.',
+          exp_qc_addr: 'Adresse: 8 KG 8 Ave, Gishushu, Kigali', exp_qc_hours: 'Kuwa Mbere-Kuwa Gatanu 07:00-18:00',
+          exp_gcr_title: 'Golden Coffee Roastery',
+          exp_gcr_desc: 'Ikigo gitunganya ikawa n\'ikafe mu karere ka Nyarutarama. Gishingiye ku gushaka, gutunganya no guteka ikawa nziza y\'u Rwanda. Gitanga espresso, iced latte, waffles, burgers, cakes. Nanone ahantu ho gukora ibikorwa by\'amaboko.',
+          exp_gcr_addr: 'Adresse: Plot 34 KG 9 Ave, Kigali, Rwanda', exp_gcr_hours: 'Bisanzwe 7:00 - 21:00',
+          exp_pili_title: 'Pili Pili',
+          exp_pili_desc: 'Inzego ikomeye i Kigali. Ahantu hanini hanze, bar nini, resitora ku rwego rwa mbere ifite imbonera, ekrano nini y\'imikino nzima. Umuziki wa lounge, izuba rigwa i Kigali, cocktails nziza, pizza n\'ibiryo bya bistro. Irakora ijoro kubera DJs.',
+          exp_pili_addr: 'Adresse: Number 12 KG 303 St, Kigali', exp_pili_hours: 'Buri munsi 11:00 - 23:00',
+          exp_sundowner_title: 'Sundowner — Kigali Heights',
+          exp_sundowner_desc: 'Grill / resto-pub iherereye muri Kigali Heights, Kimihurura. Irizwe kubera grill, burgers n\'umutima wo mu ijoro. Yashyizwe nka bar, bar grill n\'resitora.',
+          exp_sundowner_addr: 'Adresse: KG 625 St, Kigali Heights, KG 7 Ave, Kimihurura, Kigali', exp_sundowner_hours: 'Kuwa Mbere-Kuwa Kane 8:00 - 00:00',
+          exp_akagera_title: 'Parike y\'Igihugu ya Akagera',
+          exp_akagera_desc: 'Parike ya savana ya 5 nini y\'u Rwanda (1,122 km²) mu Ntara y\'Iburasirazuba, ku mupaka wa Tanzania. Iyobowe na African Parks kuva 2010. Yagaruye intare n\'ibih?n?k? (rhinos). Safari mu modoka, safari mu bwato kuri Lake Ihema, kureba inyoni (500). Hafi y\'amasaha 2 uvuye i Kigali.',
+          exp_akagera_addr: 'Adresse: Akagera Road, Mwiri / Kayonza, Iburasirazuba', exp_akagera_hours: 'Irembo 06:00-18:00',
+          exp_volcanoes_title: 'Parike y\'Igihugu y\'Ibirunga',
+          exp_volcanoes_desc: 'Parike izwi cyane mu Rwanda — mu masiv ya Virunga i Musanze, ihabwa ingagi n\'ingobyi z\'inzobere ziri mu kaga. 160km², ibirunga 5 (Karisimbi, Bisoke n\'ibindi). Impushya yo gukora trekking y\'ingagi $1500, isaha imwe n\'ingagi. Nanone urugendo rwa Dian Fossey tomb.',
+          exp_volcanoes_addr: 'Adresse: Kingi, Musanze, Amajyaruguru, Rwanda', exp_volcanoes_hours: 'Briefing ya trekking 07:00 buri munsi',
+          exp_nyungwe_title: 'Parike y\'Igihugu ya Nyungwe — CHIMPANZEES & RAINFOREST',
+          exp_nyungwe_desc: 'Ishyamba rinini ry\'imvura mu Afrika (1,019 km²) mu Burengerazuba bw\'u Rwanda ku mupaka wa Burundi. Irizwe na Canopy Walk — ikiraro kidoda 160m hejuru y\'ishyamba — gukurikira chimpanzees, amoko 13 y\'ingobyi, inyoni 300+, amasoko. Ubuzima butandukanye mu Rwanda.',
+          exp_nyungwe_addr: 'Adresse: Nyungwe, Bweyeye / Rangiro, Uburengerazuba', exp_nyungwe_hours: 'Buri munsi 07:00-17:00',
+          exp_gishwati_title: 'Parike y\'Igihugu ya Gishwati-Mukura n\'Umurage wa Biosphere',
+          exp_gishwati_desc: 'Parike ya 4 y\'Igihugu y\'u Rwanda (yashinzwe 2015 ubwo amashyamba abiri yahuragwaga). Umurage wa Biosphere wa UNESCO mu Burengerazuba. Ihabwa chimpanzees, ingobyi z\'inzobere, inyoni 232, n\'ikibanza cy\'ubuzima butandukanye hagati ya Nyungwe n\'Ibirunga. Ku rugendo rutazwi, gukurikira ingobyi n\'ubukerarugendo bw\'ubutabazi.',
+          exp_gishwati_addr: 'Adresse: Road, Kigeyo, Rubavu / Ngororero, Uburengerazuba', exp_gishwati_hours: 'Buri munsi 07:00-17:00',
+          exp_mk_title: 'Umusozi wa Kigali',
+          exp_mk_desc: 'Ntabwo ari umusozi nyirizina ahubwo ni umusozi muremure wa Kigali (1,853m) mu burengerazuba bw\'umujyi. Urugendo rworoshye ruvuye i Nyamirambo unyuze mu ngo, galerie, Fazenda Sengha, bush n\'ahantu h\'umutwe. Ureba izuba rirenga n\'rikabura ku buzima bw\'umujyi wose.',
+          exp_mk_addr: 'Adresse: Mt. Kigali Forest, Nyarugenge, Kigali', exp_mk_hours: 'Ifunguye 24/7',
+          exp_nyandungu_title: 'Parike ya Nyandungu (Nyandungu Urban Wetland Ecotourism Park)',
+          exp_nyandungu_desc: 'Parike nshya y\'u Rwanda — hegitare 121 by\'ishyamba ry\'umujyi ryagarutse i Gasabo/Kicukiro. Amabwiriza, ahantu ho kureba inyoni (70+), amagare, ubusitani bw\'imiti, imyuka yo ku kanyamuneza, resitora. Byiza ku kwiruka, kugenda n\'umuryango. Imwe mu parike zizwi cyane mu Rwanda.',
+          exp_nyandungu_addr: 'Adresse: 24VW+Q4, Kigali, Urwibutso, Gasabo', exp_nyandungu_hours: 'Buri munsi 06:00-21:00',
+          exp_kibuye_title: 'Umugambi wa Kibuye (Karongi) - Bugarama Beach',
+          exp_kibuye_desc: 'Umujyi wa kabiri ku nyanja ya Kivu, hagati ya Gisenyi na Cyangugu, 135km uburengerazuba bwa Kigali. Imyaka mito n\'amabuye ahantu abaturanyi baruhuka, izwi nk\'ahantu ho kuruhuka n\'izuba rigwa, kayak, n\'uburyo bwo kugera ku kirwa cya Napoleon na Nyungwe hafi.',
+          exp_kibuye_addr: 'Adresse: Kibuye, Karongi, Uburengerazuba', exp_kibuye_hours: 'Buri munsi mu manywa',
+          exp_gisenyi_title: 'Umugambi wa Gisenyi / Rubavu - Lake Kivu',
+          exp_gisenyi_desc: 'Umugambi uzwi cyane mu Rwanda ku nyanja ya Kivu. Ibisheke by\'amababi, koga, kayak, ubwato kugera ku kirwa cya Napoleon. Imwe mu nyanja nini za Afurika, koga ni umutekano (nta ndobo/inyamanswa muri iyi gice). Amahoteli menshi.',
+          exp_gisenyi_addr: 'Adresse: Avenue de la Revolution / Rubavu Public Beach, Gisenyi, Rubavu, Uburengerazuba', exp_gisenyi_hours: 'Buri munsi 07:00-19:00',
+          exp_umuganura_title: 'Umuganura — Isabukuru y\'U Rwanda',
+          exp_umuganura_desc: 'Isabukuru y\'imyaka 1000 yo gushimira umusaruro, ubu umunsi mukuru kuwa gatanu wa mbere mu Kanama. Leta binyuze muri Akademi y\'Ururimi n\'Umuco y\'u Rwanda itegura ibirori by\'ubuhanzi mu gihe cy\'icyumweru — imbyino gakondo Intore, imurikagurisha ry\'ubukorikori, ibishushanyo, filime n\'umuziki, amakoraniro. Bihagarariye gushimira no gusangira umusaruro.',
+          exp_umuganura_addr: 'Adresse: Mu gihugu hose — umuhango w\'igihugu ugenda uzunguruka', exp_umuganura_hours: 'Kuwa gatanu wa mbere muri Kanama',
+          exp_cfd_title: 'Car Free Day (Kigali Car Free Day)',
+          exp_cfd_desc: 'Umunsi mwiza wa buri kwezi wa Kigali. Umujyi ufunga KN4 Avenue / KG 9 Ave hagati ya City Hall, Makuza Plaza, Bank of Kigali ku modoka 7am-11am. Zumba, aerobics, yoga, igare, kugenzurwa kw\'ubuzima. Perezida Kagame akunze kujyamo. Aboneka inshuro ebyiri mu kwezi — Kuwa Cyumweru 1 na 3.',
+          exp_cfd_addr: 'Kigali Car-Free Zone, KN4 Avenue / KG 9 Ave, Nyarugenge, Kigali', exp_cfd_hours: 'Kuwa Cyumweru 1 na 3, 07:00-11:00',
+          exp_tdr_title: 'Tour du Rwanda',
+          exp_tdr_desc: 'Ihiganwa rinini ry\'amagare mu Afrika, UCI 2.1, ibyiciro 8 mu gihugu. Ubwa 18 mu 2026 kuva Rukomo → Rwamagana → Nyamata → Huye → Rusizi → Karongi → Rubavu → Musanze → Kigali (22 Gashyantare - 1 Werurwe 2026). Kuzamuka, uburebure 2,190m, amakipe mpuzamahanga.',
+          exp_tdr_addr: 'Itangira kuri Amahoro Stadium prologue, iherezo i Kigali', exp_tdr_hours: 'Buri mwaka Gashyantare-Werurwe — 2026: 22 Gashyantare - 1 Werurwe',
+          exp_kipm_title: 'Kigali International Peace Marathon',
+          exp_kipm_desc: 'Ihiganwa ry\'umuhanda ryizewe mu Afrika, ubu ubwa 21. Ku ncuro ya mbere mu 2026 ryagutse ku munsi 2 13-14 Kamena. 10km Run for Peace, Half Marathon, Full Marathon. Abahiganwa mpuzamahanga, amateka yashyizweho mu 2026. Urana amahoro, ubumwe, ubuzima bwiza.',
+          exp_kipm_addr: 'Itangira/Iherezo: Amahoro Stadium, KG 17 Avenue, Kigali', exp_kipm_hours: 'Buri mwaka mu Kamena — 2026: 13-14 Kamena',
+          exp_umuganda_title: 'Umuganda',
+          exp_umuganda_desc: 'Umuganda ni umunsi w\'igihugu wo gukora mu muryango. Buri gatandatu ya nyuma y\'ukwezi 08:00-11:00, abantu basukura imihanda, bitera ibiti, bubaka. Amakoperative arahagarara kugeza 11am, ibinyabiziga birahagaritswa. Gushimangira ubumwe n\'isuku.',
+          exp_umuganda_addr: 'Mu gihugu hose — Umudugudu / Akagari', exp_umuganda_hours: 'Kuwa gatandatu wa nyuma w\'ukwezi, 08:00-11:00',
+          exp_uaf_title: 'Ubumuntu Arts Festival',
+          exp_uaf_desc: 'Yashinzwe mu 2015 na Hope Azeda (Mashirika Performing Arts), ikorwa mu kigo cy\'Urwibutso rwa Jenoside i Kigali. Insanganyamatsiko: « Ndiho kuko uriho ». Amakinamico, imbyino, umuziki, ukuri no kwihangana kuva mu bihugu 13+. Amahugurwa ku buntu, Ikaze Night. Isabukuru ikomereza umutima mu Rwanda.',
+          exp_uaf_addr: 'Amphitheatre, Kigali Genocide Memorial, KG 14 Ave, Gisozi, Gasabo, Kigali', exp_uaf_hours: 'Buri mwaka muri Nyakanga — 12 13-19 Nyakanga 2026',
+          exp_kmf_title: 'Kigali Music Festivals (Kigali Up)',
+          exp_kmf_desc: 'Kuva 2011, isabukuru mpuzamahanga ya muzika mu Rwanda. Afro-fusion, reggae, hip-hop, blues. Abahanzi 30+ bava Afurika y\'Iburasirazuba, Ubufaransa, Kanada, n\'amashuri. Ikorwa mu kigo cy\'Amahoro / IPRC Kicukiro / Kigali Heights. Iboneka rya Nyundo Music School.',
+          exp_kmf_addr: 'Amahoro Stadium, Gasabo, Kigali / French Institute Kimihurura', exp_kmf_hours: 'Buri mwaka Nyakanga-Kanama — 2026: 17-19 Nyakanga',
+          exp_hmf_title: 'Hobe Rwanda Music Festival',
+          exp_hmf_desc: 'Kuva 2013, isabukuru y\'umuco y\'u Rwanda. Iminsi 2 mu Nzeri kuri Serena Hotel / Petit Stade / Kigali Cultural Village. Abahanzi gakondo (Mariya Yohana, Muyango, Inganzo Ngali), imbyino, ibihanzi, amasoko y\'amaboko, kurya. Urugamba rw\'ubuhanzi bwa Rwand.',
+          exp_hmf_addr: 'Kigali Cultural Village / Kigali Serena Hotel, Kigali', exp_hmf_hours: 'Buri mwaka mu Nzeri — iminsi 2',
+          exp_ki_title: 'Kwita Izina — Kwita izina ry\'ingagi',
+          exp_ki_desc: 'Ikiganiro gikomeye cyo kubungabunga mu Rwanda. Kuva 2005, cyaha izina ingagi 400. 40 zahawe izina 2025 (20). Abayobozi, abakinnyi, abahanzi ni abaha izina. Gushimangira kubungabunga n\'ikura ry\'ingagi 880 (2012) kugeza 1060+ ubu.',
+          exp_ki_addr: 'Amajyepfo ya Volcanoes, Kinigi, Musanze, Amajyaruguru', exp_ki_hours: 'Buri mwaka mu Gushyingo — 2026: Kuwa Gatanu 4 Nzeli 2026',
+          exp_kwibuka_title: 'Kwibuka — Kwibuka Jenoside & Rwanda Film Festival',
+          exp_kwibuka_desc: 'Kwibuka ni igihe gikomeye cy\'u Rwanda — iminsi 100 7 Mata-4 Nyakanga jenoside. Umuhango w\'igihugu i Kigali Genocide Memorial. Nanone ikigo cy\'amafirime (Hillywood) — isabukuru ya mbere muri Afurika.',
+          exp_kwibuka_addr: 'Kigali Genocide Memorial, KG 14 Ave, Gisozi — na BK Arena', exp_kwibuka_hours: '7 Mata - 4 Nyakanga buri mwaka',
+          exp_carhire_title: 'Serivisi yo gukodesha imodoka',
+          exp_carhire_desc: 'Dukorera kugira ngo u Rwanda ube byoroshye! Dutanga: ✓ Gukura no kugeza kuri Airport (Kigali International Airport) ✓ Gukodesha umunsi wose n\'umushoferi ✓ Igice cy\'umunsi n\'amasaha ✓ Urugendo mu mujyi no kuva mu mujyi ✓ Ingagi, Akagera, n\'Ikiyaga cya Kivu ✓ Imodoka zisukuye, ziza, zitondewe Umutekano, ukuri, ubuhenda — bihari 24/7',
+          exp_tg_title: 'SERIVISI Z\'UBUFASHA BW\'URUGENDO',
+          exp_tg_desc: 'Uzuze Rwanda n\'umunyabwenge w\'ahantu! Urategura kuzuza Kigali n\'ikindi? Reka abayobozi bacu b\'ubuhanga n\'incuti zigire urugendo rwawe rudasibwa. Dutanga urugendo rugenewe: ✓ Kigali City Tour (Memorial, amasoko, galerie) ✓ Volcanoes, Nyungwe, Akagera n\'Ikiyaga cya Kivu ✓ Umuco, amateka, kamere ✓ Hiking, Canopy Walk, Ingagi Trekking ✓Translation & Local Insights Abahanga • Incuti • Ubuhanga • Ubuhenda',
+          exp_safety_title: 'UBUFASHA N\'UMUTERANO',
+          exp_safety_desc: 'Aya makuru ahabona mu cyimbo cy\'ikibazo 113 - Polisi y\'umuhanda 3511 - Polisi Conduct Complaint / GBV hotline 912 - SAMU Ambulance (Main) 114 - Ambulance Alternative',
+          contact_title: 'VUGA', contact_title2: 'UJUYE',
+          contact_sub: 'Twishimira kumva ubutumwa bwawe. Niba ushaka gushyiraho kode ya QR ya City Concierge cyangwa ugomba itsinda rigukorera abashyitsi bawe 24/7, twiteguye. Twabanje kuba abashyitsi bawe. Ubu dufasha kubungabanya abawe.',
+          contact_address: 'Kk 101 St, Umushumba Mwiza', contact_btn: 'Ohereza ubutumwa',
+          back_home_btn: 'Subira ku rupapuro rw\'ibanze', footer_copy: '© 2026 invented approach. Uburenganzira bwose bwarakozwe.',
+          footer_home: '← Subira ku rupapuro rw\'ibanze'
+        }
+      };
+
+      function setLanguage(lang) {
+        document.querySelectorAll('[data-key]').forEach(el => {
+          const key = el.getAttribute('data-key');
+          if (translations[lang] && translations[lang][key] !== undefined) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+              el.placeholder = translations[lang][key];
+            } else {
+              el.textContent = translations[lang][key];
+            }
+          }
+        });
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+      }
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          setLanguage(btn.dataset.lang);
+        });
+      });
+
+      // ─── ACTIVE NAV LINK ───
+      const sections = document.querySelectorAll('section[id]');
+      const navItems = document.querySelectorAll('.nav-links a');
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const top = section.offsetTop - 120;
+          if (window.scrollY >= top) current = section.getAttribute('id');
+        });
+        navItems.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+        });
+      });
+
+      // ─── SEARCH & FILTER ───
+      const searchInput = document.getElementById('searchInput');
+      const filterIcons = document.querySelectorAll('.filter-icon');
+      const exploreItems = document.querySelectorAll('.explore-item');
+      const categories = document.querySelectorAll('.explore-category');
+
+      function filterItems() {
+        const query = searchInput.value.toLowerCase().trim();
+        const activeFilter = document.querySelector('.filter-icon.active')?.dataset.filter || 'all';
+
+        exploreItems.forEach(item => {
+          const tags = item.dataset.tags ? item.dataset.tags.split(' ') : [];
+          const text = item.textContent.toLowerCase();
+          const matchesSearch = text.includes(query);
+          const matchesFilter = activeFilter === 'all' || tags.includes(activeFilter);
+          item.style.display = (matchesSearch && matchesFilter) ? 'flex' : 'none';
+        });
+
+        categories.forEach(cat => {
+          const visible = cat.querySelectorAll('.explore-item[style*="display: flex"]').length > 0;
+          cat.style.display = visible ? 'block' : 'none';
+        });
+      }
+
+      searchInput.addEventListener('input', filterItems);
+
+      filterIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
+          filterIcons.forEach(i => i.classList.remove('active'));
+          icon.classList.add('active');
+          filterItems();
+
+        });
+      });
+    });
+
+  </script>
+<!-- Jane · Invented Approach AI Assistant -->
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+  createChat({
+    webhookUrl: 'https://emmzyb.app.n8n.cloud/webhook/e140161b-2a82-4315-93f1-9cedd9b5c441/chat',
+    initialMessages: [
+      'Hi there! 👋 I\'m Jane, the Invented Approach assistant.',
+      'Ask me anything about Invented Approach or the City Concierge.'
+    ],
+    i18n: {
+      en: {
+        title: 'Jane · Invented Approach',
+        subtitle: 'Ask Jane anything about Invented Approach.',
+        inputPlaceholder: 'Ask Jane a question...',
+        getStarted: 'New Conversation',
+        closeButtonTooltip: 'Close chat'
+      }
+    }
+  });
+</script>
+</body>
+</html>

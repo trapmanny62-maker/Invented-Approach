@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>invented approach — Your Complete Partner in Kigali</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --primary: #F5B041;
+      --primary-dark: #D48C2B;
+      --primary-light: #FDEBD0;
+      --secondary: #1A2A4A;
+      --secondary-light: #2C3E6B;
+      --gold: #F1C40F;
+      --bg-light: #F8F9FA;
+      --bg-white: #FFFFFF;
+      --text-dark: #1A2A4A;
+      --text-muted: #4A5A7A;
+      --shadow: 0 8px 30px rgba(0,0,0,0.08);
+      --radius: 16px;
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      background: var(--bg-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section-padding { padding: 80px 0; }
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: var(--text-dark);
+    }
+    .section-title span { color: var(--primary); }
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin-bottom: 40px;
+    }
+    .text-center { text-align: center; }
+    .text-center .section-subtitle { margin-left: auto; margin-right: auto; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(245,176,65,0.3);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(245,176,65,0.4);
+    }
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: var(--primary);
+      font-weight: 600;
+      padding: 12px 32px;
+      border-radius: 50px;
+      font-size: 1rem;
+      border: 2px solid var(--primary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-outline:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn-sm {
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-sm.danger {
+      background: #e74c3c;
+      color: #fff;
+    }
+    .btn-sm.danger:hover {
+      background: #c0392b;
+      transform: translateY(-2px);
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      background: var(--bg-white);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 14px 0;
+      transition: var(--transition);
+    }
+    header.scrolled { padding: 10px 0; box-shadow: 0 4px 30px rgba(0,0,0,0.1); }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-dark);
+      flex-shrink: 0;
+    }
+    .logo img { height: 150px; width: auto; border-radius: 8px; }
+    .logo span { color: var(--primary); }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .lang-toggle {
+      display: flex;
+      gap: 4px;
+      background: var(--bg-light);
+      padding: 4px;
+      border-radius: 50px;
+      border: 1px solid #e9ecef;
+      flex-shrink: 0;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: 'Inter', sans-serif;
+    }
+    .lang-btn.active {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(245,176,65,0.25);
+    }
+    .lang-btn:hover:not(.active) { background: #e9ecef; }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      transition: var(--transition);
+      position: relative;
+      white-space: nowrap;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
+    .nav-links a:hover { color: var(--primary); }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: var(--text-dark);
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(3px,4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(3px,-4px); }
+
+    /* ─── DROPDOWN NAV ─── */
+    .nav-item-with-dropdown {
+      position: relative;
+    }
+    .dropdown-toggle {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .dropdown-toggle i {
+      font-size: 0.7rem;
+      transition: transform 0.3s ease;
+    }
+    .dropdown-toggle.open i {
+      transform: rotate(180deg);
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--bg-white);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+      border-radius: 12px;
+      padding: 12px 0;
+      min-width: 200px;
+      z-index: 100;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .dropdown-menu.open {
+      display: block;
+    }
+    .dropdown-menu a {
+      display: block;
+      padding: 8px 20px;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .dropdown-menu a:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+    .dropdown-menu a::after {
+      display: none;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      margin-top: 82px;
+      position: relative;
+      height: 96vh;
+      min-height: 540px;
+      max-height: 900px;
+      overflow: hidden;
+      border-radius: 0 0 50px 50px;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.0s ease-in-out;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26,42,74,0.65) 0%, rgba(26,42,74,0.30) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      padding: 0 24px;
+      animation: fadeUp 1s ease-out;
+    }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(30px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+    .hero-content h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.2);
+    }
+    .hero-content p {
+      font-size: 1.25rem;
+      opacity: 0.92;
+      max-width: 560px;
+      margin: 0 auto 32px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.15);
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(8px);
+      padding: 6px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .hero-indicators {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      display: flex;
+      gap: 12px;
+    }
+    .hero-indicators button {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.6);
+      background: transparent;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 0;
+    }
+    .hero-indicators button.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      transform: scale(1.2);
+    }
+    .hero-indicators button:hover { transform: scale(1.15); }
+    .hero-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(4px);
+      border: none;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-nav:hover {
+      background: rgba(255,255,255,0.35);
+    }
+    .hero-nav.prev { left: 20px; }
+    .hero-nav.next { right: 20px; }
+
+    /* ─── ABOUT ─── */
+    .about-text { max-width: 800px; margin: 0 auto; }
+    .about-approach {
+      margin-top: 50px;
+      padding-top: 40px;
+      border-top: 2px solid var(--primary-light);
+    }
+    .about-approach h2 { margin-bottom: 20px; }
+    .about-approach p { max-width: 800px; margin: 0 auto 30px; color: var(--text-muted); }
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      text-align: left;
+    }
+    .approach-grid .approach-card:last-child {
+      grid-column: 1 / -1;
+    }
+    .approach-card {
+      background: var(--bg-white);
+      padding: 32px 28px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--primary);
+      transition: var(--transition);
+    }
+    .approach-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    .approach-card h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-dark);
+    }
+    .approach-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    .approach-card ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+    .approach-card ul li {
+      padding: 4px 0;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .approach-card ul li::before {
+      content: "✓";
+      color: var(--primary);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ─── SERVICES ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .service-card {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+    .service-card .icon { font-size: 2.6rem; color: var(--primary); margin-bottom: 16px; }
+    .service-card h3 { font-size:1.3rem; font-weight:700; margin-bottom:8px; }
+    .service-card p { color: var(--text-muted); font-size:0.95rem; }
+    .service-card ul {
+      list-style: none;
+      margin-top: 14px;
+    }
+    .service-card ul li {
+      padding: 4px 0;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .service-card ul li i { color: var(--primary); font-size:0.8rem; }
+
+    /* ─── WHY CHOOSE US ─── */
+    .why-section {
+      background: var(--secondary);
+      color: #fff;
+      border-radius: 40px;
+      margin: 0 24px;
+      padding: 70px 50px;
+    }
+    .why-section .section-title { color: #fff; }
+    .why-section .section-title span { color: var(--primary); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin-top: 10px;
+    }
+    .why-card {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(4px);
+      padding: 40px 28px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: var(--transition);
+      text-align: center;
+    }
+    .why-card:hover {
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-4px);
+    }
+    .why-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 14px; }
+    .why-card h4 { font-size:1.2rem; font-weight:700; margin-bottom:6px; }
+    .why-card p { font-size:0.95rem; opacity:0.8; line-height:1.6; }
+
+    /* ─── FAQ SECTION ─── */
+    .faq-section {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 50px 40px;
+      box-shadow: var(--shadow);
+      margin-top: 40px;
+    }
+    .faq-section .section-title { margin-bottom: 8px; }
+    .faq-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 30px;
+    }
+    .faq-item {
+      border: 1px solid #e9ecef;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .faq-item:hover { border-color: var(--primary); }
+    .faq-question {
+      width: 100%;
+      background: var(--bg-light);
+      border: none;
+      padding: 18px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      transition: var(--transition);
+    }
+    .faq-question:hover { background: var(--primary-light); }
+    .faq-question i {
+      font-size: 1.1rem;
+      color: var(--primary);
+      transition: transform 0.3s ease;
+    }
+    .faq-item.open .faq-question i { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 24px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 0 24px 20px;
+    }
+    .faq-answer ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .faq-answer ul li {
+      padding: 4px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .faq-answer ul li::before {
+      content: "✓";
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* ─── REVIEWS ─── */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    .review-card {
+      background: var(--bg-white);
+      padding: 32px 28px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+    }
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.07);
+    }
+    .review-stars { color: var(--gold); font-size:1.1rem; margin-bottom:12px; letter-spacing:2px; }
+    .review-card blockquote {
+      font-size:0.98rem;
+      color: var(--text-dark);
+      line-height:1.7;
+      margin-bottom:16px;
+      font-style:italic;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .review-author .avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #fff;
+      font-size:1.1rem;
+    }
+    .review-author .name { font-weight:700; font-size:0.95rem; }
+    .review-author .role { font-size:0.8rem; color:var(--text-muted); }
+    .review-delete-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: none;
+      border: none;
+      color: #ccc;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: var(--transition);
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+    .review-delete-btn:hover {
+      color: #e74c3c;
+      background: rgba(231,76,60,0.1);
+    }
+    .review-form-section {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .review-form-section h3 { font-size:1.6rem; font-weight:700; margin-bottom:8px; }
+    .review-form-section p { color: var(--text-muted); margin-bottom:8px; }
+    .star-rating {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      gap: 8px;
+      margin: 16px 0 20px;
+    }
+    .star-rating input { display: none; }
+    .star-rating label {
+      font-size: 2.2rem;
+      color: #ddd;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .star-rating label:hover,
+    .star-rating label:hover ~ label,
+    .star-rating input:checked ~ label { color: var(--gold); }
+    .review-form input, .review-form textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      margin-bottom: 16px;
+      transition: border 0.2s;
+    }
+    .review-form input:focus, .review-form textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .review-form textarea { min-height:100px; resize:vertical; }
+
+    /* ─── CONTACT ─── */
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom:14px;
+      justify-content:center;
+    }
+    .contact-detail i {
+      width: 44px; height:44px;
+      background: var(--bg-white);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--primary);
+      font-size:1.1rem;
+      box-shadow: var(--shadow);
+      flex-shrink:0;
+    }
+    .contact-detail span { font-weight:500; word-break:break-word; }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ─── WHATSAPP FLOAT ─── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      background: #25D366;
+      color: #fff;
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      box-shadow: 0 6px 30px rgba(37,211,102,0.35);
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 40px rgba(37,211,102,0.45);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--secondary);
+      color: rgba(255,255,255,0.7);
+      padding: 60px 0 30px;
+      margin-top: 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand .logo { color:#fff; font-size:1.6rem; }
+    .footer-brand .logo span { color: var(--primary); }
+    .footer-brand p { margin-top:12px; max-width:300px; font-size:0.92rem; }
+    .footer-col h5 {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom:10px; }
+    .footer-col ul a {
+      transition: var(--transition);
+      font-size:0.92rem;
+    }
+    .footer-col ul a:hover { color: var(--primary); }
+    .footer-bottom {
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size:0.85rem;
+    }
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-social a {
+      width: 38px; height:38px;
+      border-radius:50%;
+      background: rgba(255,255,255,0.06);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition: var(--transition);
+      color: rgba(255,255,255,0.6);
+    }
+    .footer-social a:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .why-grid { grid-template-columns: repeat(2,1fr); }
+      .reviews-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns:1fr; }
+      .footer-grid { grid-template-columns:1fr 1fr; }
+      .hero-content h1 { font-size:2.6rem; }
+      .section-title { font-size:2rem; }
+      .why-section { padding:50px 30px; margin:0 16px; }
+      .why-grid { grid-template-columns:1fr 1fr; }
+      .approach-grid { grid-template-columns: 1fr; }
+      .approach-grid .approach-card:last-child { grid-column: 1 / -1; }
+    }
+    @media (max-width: 768px) {
+      .header-inner { flex-wrap: nowrap; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: var(--bg-white);
+        position: absolute;
+        top: 100%; left:0; right:0;
+        padding: 24px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        gap: 16px;
+        border-radius: 0 0 20px 20px;
+        width: 100%;
+        z-index: 999;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { white-space: normal; }
+      .hamburger { display: flex; }
+      .hero { height:70vh; min-height:420px; }
+      .hero-content h1 { font-size:2rem; }
+      .hero-content p { font-size:1rem; }
+      .hero-nav { width:40px; height:40px; font-size:1.2rem; }
+      .hero-nav.prev { left:10px; }
+      .hero-nav.next { right:10px; }
+      .reviews-grid { grid-template-columns:1fr; }
+      .why-grid { grid-template-columns:1fr 1fr; gap:16px; }
+      .footer-grid { grid-template-columns:1fr; gap:30px; }
+      .footer-bottom { flex-direction:column; text-align:center; }
+      .lang-toggle .lang-btn { padding:4px 10px; font-size:0.7rem; }
+      .whatsapp-float { width:56px; height:56px; font-size:2rem; bottom:20px; right:20px; }
+      .logo img { height:48px; }
+      .logo { font-size:1.2rem; }
+      .header-right { gap:10px; }
+      .faq-section { padding:30px 20px; }
+      .why-section { padding:30px 20px; }
+      .review-form-section { padding:24px; }
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border: none;
+        padding-left: 20px;
+      }
+    }
+    @media (max-width: 600px) {
+      .why-grid { grid-template-columns:1fr 1fr; gap:12px; }
+      .why-card { padding:24px 16px; }
+      .why-card i { font-size:1.8rem; }
+      .why-card h4 { font-size:0.95rem; }
+      .why-section { padding:30px 16px; border-radius:24px; margin:0 8px; }
+    }
+    @media (max-width: 480px) {
+      .hero-content h1 { font-size:1.6rem; }
+      .section-title { font-size:1.6rem; }
+      .service-card { padding:24px 20px; }
+      .review-card { padding:24px 18px; }
+      .contact-detail { font-size:0.9rem; }
+      .hero { border-radius:0 0 24px 24px; }
+      .why-grid { grid-template-columns:1fr 1fr; gap:10px; }
+      .why-card { padding:20px 14px; }
+    }
+    @media (max-width: 400px) {
+      .why-grid { grid-template-columns:1fr; }
+      .logo { font-size:1rem; }
+      .logo img { height:40px; }
+      .lang-btn { padding:4px 8px; font-size:0.65rem; }
+      .header-right { gap:6px; }
+      .container { padding:0 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <img src="images/logo.jpg" alt="invented approach logo" />
+      </a>
+      <div class="header-right">
+        <nav>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="#home" data-key="nav_home">Home</a></li>
+            <li class="nav-item-with-dropdown">
+              <span class="dropdown-toggle" id="companyDropdownToggle" data-key="nav_about">
+                Company Overview <i class="fas fa-chevron-down"></i>
+              </span>
+              <div class="dropdown-menu" id="companyDropdownMenu">
+                <a href="#what" data-key="nav_what">What We Do</a>
+                <a href="#who" data-key="nav_who">Who We Serve</a>
+                <a href="#our" data-key="nav_our">Our Approach</a>
+                <a href="#why" data-key="nav_why">Why Choose Us</a>
+              </div>
+            </li>
+            <li><a href="#faq" data-key="nav_faq">FAQ</a></li>
+            <li><a href="concierge.html" target="_blank" data-key="nav_city">City Concierge</a></li>
+            <li><a href="#contact" data-key="nav_contact">Say Hello</a></li>
+          </ul>
+        </nav>
+        <div class="lang-toggle" id="langToggle">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="rw">RW</button>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="home" id="home">
+  <section class="hero" id="hero">
+    <div class="hero-slide active" style="background-image: url('images/contact.jpg');">
+      <div class="hero-content">
+        <h1><span data-key="hero_title1">24/7 CUSTOMER CARE SERVICES IN</span><br /><span style="color: #F5B041;" data-key="hero_title2">KIGALI, RWANDA</span></h1>
+        <p data-key="hero_sub1">Responsive. Reliable. Real</p>
+        <a href="#what" class="btn-primary" data-key="hero_btn">Explore Our Services</a>
+      </div>
+    </div>
+    <div class="hero-slide" style="background-image: url('images/dms.jpg');">
+      <div class="hero-content">
+        <h1><span data-key="hero_title3">DIGITAL MARKETING</span><br /><span style="color: #F5B041;" data-key="hero_title4">SOLUTIONS</span></h1>
+        <p data-key="hero_sub2">Visibility that converts.</p>
+        <a href="#what" class="btn-primary" data-key="hero_btn2">Discover More</a>
+      </div>
+    </div>
+    <div class="hero-slide" style="background-image: url('images/explore.jpg');">
+      <div class="hero-content">
+        <h1><span data-key="hero_title5">CITY </span><br /><span style="color: #F5B041;" data-key="hero_title6">CONCIERGE</span></h1>
+        <p data-key="hero_sub3">Discover. Connect. Enjoy</p>
+        <a href="concierge.html" target="_blank" class="btn-primary" data-key="hero_btn3">Explore</a>
+      </div>
+    </div>
+    <button class="hero-nav prev" id="heroPrev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+    <button class="hero-nav next" id="heroNext" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+    <div class="hero-indicators" id="heroIndicators">
+      <button class="active" data-index="0"></button>
+      <button data-index="1"></button>
+      <button data-index="2"></button>
+    </div>
+  </section>
+  </section>
+
+  <section class="section-padding" id="about">
+    <div class="container">
+      <div class="about-text">
+        <h2 class="section-title"><span data-key="about_title">COMPANY</span><span> OVERVIEW</span></h2>
+        <p data-key="about_desc1">Invented Approach Ltd is a Kigali-based customer care and digital marketing company on a mission to eliminate mediocrity in hospitality service delivery.<br> We help African hospitality businesses attract their audience and keep them through exceptional communication. We act as extension of your team, handling your customers with professionalism, speed, and care.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding" style="background:var(--bg-white);" id="what">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title"><span data-key="services_title">WHAT</span> <span data-key="services_title2">WE DO</span></h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon"><i class="fas fa-phone-alt"></i></div>
+          <h3 data-key="service1_title">24/7 Customer Care</h3>
+          <p data-key="service1_desc">We manage your customer conversations so you never miss an opportunity.</p>
+          <p data-key="service1_list_title">Our customer care services include:</p>
+          <ul>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s1_li1">24/7 Call Handling & Response</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s1_li2">Email & Inquiry Management</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s1_li3">Live Chat and Social Media DM Support</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s1_li4">Customer Complaints and Resolution</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s1_li5">Lead Capture and Follow-up</span></li>
+            <li><i class="fas fa-check-circle"></i> <span data-key="s1_li6">Professional Representation for Your Brand</span></li>
+          </ul>
+          <p data-key="s1_footer">Whether it's an inquiry at 2PM or a complaint at 2AM, we respond promptly and professionally on behalf of your business</p>
+        </div>
+        <div class="service-card">
+          <div class="icon"><i class="fas fa-chart-line"></i></div>
+          <h3 data-key="service2_title">Digital Marketing Services</h3>
+          <p data-key="service2_desc">Content creation, social media management, paid advertising, USP-driven commercials, and brand strategy.</p>
+        </div>
+        <div class="service-card">
+          <div class="icon"><i class="fas fa-building"></i></div>
+          <h3 data-key="service3_title">CITY CONCIERGE</h3>
+          <p data-key="service3_desc">A local tourist directory powered by Invented Approach. Guests simply scan a QR code to discover beautiful places to visit and activities to explore, enhancing your service delivery and guest experience.</p>
+          <p data-key="s3_footer">Powered by Invented Approach.</p>
+          <a href="concierge.html" target="_blank" class="btn-primary" style="margin-top:12px; display:inline-block;" data-key="explore_more">Explore More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="section-padding" style="background:var(--bg-white);" id="who">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title"><span data-key="who_title">WHO</span> <span data-key="who_title2">WE SERVE</span></h2>
+      </div>
+      <div class="service-card">
+          <p data-key="who_desc">Invented Approach powers hotels, Airbnb rentals, and short- and long-stay apartments with 24/7 guest care and performance-driven digital marketing. We help you attract more guests, keep them happy, and bring them back.</p>
+        </div>
+        </div>
+        </section>
+
+  <section class="section-padding" id="our">
+    <div class="container">
+      <div class="about-approach">
+        <h2 class="section-title text-center"><span data-key="approach_title">OUR</span> <span> APPROACH</span></h2>
+        <p data-key="approach_desc">We were your guests before we became your partners. Our approach comes from personal experience. We have visited tourist destinations and accommodations across Africa as guests. We have seen great service, and we have experienced mediocrity. We don't just understand your clients, we were your clients. That is why we do things differently. We know hospitality businesses don't need another complicated pitch. You need to see value first. So we created a simple way to start.</p>
+
+        <div class="approach-grid">
+          <div class="approach-card">
+            <h4 data-key="approach1_title">Taste — We Whet Your Appetite</h4>
+            <p data-key="approach1_desc">We start with our must-have City Concierge. It is a beautifully curated tourist directory customized for your space, giving your guests instant access to the best of the city through one simple QR code scan. Restaurants, nightlife, events, culture, attractions and more, all in your guest's hands. No app needed. It immediately enhances your service delivery and shows your guests you care beyond their room.</p>
+          </div>
+          <div class="approach-card">
+            <h4 data-key="approach2_title">Trust — We Open The Door</h4>
+            <p data-key="approach2_desc">The QR code is just the starter. Once you see how a small touch can improve your guest experience, we show you how much more is possible.</p>
+          </div>
+          <div class="approach-card">
+            <h4 data-key="approach3_title">Transform — We Become An Extension Of Your Team</h4>
+            <p data-key="approach3_desc">We stay to make sure you are always ready for your guests. We handle the conversations you don't have time for, with professionalism, speed, and innovative care.</p>
+            <ul>
+              <li><span data-key="approach3_li1">We attract your audience through strategic digital marketing</span></li>
+              <li><span data-key="approach3_li2">We care for them through 24/7 customer support.</span></li>
+              <li><span data-key="approach3_li3">We keep them through exceptional communication. We are not just another agency. We are your behind-the-scenes team ensuring every guest feels seen, heard, and valued. Whether it is an inquiry at 2 PM or a complaint at 2 AM.</span></li>
+            </ul>
+            <p style="margin-top:12px; font-weight:600;" data-key="approach3_footer">Invented Approach Ltd — We came from being your client, now we work to keep yours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding" id="why">
+    <div class="why-section">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-title"><span data-key="why_title">WHY</span> <span data-key="why_title2">CHOOSE US</span></h2>
+        </div>
+        <div class="why-grid">
+          <div class="why-card">
+            <i class="fas fa-clock"></i>
+            <h4 data-key="why1_title">24/7 Availability</h4>
+            <p data-key="why1_desc">We are available around the clock to serve your guests.</p>
+          </div>
+          <div class="why-card">
+            <i class="fas fa-users"></i>
+            <h4 data-key="why2_title">We Were Guests First</h4>
+            <p data-key="why2_desc">We were once guests ourselves, and now we work to take care of your guests.</p>
+          </div>
+          <div class="why-card">
+            <i class="fas fa-star"></i>
+            <h4 data-key="why3_title">We Eliminate Mediocrity</h4>
+            <p data-key="why3_desc">We eliminate mediocrity through innovative service delivery.</p>
+          </div>
+          <div class="why-card">
+            <i class="fas fa-city"></i>
+            <h4 data-key="why4_title">We Live in Your City</h4>
+            <p data-key="why4_desc">We live in your city, so we understand your challenges.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding" id="reviews">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title"><span data-key="reviews_title">Trusted by</span> <span data-key="reviews_title2">Owners &amp; Travelers</span></h2>
+        <p class="section-subtitle" data-key="reviews_sub">Real stories from people who chose invented approach.</p>
+      </div>
+
+      <!-- Review Form -->
+      <div class="review-form-section">
+        <h3 data-key="form_title">Leave a Review</h3>
+        <p data-key="form_sub">Share your experience with us</p>
+        <form class="review-form" id="reviewForm">
+          <div class="star-rating" id="starRating">
+            <input type="radio" name="rating" id="star5" value="5" />
+            <label for="star5" title="5 stars"><i class="fas fa-star"></i></label>
+            <input type="radio" name="rating" id="star4" value="4" />
+            <label for="star4" title="4 stars"><i class="fas fa-star"></i></label>
+            <input type="radio" name="rating" id="star3" value="3" />
+            <label for="star3" title="3 stars"><i class="fas fa-star"></i></label>
+            <input type="radio" name="rating" id="star2" value="2" />
+            <label for="star2" title="2 stars"><i class="fas fa-star"></i></label>
+            <input type="radio" name="rating" id="star1" value="1" />
+            <label for="star1" title="1 star"><i class="fas fa-star"></i></label>
+          </div>
+          <input type="text" id="reviewName" placeholder="Your Name" required data-key="form_name" />
+          <textarea id="reviewComment" placeholder="Write your review..." required data-key="form_comment"></textarea>
+          <button type="submit" class="btn-primary" data-key="form_submit">Submit Review</button>
+        </form>
+        <div id="reviewFeedback" style="margin-top:16px; font-weight:600; color:var(--primary);"></div>
+      </div>
+
+      <!-- Reviews Grid -->
+      <div class="reviews-grid" id="reviewsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ SECTION ─── -->
+  <section class="section-padding" id="faq">
+    <div class="container">
+      <div class="faq-section">
+        <div class="text-center">
+          <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+          <p class="section-subtitle">Find answers to common questions about our services.</p>
+        </div>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-question" data-key="faq_q1">
+              What is Invented Approach Ltd?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer" data-key="faq_a1">
+              We are a Kigali-based customer care and digital marketing company. We help hospitality businesses attract guests and keep them through exceptional communication and service support.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" data-key="faq_q2">
+              Who do you work with?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer" data-key="faq_a2">
+              We work with hotels, lodges, serviced apartments, restaurants, and tour companies across Rwanda and Africa that want to eliminate mediocrity in service delivery.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" data-key="faq_q3">
+              What makes you different from other agencies?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer" data-key="faq_a3">
+              Most agencies only bring you customers. We stay to take care of them. We combine marketing that attracts with customer care that retains. Plus, we were your guests first, so we understand what poor service feels like.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" data-key="faq_q4">
+              What is City Concierge?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer" data-key="faq_a4">
+              It is a curated local tourist directory powered by a simple QR code. Your guests scan the code in their room or lobby and instantly discover restaurants, nightlife, events, cultural sites, attractions, and activities around the city.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" data-key="faq_q5">
+              Does my guest need to download an app?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer" data-key="faq_a5">
+              No. It works directly from the phone camera. One scan, no app, no hassle.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" data-key="faq_q7">
+              How do you keep the information up to date?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer" data-key="faq_a7">
+              We manage and update the directory for you. New restaurant, new event, seasonal activity — we add it so your guests always see fresh recommendations.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" data-key="faq_q8">
+              How does your customer care service work?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer" data-key="faq_a8">
+              We act as an extension of your team. We handle your calls, emails, live chats, and social media DMs on your behalf, with professionalism, speed, and care.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" data-key="faq_q9">
+              What is your response time?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer" data-key="faq_a9">
+              Whether it is an inquiry at 2 PM or a complaint at 2 AM, we respond within minutes. Your guests are never left waiting.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" data-key="faq_q10">
+              What is included in your customer care package?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer" data-key="faq_a10">
+              <ul>
+                <li>24/7 Call Handling and Response</li>
+                <li>Email and Inquiry Management</li>
+                <li>Live Chat and Social Media DM Support</li>
+                <li>Complaint Handling and Resolution</li>
+                <li>Lead Capture and Follow-up</li>
+                <li>Professional Brand Representation</li>
+              </ul>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" data-key="faq_q11">
+              Do you also manage our social media and ads?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer" data-key="faq_a11">
+              Yes. We offer content creation, social media management, paid ads, USP commercials, and brand strategy to help you attract the right audience.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" data-key="faq_q12">
+              How much does it cost?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer" data-key="faq_a12">
+              Our pricing depends on your property size and needs. We start with City Concierge as a low-cost starter, then build a custom care and marketing plan for you. Contact us for a free consultation.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" data-key="faq_q13">
+              Do you require long-term contracts?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer" data-key="faq_a13">
+              No. We earn your trust monthly. We start with a simple agreement and you stay because you see results.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" data-key="faq_q14">
+              How do we get started?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer" data-key="faq_a14">
+              Book a call. We assess your current guest experience, set up your custom City Concierge QR code within 72 hours, and then discuss how we can support your customer care and marketing.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding" style="background:var(--bg-white);" id="contact">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title"><span data-key="contact_title">SAY</span> <span data-key="contact_title2">HELLO</span></h2>
+        <p class="section-subtitle" data-key="contact_sub">We would love to hear from you. Whether you want to set up your City Concierge QR code or need a team to handle your guests 24/7, we are ready. We were your guests first. Now we help you keep yours.</p>
+      </div>
+      <div class="contact-detail">
+        <i class="fas fa-map-marker-alt"></i>
+        <span data-key="contact_address">Kk 101 St, Umushumba Mwiza</span>
+      </div>
+      <div class="contact-info">
+        <div class="contact-detail">
+          <i class="fas fa-phone-alt"></i>
+          <span>+250 799 525 754</span>
+        </div>
+        <div class="contact-detail">
+          <i class="fas fa-envelope"></i>
+          <span>hello@inventedapproach.com</span>
+        </div>
+        <div class="contact-detail">
+          <i class="fab fa-whatsapp" style="color:#25D366;"></i>
+          <span>+250 799 525 754 (WhatsApp)</span>
+        </div>
+        <a href="#" class="btn-primary" style="margin-top:12px;"><i class="fas fa-paper-plane"></i> <span data-key="contact_btn">Send a Message</span></a>
+      </div>
+    </div>
+  </section>
+
+  <a href="https://wa.me/250799525754" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo" style="color:#fff; font-size:1.6rem; display:flex; align-items:center; gap:10px;">
+            <img src="images/logo.jpg" alt="invented approach logo" style="height:100px; width:auto; border-radius:6px;" />
+          </a>
+        </div>
+        <div class="footer-col">
+          <h5 data-key="footer_company">Company</h5>
+          <ul>
+            <li><a href="#about" data-key="nav_about">Company Overview</a></li>
+            <li><a href="#what" data-key="nav_what">What We Do</a></li>
+            <li><a href="#who" data-key="nav_who">Who We Serve</a></li>
+            <li><a href="#our" data-key="nav_our">Our Approach</a></li>
+            <li><a href="#why" data-key="nav_why">Why Choose Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5 data-key="footer_services">Services</h5>
+          <ul>
+            <li><a href="#what" data-key="footer_s1">24/7 Customer Care</a></li>
+            <li><a href="#what" data-key="footer_s2">Digital Marketing</a></li>
+            <li><a href="concierge.html" target="_blank" data-key="footer_s3">City Concierge</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5 data-key="footer_support">Support</h5>
+          <ul>
+            <li><a href="#contact" data-key="nav_contact">Contact Us</a></li>
+            <li><a href="#faq" data-key="nav_faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-key="footer_copy">&copy; 2026 invented approach. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── HERO MANUAL SLIDER ───
+    document.addEventListener('DOMContentLoaded', () => {
+      const slides = document.querySelectorAll('.hero-slide');
+      const indicators = document.querySelectorAll('#heroIndicators button');
+      const prevBtn = document.getElementById('heroPrev');
+      const nextBtn = document.getElementById('heroNext');
+      let currentSlide = 0;
+
+      function goToSlide(index) {
+        slides.forEach((s, i) => s.classList.toggle('active', i === index));
+        indicators.forEach((btn, i) => btn.classList.toggle('active', i === index));
+        currentSlide = index;
+      }
+
+      function nextSlide() {
+        goToSlide((currentSlide + 1) % slides.length);
+      }
+
+      function prevSlide() {
+        goToSlide((currentSlide - 1 + slides.length) % slides.length);
+      }
+
+      indicators.forEach(btn => {
+        btn.addEventListener('click', () => {
+          goToSlide(parseInt(btn.dataset.index));
+        });
+      });
+
+      prevBtn.addEventListener('click', prevSlide);
+      nextBtn.addEventListener('click', nextSlide);
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') prevSlide();
+        if (e.key === 'ArrowRight') nextSlide();
+      });
+
+      // ─── DROPDOWN TOGGLE ───
+      const dropdownToggle = document.getElementById('companyDropdownToggle');
+      const dropdownMenu = document.getElementById('companyDropdownMenu');
+
+      dropdownToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        this.classList.toggle('open');
+        dropdownMenu.classList.toggle('open');
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+          dropdownToggle.classList.remove('open');
+          dropdownMenu.classList.remove('open');
+        }
+      });
+
+      // Close dropdown on mobile when a link is clicked
+      dropdownMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+          dropdownToggle.classList.remove('open');
+          dropdownMenu.classList.remove('open');
+          // Close mobile menu too if open
+          if (hamburger.classList.contains('open')) {
+            hamburger.classList.remove('open');
+            navLinks.classList.remove('open');
+          }
+        });
+      });
+
+      // ─── LANGUAGE TOGGLE ───
+      const translations = {
+        en: {
+          nav_home: 'Home',
+          nav_about: 'Company Overview',
+          nav_what: 'What We Do',
+          nav_who: 'Who We Serve',
+          nav_our: 'Our Approach',
+          nav_why: 'Why Choose Us',
+          nav_services: 'Services',
+          nav_reviews: 'Reviews',
+          nav_faq: 'FAQ',
+          nav_city: 'City Concierge',
+          nav_contact: 'Say Hello',
+          hero_title1: '24/7 CUSTOMER CARE SERVICES IN',
+          hero_title2: 'KIGALI, RWANDA',
+          hero_sub1: 'Responsive. Reliable. Real',
+          hero_btn: 'Explore Our Services',
+          hero_title3: 'DIGITAL MARKETING',
+          hero_title4: 'SOLUTIONS',
+          hero_sub2: 'Visibility that converts.',
+          hero_btn2: 'Discover More',
+          hero_title5: 'CITY ',
+          hero_title6: 'CONCIERGE',
+          hero_sub3: 'Discover. Connect. Enjoy',
+          hero_btn3: 'Explore',
+          about_title: 'COMPANY',
+          about_desc1: 'Invented Approach Ltd is a Kigali-based customer care and digital marketing company on a mission to eliminate mediocrity in hospitality service delivery. We help African hospitality businesses attract their audience and keep them through exceptional communication. We act as extension of your team, handling your customers with professionalism, speed, and care.',
+          approach_title: 'OUR',
+          approach_desc: 'We were your guests before we became your partners. Our approach comes from personal experience. We have visited tourist destinations and accommodations across Africa as guests. We have seen great service, and we have experienced mediocrity. We don\'t just understand your clients, we were your clients. That is why we do things differently. We know hospitality businesses don\'t need another complicated pitch. You need to see value first. So we created a simple way to start.',
+          approach1_title: 'Taste — We Whet Your Appetite',
+          approach1_desc: 'We start with our must-have City Concierge. It is a beautifully curated tourist directory customized for your space, giving your guests instant access to the best of the city through one simple QR code scan. Restaurants, nightlife, events, culture, attractions and more, all in your guest\'s hands. No app needed. It immediately enhances your service delivery and shows your guests you care beyond their room.',
+          approach2_title: 'Trust — We Open The Door',
+          approach2_desc: 'The QR code is just the starter. Once you see how a small touch can improve your guest experience, we show you how much more is possible.',
+          approach3_title: 'Transform — We Become An Extension Of Your Team',
+          approach3_desc: 'We stay to make sure you are always ready for your guests. We handle the conversations you don\'t have time for, with professionalism, speed, and innovative care.',
+          approach3_li1: 'We attract your audience through strategic digital marketing',
+          approach3_li2: 'We care for them through 24/7 customer support.',
+          approach3_li3: 'We keep them through exceptional communication. We are not just another agency. We are your behind-the-scenes team ensuring every guest feels seen, heard, and valued. Whether it is an inquiry at 2 PM or a complaint at 2 AM.',
+          approach3_footer: 'Invented Approach Ltd — We came from being your client, now we work to keep yours.',
+          services_title: 'WHAT',
+          services_title2: 'WE DO',
+          service1_title: '24/7 Customer Care',
+          service1_desc: 'We manage your customer conversations so you never miss an opportunity.',
+          service1_list_title: 'Our customer care services include:',
+          s1_li1: '24/7 Call Handling & Response',
+          s1_li2: 'Email & Inquiry Management',
+          s1_li3: 'Live Chat and Social Media DM Support',
+          s1_li4: 'Customer Complaints and Resolution',
+          s1_li5: 'Lead Capture and Follow-up',
+          s1_li6: 'Professional Representation for Your Brand',
+          s1_footer: 'Whether it\'s an inquiry at 2PM or a complaint at 2AM, we respond promptly and professionally on behalf of your business',
+          service2_title: 'Digital Marketing Services',
+          service2_desc: 'Content creation, social media management, paid advertising, USP-driven commercials, and brand strategy.',
+          service3_title: 'CITY CONCIERGE',
+          service3_desc: 'A local tourist directory powered by Invented Approach. Guests simply scan a QR code to discover beautiful places to visit and activities to explore, enhancing your service delivery and guest experience.',
+          s3_footer: 'Powered by Invented Approach.',
+          explore_more: 'Explore More →',
+          who_title: 'WHO',
+          who_title2: 'WE SERVE',
+          who_desc: 'Invented Approach powers hotels, Airbnb rentals, and short- and long-stay apartments with 24/7 guest care and performance-driven digital marketing. We help you attract more guests, keep them happy, and bring them back.',
+          why_title: 'WHY',
+          why_title2: 'CHOOSE US',
+          why1_title: '24/7 Availability',
+          why1_desc: 'We are available around the clock to serve your guests.',
+          why2_title: 'We Were Guests First',
+          why2_desc: 'We were once guests ourselves, and now we work to take care of your guests.',
+          why3_title: 'We Eliminate Mediocrity',
+          why3_desc: 'We eliminate mediocrity through innovative service delivery.',
+          why4_title: 'We Live in Your City',
+          why4_desc: 'We live in your city, so we understand your challenges.',
+          reviews_title: 'Trusted by',
+          reviews_title2: 'Owners & Travelers',
+          reviews_sub: 'Real stories from people who chose invented approach.',
+          form_title: 'Leave a Review',
+          form_sub: 'Share your experience with us',
+          form_name: 'Your Name',
+          form_comment: 'Write your review...',
+          form_submit: 'Submit Review',
+          contact_title: 'SAY',
+          contact_title2: 'HELLO',
+          contact_sub: 'We would love to hear from you. Whether you want to set up your City Concierge QR code or need a team to handle your guests 24/7, we are ready. We were your guests first. Now we help you keep yours.',
+          contact_address: 'Kk 101 St, Umushumba Mwiza',
+          contact_btn: 'Send a Message',
+          footer_desc: 'Your complete partner in Kigali from customer management to 24/7 customer care and digital marketing.',
+          footer_company: 'Company',
+          footer_services: 'Services',
+          footer_support: 'Support',
+          footer_s1: '24/7 Customer Care',
+          footer_s2: 'Digital Marketing',
+          footer_s3: 'City Concierge',
+          footer_privacy: 'Privacy Policy',
+          footer_terms: 'Terms of Service',
+          footer_copy: '© 2026 invented approach. All rights reserved.',
+          faq_q1: 'What is Invented Approach Ltd?',
+          faq_a1: 'We are a Kigali-based customer care and digital marketing company. We help hospitality businesses attract guests and keep them through exceptional communication and service support.',
+          faq_q2: 'Who do you work with?',
+          faq_a2: 'We work with hotels, lodges, serviced apartments, restaurants, and tour companies across Rwanda and Africa that want to eliminate mediocrity in service delivery.',
+          faq_q3: 'What makes you different from other agencies?',
+          faq_a3: 'Most agencies only bring you customers. We stay to take care of them. We combine marketing that attracts with customer care that retains. Plus, we were your guests first, so we understand what poor service feels like.',
+          faq_q4: 'What is City Concierge?',
+          faq_a4: 'It is a curated local tourist directory powered by a simple QR code. Your guests scan the code in their room or lobby and instantly discover restaurants, nightlife, events, cultural sites, attractions, and activities around the city.',
+          faq_q5: 'Does my guest need to download an app?',
+          faq_a5: 'No. It works directly from the phone camera. One scan, no app, no hassle.',
+          faq_q7: 'How do you keep the information up to date?',
+          faq_a7: 'We manage and update the directory for you. New restaurant, new event, seasonal activity — we add it so your guests always see fresh recommendations.',
+          faq_q8: 'How does your customer care service work?',
+          faq_a8: 'We act as an extension of your team. We handle your calls, emails, live chats, and social media DMs on your behalf, with professionalism, speed, and care.',
+          faq_q9: 'What is your response time?',
+          faq_a9: 'Whether it is an inquiry at 2 PM or a complaint at 2 AM, we respond within minutes. Your guests are never left waiting.',
+          faq_q10: 'What is included in your customer care package?',
+          faq_a10: '24/7 Call Handling and Response, Email and Inquiry Management, Live Chat and Social Media DM Support, Complaint Handling and Resolution, Lead Capture and Follow-up, Professional Brand Representation.',
+          faq_q11: 'Do you also manage our social media and ads?',
+          faq_a11: 'Yes. We offer content creation, social media management, paid ads, USP commercials, and brand strategy to help you attract the right audience.',
+          faq_q12: 'How much does it cost?',
+          faq_a12: 'Our pricing depends on your property size and needs. We start with City Concierge as a low-cost starter, then build a custom care and marketing plan for you. Contact us for a free consultation.',
+          faq_q13: 'Do you require long-term contracts?',
+          faq_a13: 'No. We earn your trust monthly. We start with a simple agreement and you stay because you see results.',
+          faq_q14: 'How do we get started?',
+          faq_a14: 'Book a call. We assess your current guest experience, set up your custom City Concierge QR code within 72 hours, and then discuss how we can support your customer care and marketing.'
+        },
+        fr: {
+          nav_home: 'Accueil',
+          nav_about: 'Aperçu de l\'entreprise',
+          nav_what: 'Ce que nous faisons',
+          nav_who: 'Qui nous servons',
+          nav_our: 'Notre approche',
+          nav_why: 'Pourquoi nous choisir',
+          nav_services: 'Services',
+          nav_reviews: 'Avis',
+          nav_faq: 'FAQ',
+          nav_city: 'City Concierge',
+          nav_contact: 'Contactez-nous',
+          hero_title1: 'SERVICES DE SERVICE CLIENT 24/7 À',
+          hero_title2: 'KIGALI, RWANDA',
+          hero_sub1: 'Réactif. Fiable. Réel',
+          hero_btn: 'Explorez nos services',
+          hero_title3: 'MARKETING DIGITAL',
+          hero_title4: 'SOLUTIONS',
+          hero_sub2: 'Une visibilité qui convertit.',
+          hero_btn2: 'En savoir plus',
+          hero_title5: 'CITY ',
+          hero_title6: 'CONCIERGE',
+          hero_sub3: 'Découvrez. Connectez. Profitez',
+          hero_btn3: 'Explorer',
+          about_title: 'ENTREPRISE',
+          about_desc1: 'Invented Approach Ltd est une agence de marketing numérique et de service client 24/7 basée à Kigali, au Rwanda. Nous aidons les entreprises hôtelières africaines à attirer leur public et à le fidéliser grâce à une communication exceptionnelle. Nous agissons comme une extension de votre équipe, en gérant vos clients avec professionnalisme, rapidité et soin.',
+          approach_title: 'NOTRE',
+          approach_desc: 'Nous étions vos clients avant de devenir vos partenaires. Notre approche vient de l\'expérience personnelle. Nous avons visité des destinations touristiques et des hébergements à travers l\'Afrique en tant que clients. Nous avons vu un excellent service et nous avons connu la médiocrité. Nous ne comprenons pas seulement vos clients, nous étions vos clients. C\'est pourquoi nous faisons les choses différemment. Nous savons que les entreprises hôtelières n\'ont pas besoin d\'un autre discours compliqué. Vous devez d\'abord voir la valeur. C\'est pourquoi nous avons créé un moyen simple de commencer.',
+          approach1_title: 'Goût — Nous aiguisons votre appétit',
+          approach1_desc: 'Nous commençons avec notre incontournable City Concierge. C\'est un répertoire touristique magnifiquement organisé et personnalisé pour votre espace, donnant à vos clients un accès instantané au meilleur de la ville grâce à un simple scan de code QR. Restaurants, vie nocturne, événements, culture, attractions et plus encore, tout entre les mains de vos clients. Aucune application nécessaire. Cela améliore immédiatement votre service et montre à vos clients que vous vous souciez au-delà de leur chambre.',
+          approach2_title: 'Confiance — Nous ouvrons la porte',
+          approach2_desc: 'Le code QR n\'est qu\'un début. Une fois que vous voyez comment une petite touche peut améliorer l\'expérience de vos clients, nous vous montrons tout ce qui est possible.',
+          approach3_title: 'Transformation — Nous devenons une extension de votre équipe',
+          approach3_desc: 'Nous restons pour nous assurer que vous êtes toujours prêt pour vos clients. Nous gérons les conversations que vous n\'avez pas le temps d\'avoir, avec professionnalisme, rapidité et soin innovant.',
+          approach3_li1: 'Nous attirons votre public grâce à un marketing numérique stratégique',
+          approach3_li2: 'Nous prenons soin d\'eux grâce à un support client 24/7.',
+          approach3_li3: 'Nous les fidélisons grâce à une communication exceptionnelle. Nous ne sommes pas juste une autre agence. Nous sommes votre équipe en coulisse qui veille à ce que chaque invité se sente vu, entendu et valorisé. Que ce soit une demande à 14h ou une réclamation à 2h du matin.',
+          approach3_footer: 'Invented Approach Ltd — Nous sommes venus en tant que vos clients, maintenant nous travaillons pour garder les vôtres.',
+          services_title: 'CE QUE',
+          services_title2: 'NOUS FAISONS',
+          service1_title: 'Solutions de service client 24/7',
+          service1_desc: 'Ne manquez plus jamais un client. Nous agissons en tant que votre équipe de service client dédiée.',
+          service1_list_title: 'Nos services de service client incluent :',
+          s1_li1: 'Gestion et réponse d\'appels 24/7',
+          s1_li2: 'Gestion des e-mails et des demandes',
+          s1_li3: 'Chat en direct et support DM sur les réseaux sociaux',
+          s1_li4: 'Réclamation client et résolution',
+          s1_li5: 'Capture de prospects et suivi',
+          s1_li6: 'Représentation professionnelle pour votre marque',
+          s1_footer: 'Que ce soit une demande à 14h ou une réclamation à 2h du matin, nous répondons rapidement et professionnellement au nom de votre entreprise',
+          service2_title: 'Services de marketing digital',
+          service2_desc: 'Création de contenu, gestion des réseaux sociaux, publicité payante, publicités axées sur l\'USP et stratégie de marque.',
+          service3_title: 'CITY CONCIERGE',
+          service3_desc: 'Un répertoire touristique local propulsé par Invented Approach. Les clients scannent simplement un code QR pour découvrir de beaux endroits à visiter et des activités à explorer, améliorant ainsi votre service et l\'expérience client.',
+          s3_footer: 'Propulsé par Invented Approach.',
+          explore_more: 'Explorer plus →',
+          who_title: 'QUI',
+          who_title2: 'NOUS SERVONS',
+          who_desc: 'Invented Approach alimente les hôtels, les locations Airbnb et les appartements de courte et longue durée avec des soins aux clients 24/7 et un marketing numérique axé sur la performance. Nous vous aidons à attirer plus de clients, à les garder heureux et à les faire revenir.',
+          why_title: 'POURQUOI',
+          why_title2: 'NOUS CHOISIR',
+          why1_title: 'Disponibilité 24/7',
+          why1_desc: 'Nous sommes disponibles 24h/24 et 7j/7 pour servir vos clients.',
+          why2_title: 'Nous étions des clients d\'abord',
+          why2_desc: 'Nous étions nous-mêmes des clients, et maintenant nous travaillons pour prendre soin de vos clients.',
+          why3_title: 'Nous éliminons la médiocrité',
+          why3_desc: 'Nous éliminons la médiocrité grâce à une prestation de services innovante.',
+          why4_title: 'Nous vivons dans votre ville',
+          why4_desc: 'Nous vivons dans votre ville, donc nous comprenons vos défis.',
+          reviews_title: 'Approuvé par',
+          reviews_title2: 'Propriétaires et Voyageurs',
+          reviews_sub: 'Des histoires vraies de personnes qui ont choisi invented approach.',
+          form_title: 'Laissez un avis',
+          form_sub: 'Partagez votre expérience avec nous',
+          form_name: 'Votre nom',
+          form_comment: 'Écrivez votre avis...',
+          form_submit: 'Envoyer l\'avis',
+          contact_title: 'DITES',
+          contact_title2: 'BONJOUR',
+          contact_sub: 'Nous serions ravis de vous entendre. Que vous souhaitiez mettre en place votre code QR City Concierge ou que vous ayez besoin d\'une équipe pour gérer vos invités 24h/24, nous sommes prêts. Nous avons été vos invités en premier. Maintenant, nous vous aidons à garder les vôtres.',
+          contact_address: 'Kk 101 St, Umushumba Mwiza',
+          contact_btn: 'Envoyer un message',
+          footer_desc: 'Votre partenaire complet à Kigali — de la gestion client au service client 24/7 et au marketing digital.',
+          footer_company: 'Entreprise',
+          footer_services: 'Services',
+          footer_support: 'Support',
+          footer_s1: 'Service client 24/7',
+          footer_s2: 'Marketing digital',
+          footer_s3: 'City Concierge',
+          footer_privacy: 'Politique de confidentialité',
+          footer_terms: 'Conditions d\'utilisation',
+          footer_copy: '© 2026 invented approach. Tous droits réservés.',
+          faq_q1: 'Qu\'est-ce qu\'Invented Approach Ltd ?',
+          faq_a1: 'Nous sommes une entreprise de service client et de marketing numérique basée à Kigali. Nous aidons les entreprises hôtelières à attirer des clients et à les fidéliser grâce à une communication et un service exceptionnels.',
+          faq_q2: 'Avec qui travaillez-vous ?',
+          faq_a2: 'Nous travaillons avec des hôtels, des lodges, des appartements hôteliers, des restaurants et des agences de voyage au Rwanda et en Afrique qui veulent éliminer la médiocrité dans la prestation de services.',
+          faq_q3: 'Qu\'est-ce qui vous rend différent des autres agences ?',
+          faq_a3: 'La plupart des agences vous apportent seulement des clients. Nous restons pour en prendre soin. Nous combinons le marketing qui attire avec le service client qui fidélise. De plus, nous avons été vos clients en premier, donc nous comprenons ce que signifie un mauvais service.',
+          faq_q4: 'Qu\'est-ce que City Concierge ?',
+          faq_a4: 'C\'est un répertoire touristique local propulsé par un simple code QR. Vos clients scannent le code dans leur chambre ou le hall et découvrent instantanément restaurants, vie nocturne, événements, sites culturels, attractions et activités autour de la ville.',
+          faq_q5: 'Mon client doit-il télécharger une application ?',
+          faq_a5: 'Non. Cela fonctionne directement avec l\'appareil photo du téléphone. Un scan, pas d\'application, pas de tracas.',
+          faq_q7: 'Comment gardez-vous les informations à jour ?',
+          faq_a7: 'Nous gérons et mettons à jour le répertoire pour vous. Nouveau restaurant, nouvel événement, activité saisonnière — nous l\'ajoutons pour que vos clients voient toujours des recommandations fraîches.',
+          faq_q8: 'Comment fonctionne votre service client ?',
+          faq_a8: 'Nous agissons comme une extension de votre équipe. Nous gérons vos appels, e-mails, chats en direct et DM sur les réseaux sociaux en votre nom, avec professionnalisme, rapidité et soin.',
+          faq_q9: 'Quel est votre temps de réponse ?',
+          faq_a9: 'Que ce soit une demande à 14h ou une réclamation à 2h du matin, nous répondons en quelques minutes. Vos clients ne sont jamais laissés en attente.',
+          faq_q10: 'Qu\'est-ce qui est inclus dans votre forfait de service client ?',
+          faq_a10: 'Gestion et réponse d\'appels 24/7, Gestion des e-mails et des demandes, Chat en direct et support DM sur les réseaux sociaux, Réclamation client et résolution, Capture de prospects et suivi, Représentation professionnelle pour votre marque.',
+          faq_q11: 'Gérez-vous également nos réseaux sociaux et nos publicités ?',
+          faq_a11: 'Oui. Nous proposons la création de contenu, la gestion des réseaux sociaux, les publicités payantes, les publicités USP et la stratégie de marque pour vous aider à attirer le bon public.',
+          faq_q12: 'Combien cela coûte-t-il ?',
+          faq_a12: 'Nos prix dépendent de la taille et des besoins de votre propriété. Nous commençons avec City Concierge comme point de départ à faible coût, puis nous construisons un plan de service et de marketing personnalisé pour vous. Contactez-nous pour une consultation gratuite.',
+          faq_q13: 'Exigez-vous des contrats à long terme ?',
+          faq_a13: 'Non. Nous gagnons votre confiance mensuellement. Nous commençons avec un accord simple et vous restez parce que vous voyez des résultats.',
+          faq_q14: 'Comment commencer ?',
+          faq_a14: 'Réservez un appel. Nous évaluons votre expérience client actuelle, mettons en place votre code QR City Concierge personnalisé dans les 72 heures, puis discutons de la manière dont nous pouvons soutenir votre service client et votre marketing.'
+        },
+        rw: {
+          nav_home: 'Ahabanza',
+          nav_about: 'Incamake y\'Isosiyete',
+          nav_what: 'Ibyo Dukora',
+          nav_who: 'Abaduherekeza',
+          nav_our: 'Uburyo Bwacu',
+          nav_why: 'Kuki Tuhitamo',
+          nav_services: 'Serivisi',
+          nav_reviews: 'Ibisobanuro',
+          nav_faq: 'IBIBAZO',
+          nav_city: 'City Concierge',
+          nav_contact: 'Twandikire',
+          hero_title1: 'SERIVISI ZO KUBERA ABAKIRIYA 24/7 MURI',
+          hero_title2: 'KIGALI, RWANDA',
+          hero_sub1: 'Bihutse. Byizewe. Binyuriye',
+          hero_btn: 'Menya serivisi zacu',
+          hero_title3: 'UBUCURUZI BWO KU MURONGO',
+          hero_title4: 'IBISUBIZO',
+          hero_sub2: 'Kugaragara bihindura abakiriya.',
+          hero_btn2: 'Menya byinshi',
+          hero_title5: 'CITY ',
+          hero_title6: 'CONCIERGE',
+          hero_sub3: 'Vumbura. Huza. Wishimishe',
+          hero_btn3: 'Reba',
+          about_title: 'ISOSIYETE',
+          about_desc1: 'Invented Approach Ltd ni urugaga rw\'ubucuruzi bwo ku murongo n\'ubufasha bw\'abakiriya 24/7 rushyize mu Rwanda, Kigali. Dufasha amashuri n\'amakoperative yo muri Afrika gukurura abakiriya no kubakomeza binyuze mu itumanaho ridasanzwe. Dukora nk\'umwe mu bagize itsinda ryawe, dukorana n\'abakiriya bawe mu buhanga, umwuka, n\'ubwitabire.',
+          approach_title: 'UBURYO',
+          approach_desc: 'Twabaye abashyitsi bawe mbere yo kuba abafatanyabikorwa. Uburyo bwacu buturuka ku byo twiboneye. Twasuye ahantu h\'ubukerarugendo n\'amahoteli muri Afrika nk\'abashyitsi. Twabonye serivisi nziza, kandi twabonye n\'ubunebwe. Ntabwo dusobanukirwa n\'abakiriya bawe gusa, twabaye abakiriya bawe. Ni yo mpamvu dukora ibintu mu buryo butandukanye. Tuzi ko amakoperative y\'ubukerarugendo adakeneye ikindi kiganiro kigoye. Ugomba kubona agaciro mbere. Ni yo mpamvu twakoze uburyo bworoshye bwo gutangira.',
+          approach1_title: 'Uburyohe — Dukangurira ishyari',
+          approach1_desc: 'Dutangira na City Concierge. Ni urutonde rw\'ahantu h\'ubukerarugendo ruhambaye ruhujwe n\'ahantu hawe, rutanga uburyo abashyitsi bawe babona byiza by\'umujyi binyuze mu kode ya QR. Resitora, amafungoro, ibirori, umuco, ahantu h\'ubukerarugendo n\'ibindi byose mu maboko y\'umushyitsi. Nta porogaramu ikenewe. Ibyo bihita byongera ubwiza bw\'ubufasha bwawe kandi bikagaragaza abashyitsi bawe ko witaye ku byo mu cyumba cyabo gusa.',
+          approach2_title: 'Icyizere — Dufungura umuryango',
+          approach2_desc: 'Kode ya QR ni intangiriro gusa. Iyo ubonye uburyo akantu gato gashobora kunoza uburambe bw\'umushyitsi, turakugaragariza ibindi bishoboka.',
+          approach3_title: 'Guhindura — Dutera ikigega mu itsinda ryawe',
+          approach3_desc: 'Dukomeza kugira ngo witegure abashyitsi bawe buri gihe. Dukora ibiganiro utabona umwanya, mu buhanga, umwuka, n\'ubwitabire bushya.',
+          approach3_li1: 'Dukurura abantu bawe binyuze mu bucuruzi bwo ku murongo buhambaye',
+          approach3_li2: 'Dutabara abakiriya bawe binyuze mu bufasha 24/7.',
+          approach3_li3: 'Dukomeza abakiriya binyuze mu itumanaho ridasanzwe. Ntabwo turi ikindi kigo gusa. Turi itsinda ryawe ry\'inyuma rikora kugira ngo buri mushitsi yumve ko abonetse, yumvishijwe, kandi agaciro. Yaba ikibazo mu masaha ya 2PM cyangwa ikitabazo mu masaha ya 2AM.',
+          approach3_footer: 'Invented Approach Ltd — Twatangiye turi abashyitsi bawe, ubu dufasha kubungabanya abawe.',
+          services_title: 'IBYO',
+          services_title2: 'DUKORA',
+          service1_title: 'Ubufasha bw\'abakiriya 24/7',
+          service1_desc: 'Ntuzongere ubura umukiriya. Dukora nk\'itsinda ryawe ry\'ubufasha bw\'abakiriya.',
+          service1_list_title: 'Serivisi z\'ubufasha bw\'abakiriya zirimo:',
+          s1_li1: 'Gukira no gusubiza amakuru 24/7',
+          s1_li2: 'Gucunga amabarua n\'ibibazo',
+          s1_li3: 'Iganira ry\'agatoki na DM ku mbuga nkoranyambaga',
+          s1_li4: 'Ikitabazo n\'ibibazo by\'abakiriya no kubikemura',
+          s1_li5: 'Kubona n\'akurikire abakiriya bashya',
+          s1_li6: 'Kwerekana uruganda rwawe mu buhanga',
+          s1_footer: 'Yaba ikibazo mu masaha ya 2PM cyangwa ikitabazo mu masaha ya 2AM, turahitaba vuba kandi mu buhanga ku izina ry\'uruganda rwawe',
+          service2_title: 'Serivisi z\'ubucuruzi bwo ku murongo',
+          service2_desc: 'Gushyiraho ibikubiyemo, gucunga imbuga nkoranyambaga, kwamamaza bihembwa, amamiriyo y\'USP, n\'ingamba z\'irangamimerere.',
+          service3_title: 'CITY CONCIERGE',
+          service3_desc: 'Urutonde rw\'ahantu h\'ubukerarugendo rukorwa na Invented Approach. Abashyitsi basikana kode ya QR bagasanga ahantu heza bo gusura n\'ibikorwa byo gukora, bikongera ubwiza bw\'ubufasha n\'uburambe bw\'umushyitsi.',
+          s3_footer: 'Byakozwe na Invented Approach.',
+          explore_more: 'Reba Byinshi →',
+          who_title: 'INDE',
+          who_title2: 'DUHEREKEZA',
+          who_desc: 'Invented Approach ikorera amahoteli, Airbnb, n\'amakoperative y\'igihe gito n\'igihe kirekire ubufasha bw\'abashyitsi 24/7 n\'ubucuruzi bwo ku murongo. Dufasha gukurura abashyitsi, kubakomeza, no kubagarura.',
+          why_title: 'KUKI',
+          why_title2: 'TUHITAMO',
+          why1_title: 'Tuhari 24/7',
+          why1_desc: 'Tuhari buri gihe kugira ngo dukorere abashyitsi bawe.',
+          why2_title: 'Twabaye abashyitsi mbere',
+          why2_desc: 'Twabaye abashyitsi ubwacu, none tugakora kugira ngo tube neza abashyitsi bawe.',
+          why3_title: 'Dukuraho ubunebwe',
+          why3_desc: 'Dukuraho ubunebwe binyuze mu gutanga serivisi zishya.',
+          why4_title: 'Tuba mu mujyi wawe',
+          why4_desc: 'Tuba mu mujyi wawe, bityo turumva ibibazo byawe.',
+          reviews_title: 'Twizewe n\'',
+          reviews_title2: 'Abanyirugo n\'Abagenzi',
+          reviews_sub: 'Inkuru nyabo z\'abantu bahisemo invented approach.',
+          form_title: 'Tanga igitekerezo',
+          form_sub: 'Tuganirire ibyo wabonye',
+          form_name: 'Izina ryawe',
+          form_comment: 'Andika igitekerezo...',
+          form_submit: 'Ohereza igitekerezo',
+          contact_title: 'VUGA',
+          contact_title2: 'UJUYE',
+          contact_sub: 'Twishimira kumva ubutumwa bwawe. Niba ushaka gushyiraho kode ya QR ya City Concierge cyangwa ugomba itsinda rigukorera abashyitsi bawe 24/7, twiteguye. Twabanje kuba abashyitsi bawe. Ubu dufasha kubungabanya abawe.',
+          contact_address: 'Kk 101 St, Umushumba Mwiza',
+          contact_btn: 'Ohereza ubutumwa',
+          footer_desc: 'Umufasha wawe wuzuye i Kigali — kuva mu gucunga abakiriya kugeza ku bufasha 24/7 n\'ubucuruzi bwo ku murongo.',
+          footer_company: 'Isosiyete',
+          footer_services: 'Serivisi',
+          footer_support: 'Ubufasha',
+          footer_s1: 'Ubufasha bw\'abakiriya 24/7',
+          footer_s2: 'Ubucuruzi bwo ku murongo',
+          footer_s3: 'City Concierge',
+          footer_privacy: 'Amategeko y\'ibanga',
+          footer_terms: 'Amategeko ngenderwaho',
+          footer_copy: '© 2026 invented approach. Uburenganzira bwose bwarakozwe.',
+          faq_q1: 'Ni iki Invented Approach Ltd?',
+          faq_a1: 'Turugaga rw\'ubucuruzi bwo ku murongo n\'ubufasha bw\'abakiriya rushyize i Kigali. Dufasha amakoperative y\'ubukerarugendo gukurura abashyitsi no kubakomeza binyuze mu itumanaho n\'ubufasha bitangaje.',
+          faq_q2: 'Mukorana na bande?',
+          faq_a2: 'Dukorana n\'amahoteli, amalodge, amakoperative y\'ubukerarugendo n\'amakoperative yo mu Rwanda no muri Afrika ashatsaka gukuraho ubunebwe mu gutanga serivisi.',
+          faq_q3: 'Ni iki gituma mutandukana n\'izindi nganda?',
+          faq_a3: 'Inganda nyinshi zikurura abakiriya gusa. Turakomeza kwitabara. Duhuza ubucuruzi bukurura n\'ubufasha bukomeza. Byongeye, twabanje kuba abashyitsi bawe, bityo turumva icyo serivisi mbi ishobora gusiga.',
+          faq_q4: 'City Concierge ni iki?',
+          faq_a4: 'Ni urutonde rw\'ahantu h\'ubukerarugendo rukorwa na kode ya QR yoroshye. Abashyitsi bawe basikana kode mu cyumba cyangwa ibere bagahita babona resitora, amafungoro, ibirori, ahantu h\'umuco, ibikorwa n\'ibindi.',
+          faq_q5: 'Umushyitsi wanjye agomba gusimbura porogaramu?',
+          faq_a5: 'Oya. Ikora mu kamera y\'urugero. Gusikana rimwe, nta porogaramu, nta kaga.',
+          faq_q7: 'Mubika amakuru ashyushye ate?',
+          faq_a7: 'Ducunga kandi dushyiraho urutonde kubwawe. Resitora nshya, ibirori bishya, ibikorwa by\'igihe — turabikongeraho kugira ngo abashyitsi bawe bahore babona ibitekerezo bishya.',
+          faq_q8: 'Ubufasha bw\'abakiriya bukora bite?',
+          faq_a8: 'Dukora nk\'umwe mu bagize itsinda ryawe. Dukora amakuru yawe, amabarua, ibiganiro, na DM ku mbuga nkoranyambaga ku izina ryawe, mu buhanga, umwuka, n\'ubwitabire.',
+          faq_q9: 'Ni umwanya utanga amakuru?',
+          faq_a9: 'Yaba ikibazo mu masaha ya 2PM cyangwa ikitabazo mu masaha ya 2AM, turasubiza mu minota mike. Abashyitsi bawe ntibicwa.',
+          faq_q10: 'Ni iki kiri mu bufasha bw\'abakiriya?',
+          faq_a10: 'Gukira no gusubiza amakuru 24/7, Gucunga amabarua n\'ibibazo, Iganira ry\'agatoki na DM ku mbuga nkoranyambaga, Ikitabazo n\'ibibazo by\'abakiriya no kubikemura, Kubona n\'akurikire abakiriya bashya, Kwerekana uruganda rwawe mu buhanga.',
+          faq_q11: 'Ese munanafasha mu gucunga imbuga nkoranyambaga n\'amamaza?',
+          faq_a11: 'Yego. Dutanga ibikubiyemo, gucunga imbuga nkoranyambaga, kwamamaza bihembwa, amamiriyo ya USP, n\'ingamba z\'irangamimerere kugira ngo ugurura abakiriya bakwiye.',
+          faq_q12: 'Ni angahe?',
+          faq_a12: 'Ibiciro biterwa n\'ubunini n\'ibyo ushaka. Dutangira na City Concierge nk\'intangiriro ihendutse, hanyuma tugakora gahunda ya serivisi n\'ubucuruzi kubwawe. Twandikire kugira ngo tugirire inama ku buntu.',
+          faq_q13: 'Ese musaba amasezerano y\'igihe kirekire?',
+          faq_a13: 'Oya. Tuzana icyizere buri kwezi. Dutangira n\'amasezerano yoroshye ugakomeza kuko ubona ibisubizo.',
+          faq_q14: 'Nitangira dute?',
+          faq_a14: 'Gira isomo. Dusuzuma uburambe bw\'umushyitsi wawe, dushyiraho kode ya QR ya City Concierge mu masaha 72, hanyuma tuganire ku buryo dushobora gushyigikira ubufasha n\'ubucuruzi bwawe.'
+        }
+      };
+
+      function setLanguage(lang) {
+        document.querySelectorAll('[data-key]').forEach(el => {
+          const key = el.getAttribute('data-key');
+          if (translations[lang] && translations[lang][key] !== undefined) {
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+              el.placeholder = translations[lang][key];
+            } else {
+              el.textContent = translations[lang][key];
+            }
+          }
+        });
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+        // Re-render reviews with current language
+        loadReviews();
+      }
+
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          setLanguage(btn.dataset.lang);
+        });
+      });
+
+      // ─── HAMBURGER ───
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        navLinks.classList.toggle('open');
+        // Close dropdown when hamburger is clicked (mobile)
+        if (!navLinks.classList.contains('open')) {
+          dropdownToggle.classList.remove('open');
+          dropdownMenu.classList.remove('open');
+        }
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('open');
+          navLinks.classList.remove('open');
+          dropdownToggle.classList.remove('open');
+          dropdownMenu.classList.remove('open');
+        });
+      });
+
+      // ─── HEADER SCROLL ───
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+      });
+
+      // ─── ACTIVE NAV LINK ───
+      const sections = document.querySelectorAll('section[id]');
+      const navItems = navLinks.querySelectorAll('a');
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const top = section.offsetTop - 120;
+          if (window.scrollY >= top) current = section.getAttribute('id');
+        });
+        navItems.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+        });
+      });
+
+      // ─── REVIEWS WITH PERMANENT STORAGE ───
+      const STORAGE_KEY = 'invented_approach_reviews';
+      const reviewsGrid = document.getElementById('reviewsGrid');
+
+      function loadReviews() {
+        let reviews = [];
+        try {
+          const storedReviews = JSON.parse(localStorage.getItem(STORAGE_KEY));
+          if (Array.isArray(storedReviews)) {
+            reviews = storedReviews;
+          }
+        } catch (error) {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+        renderReviews(reviews);
+      }
+
+      function renderReviews(reviews) {
+        reviewsGrid.innerHTML = '';
+        if (reviews.length === 0) {
+          reviewsGrid.innerHTML = '<p style="text-align:center;color:var(--text-muted);grid-column:1/-1;" data-key="no_reviews">No reviews yet. Be the first to leave one!</p>';
+          return;
+        }
+        reviews.forEach(review => {
+          const stars = '★'.repeat(review.stars) + '☆'.repeat(5 - review.stars);
+          const card = document.createElement('div');
+          card.className = 'review-card';
+          card.innerHTML = `
+            <button type="button" class="review-delete-btn" data-id="${review.id}" aria-label="Delete review"><i class="fas fa-trash-alt"></i></button>
+            <div class="review-stars">${stars}</div>
+            <blockquote>"${review.comment}"</blockquote>
+            <div class="review-author">
+              <div class="avatar">${review.name.charAt(0).toUpperCase()}</div>
+              <div>
+                <div class="name">${review.name}</div>
+                <div class="role">${review.role || review.stars + ' ★'}</div>
+              </div>
+            </div>
+          `;
+          reviewsGrid.appendChild(card);
+        });
+
+      }
+
+      function deleteReview(id) {
+        let reviews = [];
+        try {
+          const storedReviews = JSON.parse(localStorage.getItem(STORAGE_KEY));
+          if (Array.isArray(storedReviews)) {
+            reviews = storedReviews;
+          }
+        } catch (error) {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+        reviews = reviews.filter(review => String(review.id) !== String(id));
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
+        renderReviews(reviews);
+      }
+
+      reviewsGrid.addEventListener('click', (event) => {
+        const deleteButton = event.target.closest('.review-delete-btn');
+        if (deleteButton) {
+          deleteReview(deleteButton.dataset.id);
+        }
+      });
+
+      function addReview(name, comment, rating) {
+        const reviews = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+        const newReview = {
+          stars: parseInt(rating),
+          name: name.trim(),
+          role: rating + ' ★ · Just now',
+          comment: comment.trim(),
+          id: Date.now()
+        };
+        reviews.unshift(newReview);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
+        renderReviews(reviews);
+      }
+
+      loadReviews();
+
+      const reviewForm = document.getElementById('reviewForm');
+      const reviewFeedback = document.getElementById('reviewFeedback');
+      reviewForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('reviewName').value.trim();
+        const comment = document.getElementById('reviewComment').value.trim();
+        const rating = document.querySelector('input[name="rating"]:checked');
+        if (!name || !comment || !rating) {
+          reviewFeedback.textContent = 'Please fill in all fields and select a star rating.';
+          reviewFeedback.style.color = '#e74c3c';
+          return;
+        }
+        addReview(name, comment, rating.value);
+        reviewFeedback.textContent = '✅ Review submitted successfully!';
+        reviewFeedback.style.color = 'var(--primary)';
+        reviewForm.reset();
+        setTimeout(() => { reviewFeedback.textContent = ''; }, 4000);
+      });
+
+      // ─── FAQ ACCORDION ───
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          const item = button.closest('.faq-item');
+          const isOpen = item.classList.contains('open');
+
+          document.querySelectorAll('.faq-item').forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('open');
+            }
+          });
+
+          if (isOpen) {
+            item.classList.remove('open');
+          } else {
+            item.classList.add('open');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
