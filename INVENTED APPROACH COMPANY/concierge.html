@@ -583,6 +583,98 @@
       margin-right: 10px;
     }
 
+    /* ─── WHATSAPP FLOAT ─── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      background: #25D366;
+      color: #fff;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.4rem;
+      box-shadow: 0 6px 30px rgba(37,211,102,0.35);
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 40px rgba(37,211,102,0.45);
+    }
+
+    /* ─── N8N CHATBOT CUSTOM POSITIONING ─── */
+    .n8n-chat {
+      position: fixed !important;
+      bottom: 100px !important;
+      right: 28px !important;
+      z-index: 1000 !important;
+    }
+
+    .n8n-chat .chat-button {
+      width: 64px !important;
+      height: 64px !important;
+      border-radius: 50% !important;
+      background: #F5B041 !important;
+      color: #fff !important;
+      box-shadow: 0 6px 30px rgba(245,176,65,0.35) !important;
+      border: none !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 2rem !important;
+      transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    }
+
+    .n8n-chat .chat-button:hover {
+      transform: scale(1.08) translateY(-3px) !important;
+      box-shadow: 0 8px 40px rgba(245,176,65,0.45) !important;
+    }
+
+    /* ─── FIX: REDUCE CHAT HEADER SIZE ─── */
+    .n8n-chat .chat-header {
+      padding: 4px 12px !important;
+      min-height: 36px !important;
+      height: auto !important;
+      display: flex !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      background: #1A2A4A !important;
+    }
+
+    .n8n-chat .chat-header .chat-title {
+      font-size: 0.7rem !important;
+      line-height: 1.2 !important;
+      font-weight: 700 !important;
+      color: #fff !important;
+    }
+
+    .n8n-chat .chat-header .chat-subtitle {
+      font-size: 0.55rem !important;
+      line-height: 1.2 !important;
+      margin-top: 0px !important;
+      opacity: 0.8 !important;
+      color: rgba(255,255,255,0.8) !important;
+    }
+
+    .n8n-chat .chat-close-button {
+      background: #F5B041 !important;
+      color: #fff !important;
+      width: 24px !important;
+      height: 24px !important;
+      border-radius: 50% !important;
+      font-size: 0.8rem !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
     /* ─── FOOTER ─── */
     footer {
       background: var(--secondary);
@@ -636,6 +728,34 @@
       .filter-icons { gap: 8px 14px; }
       .filter-icon { font-size: 0.65rem; }
       .filter-icon i { font-size: 1.2rem; }
+
+      .n8n-chat {
+        bottom: 85px !important;
+        right: 16px !important;
+      }
+      .n8n-chat .chat-button {
+        width: 56px !important;
+        height: 56px !important;
+        font-size: 1.6rem !important;
+      }
+      .whatsapp-float {
+        width: 56px;
+        height: 56px;
+        font-size: 2rem;
+        bottom: 16px;
+        right: 16px;
+      }
+
+      .n8n-chat .chat-header {
+        padding: 6px 12px !important;
+        min-height: 40px !important;
+      }
+      .n8n-chat .chat-header .chat-title {
+        font-size: 0.75rem !important;
+      }
+      .n8n-chat .chat-header .chat-subtitle {
+        font-size: 0.6rem !important;
+      }
     }
     @media (max-width: 600px) {
       .explore-grid { grid-template-columns: 1fr; }
@@ -1632,6 +1752,96 @@
     <img id="lightboxImage" src="" alt="Place Image" />
   </div>
 
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- ─── N8N CHATBOT ─── -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+    
+    // Create the chat instance
+    const chat = createChat({
+      webhookUrl: 'https://emmzyb.app.n8n.cloud/webhook/e140161b-2a82-4315-93f1-9cedd9b5c441/chat',
+      initialMessages: [
+        'Hi there! 👋 I\'m Jane, the Invented Approach assistant.',
+        'Ask me anything about Invented Approach or the City Concierge.'
+      ],
+      i18n: {
+        en: {
+          title: 'Jane · Invented Approach',
+          subtitle: 'Ask Jane anything about Invented Approach.',
+          inputPlaceholder: 'Ask Jane a question...',
+          getStarted: 'New Conversation',
+          closeButtonTooltip: 'Close chat'
+        }
+      }
+    });
+
+    // After the chat is created, reposition the button to sit ABOVE WhatsApp
+    setTimeout(() => {
+      const chatContainer = document.querySelector('.n8n-chat');
+      if (chatContainer) {
+        // Position it above the WhatsApp icon
+        chatContainer.style.position = 'fixed';
+        chatContainer.style.bottom = '100px'; // 28px (WhatsApp bottom) + 64px (WhatsApp height) + 8px gap
+        chatContainer.style.right = '28px';
+        chatContainer.style.zIndex = '1000';
+        
+        // Style the button inside
+        const button = chatContainer.querySelector('.chat-button');
+        if (button) {
+          button.style.width = '64px';
+          button.style.height = '64px';
+          button.style.borderRadius = '50%';
+          button.style.background = '#F5B041';
+          button.style.color = '#fff';
+          button.style.boxShadow = '0 6px 30px rgba(245,176,65,0.35)';
+          button.style.border = 'none';
+          button.style.cursor = 'pointer';
+          button.style.display = 'flex';
+          button.style.alignItems = 'center';
+          button.style.justifyContent = 'center';
+          button.style.fontSize = '2rem';
+          button.style.transition = '0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        }
+
+        // ─── FIX: REDUCE HEADER SIZE ───
+        const header = chatContainer.querySelector('.chat-header');
+        if (header) {
+          header.style.padding = '8px 16px';
+          header.style.minHeight = '48px';
+          header.style.height = 'auto';
+          header.style.display = 'flex';
+          header.style.alignItems = 'center';
+          header.style.flexWrap = 'wrap';
+        }
+
+        const title = chatContainer.querySelector('.chat-title');
+        if (title) {
+          title.style.fontSize = '0.85rem';
+          title.style.lineHeight = '1.3';
+          title.style.fontWeight = '700';
+        }
+
+        const subtitle = chatContainer.querySelector('.chat-subtitle');
+        if (subtitle) {
+          subtitle.style.fontSize = '0.7rem';
+          subtitle.style.lineHeight = '1.2';
+          subtitle.style.marginTop = '0px';
+          subtitle.style.opacity = '0.85';
+        }
+        
+        // Style the close button if it exists
+        const closeBtn = chatContainer.querySelector('.chat-close-button');
+        if (closeBtn) {
+          closeBtn.style.background = '#F5B041';
+          closeBtn.style.color = '#fff';
+        }
+      }
+    }, 600); // Wait for the chat to fully render
+  </script>
+  <!-- ═══════════════════════════════════════════════════════ -->
+
   <script>
     // ─── QR CODE HASH DETECTION ───
     (function checkQRHash() {
@@ -2177,32 +2387,9 @@
           filterIcons.forEach(i => i.classList.remove('active'));
           icon.classList.add('active');
           filterItems();
-
         });
       });
     });
-
   </script>
-<!-- Jane · Invented Approach AI Assistant -->
-<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-<script type="module">
-  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-  createChat({
-    webhookUrl: 'https://emmzyb.app.n8n.cloud/webhook/e140161b-2a82-4315-93f1-9cedd9b5c441/chat',
-    initialMessages: [
-      'Hi there! 👋 I\'m Jane, the Invented Approach assistant.',
-      'Ask me anything about Invented Approach or the City Concierge.'
-    ],
-    i18n: {
-      en: {
-        title: 'Jane · Invented Approach',
-        subtitle: 'Ask Jane anything about Invented Approach.',
-        inputPlaceholder: 'Ask Jane a question...',
-        getStarted: 'New Conversation',
-        closeButtonTooltip: 'Close chat'
-      }
-    }
-  });
-</script>
 </body>
 </html>
